@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xylora — Websites, AI & Automation for Small Business</title>
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════ NAVIGATION ═══════════════════════════ -->
+<nav id="mainNav">
+  <div class="nav-logo" onclick="navigate('home')">
+    <span>Xylora</span><span class="nav-logo-dot"></span>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="navigate('home')" data-page="home">Home</a></li>
+    <li><a onclick="navigate('services')" data-page="services">Services</a></li>
+    <li><a onclick="navigate('portfolio')" data-page="portfolio">Portfolio</a></li>
+    <li><a onclick="navigate('about')" data-page="about">About</a></li>
+    <li><a onclick="navigate('contact')" data-page="contact">Contact</a></li>
+    <li><a onclick="navigate('audit')" data-page="audit" class="nav-cta">Free Audit</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMobile()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a onclick="navigate('home')">Home</a>
+  <a onclick="navigate('services')">Services</a>
+  <a onclick="navigate('portfolio')">Portfolio</a>
+  <a onclick="navigate('about')">About</a>
+  <a onclick="navigate('contact')">Contact</a>
+  <a onclick="navigate('audit')" class="mobile-nav-cta">Free Website Audit</a>
+</div>
+
+<!-- ═══════════════════════════ HOME PAGE ═══════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-bg-blob hero-bg-blob-1"></div>
+      <div class="hero-bg-blob hero-bg-blob-2"></div>
+      <div class="hero-bg-grid"></div>
+    </div>
+    <div class="container" style="width:100%;">
+      <div class="hero-content">
+        <div class="hero-eyebrow reveal">
+          <span class="hero-eyebrow-dot"></span>
+          Websites · AI · Automation
+        </div>
+        <h1 class="display-xl reveal reveal-delay-1">
+          More customers.<br>
+          Less effort.<br>
+          <span class="accent-text">Guaranteed.</span>
+        </h1>
+        <p class="hero-body reveal reveal-delay-2">
+          Xylora builds websites, AI systems, and automations that help small businesses attract more customers and reclaim time — without the big-agency price tag.
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <button class="btn btn-primary btn-lg" onclick="navigate('audit')">Get a Free Website Audit</button>
+          <button class="btn btn-ghost btn-lg" onclick="navigate('services')">View Services →</button>
+        </div>
+        <div class="hero-trust reveal reveal-delay-4">
+          <div class="hero-trust-item">
+            <div class="hero-trust-icon">✓</div>
+            No lock-in contracts
+          </div>
+          <div class="hero-trust-item">
+            <div class="hero-trust-icon">✓</div>
+            Results-focused
+          </div>
+          <div class="hero-trust-item">
+            <div class="hero-trust-icon">✓</div>
+            Built for small business
+          </div>
+        </div>
+        <div class="hero-stats reveal reveal-delay-5">
+          <div>
+            <div class="hero-stat-num">3×</div>
+            <div class="hero-stat-label">Average increase in website enquiries</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">48hr</div>
+            <div class="hero-stat-label">Typical project kickoff turnaround</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">30+</div>
+            <div class="hero-stat-label">Small businesses served</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value strip -->
+  <div class="value-strip">
+    <div class="value-strip-inner" id="marqueeInner">
+      <div class="value-strip-item"><span class="value-strip-dot"></span>Website Design</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>AI Chatbots</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>Lead Generation</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>Workflow Automation</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>SEO Improvements</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>Booking Systems</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>CRM Integration</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>Custom Software</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>Website Design</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>AI Chatbots</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>Lead Generation</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>Workflow Automation</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>SEO Improvements</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>Booking Systems</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>CRM Integration</div>
+      <div class="value-strip-item"><span class="value-strip-dot"></span>Custom Software</div>
+    </div>
+  </div>
+
+  <!-- What we do — home teaser (3 pillars, links to full Services page) -->
+  <section class="section" style="background:var(--c-surface);">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3.5rem;">
+        <span class="eyebrow">What we do</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">Three ways we grow your business</h2>
+        <p class="body-lg text-muted">We specialise in three interconnected areas. Together they create a compounding advantage for your business.</p>
+      </div>
+      <div class="home-pillar-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:2rem;">
+        <div style="background:white; border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--c-ink-10); transition:all var(--transition);" class="reveal reveal-delay-1 home-pillar-card">
+          <div style="background:var(--c-accent); padding:2rem; position:relative; overflow:hidden;">
+            <div style="position:absolute;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.08);top:-30px;right:-30px;"></div>
+            <div style="font-size:2.25rem; margin-bottom:0.5rem; position:relative;">🌐</div>
+            <div style="font-family:var(--font-display); font-size:1.15rem; font-weight:800; color:white; position:relative;">Web Presence</div>
+          </div>
+          <div style="padding:1.75rem;">
+            <p style="font-size:0.9rem; color:var(--c-ink-40); line-height:1.7; margin-bottom:1.25rem;">A fast, well-designed website is the foundation everything else is built on. We design and build sites that make visitors trust you — and contact you.</p>
+            <div style="display:flex; flex-direction:column; gap:0.4rem; margin-bottom:1.5rem;">
+              <div style="font-size:0.82rem; color:var(--c-ink-60); display:flex; gap:0.5rem; align-items:center;"><span style="color:var(--c-accent); font-size:0.75rem;">→</span> Website design &amp; development</div>
+              <div style="font-size:0.82rem; color:var(--c-ink-60); display:flex; gap:0.5rem; align-items:center;"><span style="color:var(--c-accent); font-size:0.75rem;">→</span> Landing pages &amp; redesigns</div>
+              <div style="font-size:0.82rem; color:var(--c-ink-60); display:flex; gap:0.5rem; align-items:center;"><span style="color:var(--c-accent); font-size:0.75rem;">→</span> SEO &amp; Google Business Profile</div>
+            </div>
+            <button class="btn btn-ghost btn-sm" style="width:100%; justify-content:center;" onclick="navigate('services')">See web services →</button>
+          </div>
+        </div>
+        <div style="background:white; border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--c-ink-10); transition:all var(--transition);" class="reveal reveal-delay-2 home-pillar-card">
+          <div style="background:var(--c-ink); padding:2rem; position:relative; overflow:hidden;">
+            <div style="position:absolute;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.04);top:-30px;right:-30px;"></div>
+            <div style="font-size:2.25rem; margin-bottom:0.5rem; position:relative;">🤖</div>
+            <div style="font-family:var(--font-display); font-size:1.15rem; font-weight:800; color:white; position:relative;">AI & Automation</div>
+          </div>
+          <div style="padding:1.75rem;">
+            <p style="font-size:0.9rem; color:var(--c-ink-40); line-height:1.7; margin-bottom:1.25rem;">Intelligent systems that handle repetitive tasks, answer enquiries around the clock, and free you up to run your business — not be buried by it.</p>
+            <div style="display:flex; flex-direction:column; gap:0.4rem; margin-bottom:1.5rem;">
+              <div style="font-size:0.82rem; color:var(--c-ink-60); display:flex; gap:0.5rem; align-items:center;"><span style="color:var(--c-accent); font-size:0.75rem;">→</span> AI chatbots &amp; assistants</div>
+              <div style="font-size:0.82rem; color:var(--c-ink-60); display:flex; gap:0.5rem; align-items:center;"><span style="color:var(--c-accent); font-size:0.75rem;">→</span> Workflow automation</div>
+              <div style="font-size:0.82rem; color:var(--c-ink-60); display:flex; gap:0.5rem; align-items:center;"><span style="color:var(--c-accent); font-size:0.75rem;">→</span> CRM &amp; booking integrations</div>
+            </div>
+            <button class="btn btn-ghost btn-sm" style="width:100%; justify-content:center;" onclick="navigate('services')">See AI services →</button>
+          </div>
+        </div>
+        <div style="background:white; border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--c-ink-10); transition:all var(--transition);" class="reveal reveal-delay-3 home-pillar-card">
+          <div style="background:#1a3d2b; padding:2rem; position:relative; overflow:hidden;">
+            <div style="position:absolute;width:120px;height:120px;border-radius:50%;background:rgba(0,179,126,0.1);top:-30px;right:-30px;"></div>
+            <div style="font-size:2.25rem; margin-bottom:0.5rem; position:relative;">📈</div>
+            <div style="font-family:var(--font-display); font-size:1.15rem; font-weight:800; color:white; position:relative;">Growth Systems</div>
+          </div>
+          <div style="padding:1.75rem;">
+            <p style="font-size:0.9rem; color:var(--c-ink-40); line-height:1.7; margin-bottom:1.25rem;">Turn your website traffic into qualified leads and your leads into customers — with systems designed to do that work consistently, without relying on referrals or luck.</p>
+            <div style="display:flex; flex-direction:column; gap:0.4rem; margin-bottom:1.5rem;">
+              <div style="font-size:0.82rem; color:var(--c-ink-60); display:flex; gap:0.5rem; align-items:center;"><span style="color:var(--c-accent); font-size:0.75rem;">→</span> Lead generation funnels</div>
+              <div style="font-size:0.82rem; color:var(--c-ink-60); display:flex; gap:0.5rem; align-items:center;"><span style="color:var(--c-accent); font-size:0.75rem;">→</span> Custom software &amp; web apps</div>
+              <div style="font-size:0.82rem; color:var(--c-ink-60); display:flex; gap:0.5rem; align-items:center;"><span style="color:var(--c-accent); font-size:0.75rem;">→</span> Booking systems</div>
+            </div>
+            <button class="btn btn-ghost btn-sm" style="width:100%; justify-content:center;" onclick="navigate('services')">See growth services →</button>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:2.5rem;" class="reveal">
+        <button class="btn btn-primary btn-lg" onclick="navigate('services')">View all services with full details →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why choose -->
+  <section class="section" style="background:white;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3.5rem;">
+        <span class="eyebrow">Why Xylora</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">We don't just build things.<br>We build things that work.</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; max-width:800px; margin:0 auto;">
+        <div class="card reveal reveal-delay-1" style="display:flex; gap:1rem; align-items:flex-start;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--c-accent);color:white;font-family:var(--font-display);font-size:0.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">01</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:0.95rem;font-weight:700;margin-bottom:0.35rem;">Outcome-driven from day one</div>
+            <div style="font-size:0.875rem;color:var(--c-ink-40);line-height:1.65;">Every decision tied to a real business result — more leads, more bookings, less wasted time.</div>
+          </div>
+        </div>
+        <div class="card reveal reveal-delay-2" style="display:flex; gap:1rem; align-items:flex-start;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--c-accent);color:white;font-family:var(--font-display);font-size:0.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">02</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:0.95rem;font-weight:700;margin-bottom:0.35rem;">Built for small business reality</div>
+            <div style="font-size:0.875rem;color:var(--c-ink-40);line-height:1.65;">Tight budgets, fast turnarounds. No bloat, no fluff, no enterprise-speak.</div>
+          </div>
+        </div>
+        <div class="card reveal reveal-delay-3" style="display:flex; gap:1rem; align-items:flex-start;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--c-accent);color:white;font-family:var(--font-display);font-size:0.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">03</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:0.95rem;font-weight:700;margin-bottom:0.35rem;">Technology that saves real time</div>
+            <div style="font-size:0.875rem;color:var(--c-ink-40);line-height:1.65;">Every system we build frees up genuine hours in your week — not just in theory.</div>
+          </div>
+        </div>
+        <div class="card reveal reveal-delay-4" style="display:flex; gap:1rem; align-items:flex-start;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--c-accent);color:white;font-family:var(--font-display);font-size:0.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">04</div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:0.95rem;font-weight:700;margin-bottom:0.35rem;">Ongoing partnership</div>
+            <div style="font-size:0.875rem;color:var(--c-ink-40);line-height:1.65;">We stay involved after launch. Your business evolves — your digital presence should keep up.</div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:2.5rem;" class="reveal">
+        <button class="btn btn-primary" onclick="navigate('about')">About us →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section" style="background:var(--c-ink);">
+    <div class="container">
+      <div class="section-header-center reveal">
+        <span class="eyebrow" style="color:var(--c-accent);">How it works</span>
+        <h2 class="display-md" style="margin-top:0.75rem; color:white;">Simple, clear, no surprises</h2>
+        <p class="body-lg" style="color:rgba(255,255,255,0.65);">From your first message to a live, working system — here's exactly what to expect.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-num" style="background:var(--c-accent);border-color:var(--c-accent);color:white;">01</div>
+          <div class="process-step-title" style="color:white;">Discovery Call</div>
+          <div class="process-step-body" style="color:rgba(255,255,255,0.65);">We learn about your business, your goals, and the problems you're trying to solve. No commitment needed.</div>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step-num" style="background:var(--c-accent);border-color:var(--c-accent);color:white;">02</div>
+          <div class="process-step-title" style="color:white;">Custom Proposal</div>
+          <div class="process-step-body" style="color:rgba(255,255,255,0.65);">You receive a clear scope, timeline, and fixed price. Nothing hidden, no scope creep, no surprises.</div>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-step-num" style="background:var(--c-accent);border-color:var(--c-accent);color:white;">03</div>
+          <div class="process-step-title" style="color:white;">Build & Review</div>
+          <div class="process-step-body" style="color:rgba(255,255,255,0.65);">We build your solution with regular check-ins. You see progress and give feedback throughout.</div>
+        </div>
+        <div class="process-step reveal reveal-delay-4">
+          <div class="process-step-num" style="background:var(--c-accent);border-color:var(--c-accent);color:white;">04</div>
+          <div class="process-step-title" style="color:white;">Launch & Support</div>
+          <div class="process-step-body" style="color:rgba(255,255,255,0.65);">We launch, train you on how everything works, and stay available for questions and improvements.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio preview -->
+  <section class="section" style="background:var(--c-surface); padding-bottom:4rem;">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:3rem;">
+        <div class="section-header-center reveal">
+          <span class="eyebrow">Recent work</span>
+          <h2 class="display-md" style="margin-top:0.75rem;">Built for real businesses</h2>
+        </div>
+        <button class="btn btn-ghost reveal" style="margin-top:1.5rem;" onclick="navigate('portfolio')">View all projects →</button>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card reveal reveal-delay-1">
+          <div class="portfolio-card-img portfolio-bg-1">
+            <div class="portfolio-mock">
+              <div class="portfolio-mock-bar accent"></div>
+              <div class="portfolio-mock-hero">Blue Moon Yoga</div>
+              <div class="portfolio-mock-bar med"></div>
+              <div class="portfolio-mock-bar short"></div>
+            </div>
+          </div>
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-meta" style="margin-bottom:0.75rem; margin-top:0;">
+              <div class="portfolio-card-tags">
+                <span class="badge badge-accent">Website Redesign</span>
+                <span class="badge badge-surface">Health & Wellness</span>
+              </div>
+            </div>
+            <div class="portfolio-card-title">Blue Moon Yoga</div>
+            <div class="portfolio-card-desc">A complete website overhaul for a local yoga studio.</div>
+          </div>
+        </div>
+        <div class="portfolio-card reveal reveal-delay-2">
+          <div class="portfolio-card-img portfolio-bg-2">
+            <div class="portfolio-mock">
+              <div class="portfolio-mock-bar" style="background:var(--c-blue);width:55%"></div>
+              <div class="portfolio-mock-hero" style="background:var(--c-blue-light);color:var(--c-blue);">Elevate Yoga Studio</div>
+              <div class="portfolio-mock-bar med"></div>
+              <div class="portfolio-mock-bar short"></div>
+            </div>
+          </div>
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-meta" style="margin-bottom:0.75rem; margin-top:0;">
+              <div class="portfolio-card-tags">
+                <span class="badge badge-blue">Booking System</span>
+                <span class="badge badge-surface">Health & Wellness</span>
+              </div>
+            </div>
+            <div class="portfolio-card-title">Elevate Yoga Studio</div>
+            <div class="portfolio-card-desc">New website plus online booking integration that eliminated phone tag and filled classes faster.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section testimonials-bg">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">What clients say</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">Real results, real businesses</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">"Before Xylora, our website was embarrassing to share. Now it's genuinely the best thing about our online presence. Enquiries are up and I feel proud to send people there."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SM</div>
+            <div>
+              <div class="testimonial-name">Sarah Morrow</div>
+              <div class="testimonial-role">Owner, Morrow Electrical</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card featured reveal reveal-delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">"The AI chatbot Xylora set up handles about 60% of our enquiries automatically now. I've reclaimed hours of my week and customers love the instant responses. Genuinely life-changing for our studio."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:rgba(255,255,255,0.1); color:var(--c-accent);">JL</div>
+            <div>
+              <div class="testimonial-name">Jessica Lee</div>
+              <div class="testimonial-role">Founder, Elevate Yoga</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">"As a consultant I was relying on referrals only. Xylora built me a proper digital presence and a lead magnet system. I now book 3–4 new discovery calls per week from my website alone."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RK</div>
+            <div>
+              <div class="testimonial-name">Raj Kumar</div>
+              <div class="testimonial-role">Business Consultant</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="display-md" style="margin-top:0.75rem; color:var(--c-ink);">Questions we hear a lot</h2>
+        <p class="body-md" style="color:var(--c-ink-40);">Can't find your answer? <a onclick="navigate('contact')" style="color:var(--c-accent); cursor:pointer; text-decoration:none;">Get in touch →</a></p>
+      </div>
+      <div class="faq-list" style="max-width:720px; margin:0 auto;">
+          <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid #d4d6d5;">
+            <div class="faq-q" style="color:#0D0F0E;">How long does a typical website project take? <div class="faq-icon">+</div></div>
+            <div class="faq-a" style="color:#6b6e6c;">Most website projects take between 2–6 weeks depending on complexity. A simple service website typically takes 2–3 weeks. A custom booking system or ecommerce integration will take closer to 4–6 weeks. We'll give you a precise timeline in your proposal.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid #d4d6d5;">
+            <div class="faq-q" style="color:#0D0F0E;">What industries do you work with? <div class="faq-icon">+</div></div>
+            <div class="faq-a" style="color:#6b6e6c;">We primarily work with small businesses and local service businesses: trades, gyms, yoga studios, consultants, coaches, health businesses, and startups. If you have an audience to reach and a service to deliver, we can almost certainly help.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid #d4d6d5;">
+            <div class="faq-q" style="color:#0D0F0E;">Do I need to be technical to work with you? <div class="faq-icon">+</div></div>
+            <div class="faq-a" style="color:#6b6e6c;">Not at all. We handle everything technical and explain things in plain language. By the time your project is live, you'll know exactly how to use everything we've built — no coding knowledge required.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid #d4d6d5;">
+            <div class="faq-q" style="color:#0D0F0E;">What does a website typically cost? <div class="faq-icon">+</div></div>
+            <div class="faq-a" style="color:#6b6e6c;">Website projects typically start from $2,500 for a simple service site and go up depending on complexity, the number of pages, and any integrated systems. AI and automation projects are scoped separately. All pricing is fixed — you'll always know the total cost upfront.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid #d4d6d5;">
+            <div class="faq-q" style="color:#0D0F0E;">Will I own the website and all its content? <div class="faq-icon">+</div></div>
+            <div class="faq-a" style="color:#6b6e6c;">Yes, always. Once your project is paid for, everything belongs to you — the code, the content, the domain. There are no subscription fees or lock-in contracts for the website itself. Some third-party tools (hosting, booking platforms) have their own fees, which we'll always explain upfront.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid #d4d6d5;">
+            <div class="faq-q" style="color:#0D0F0E;">Do you offer ongoing support? <div class="faq-icon">+</div></div>
+            <div class="faq-a" style="color:#6b6e6c;">Yes. We offer optional monthly maintenance plans that include updates, backups, security monitoring, and priority support. Many clients also engage us on a retainer for ongoing improvements and new features.</div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <div class="cta-band">
+    <div class="container">
+      <div class="cta-band-content">
+        <h2 class="display-md reveal">Ready to get more customers online?</h2>
+        <p class="reveal reveal-delay-1">Start with a free website audit. We'll identify exactly what's holding your website back and what to do about it — no obligation.</p>
+        <div class="cta-band-actions reveal reveal-delay-2">
+          <button class="btn btn-accent btn-lg" onclick="navigate('audit')">Claim Your Free Audit</button>
+          <button class="btn btn-outline-white btn-lg" onclick="navigate('contact')">Book a Discovery Call</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div>
+          <p>Helping small businesses get more customers and save time through websites, AI, automation, and custom software.</p>
+          <div style="margin-top:1.5rem; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
+            <button class="btn btn-accent btn-sm" onclick="navigate('audit')">Free Audit</button>
+            <button class="btn btn-outline-white btn-sm" onclick="navigate('contact')">Contact</button>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a onclick="navigate('services')">Website Design</a></li>
+            <li><a onclick="navigate('services')">AI Chatbots</a></li>
+            <li><a onclick="navigate('services')">Automation</a></li>
+            <li><a onclick="navigate('services')">Lead Generation</a></li>
+            <li><a onclick="navigate('services')">SEO</a></li>
+            <li><a onclick="navigate('services')">Custom Software</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a onclick="navigate('home')">Home</a></li>
+            <li><a onclick="navigate('portfolio')">Portfolio</a></li>
+            <li><a onclick="navigate('about')">About</a></li>
+            <li><a onclick="navigate('contact')">Contact</a></li>
+            <li><a onclick="navigate('audit')">Free Audit</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact footer-col">
+          <h4>Get in touch</h4>
+          <p>Ready to grow?</p>
+          <p><a href="mailto:hello@xylora.com.au">hello@xylora.com.au</a></p>
+          <p style="margin-top:0.75rem; font-size:0.825rem; color:rgba(255,255,255,0.65);">Based in Australia.<br>Working with businesses everywhere.</p>
+          <button class="btn btn-accent btn-sm" style="margin-top:1.25rem;" onclick="navigate('audit')">Start with a free audit →</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Xylora. All rights reserved.</span>
+        <span>Websites · AI · Automation</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════ SERVICES PAGE ═══════════════════════════ -->
+<div id="page-services" class="page">
+  <section class="page-hero" style="padding-top:8rem;">
+    <div class="container">
+      <span class="eyebrow">Services</span>
+      <h1 class="display-lg" style="margin-top:0.75rem;">Everything you need to grow online</h1>
+      <p>From first website to full AI stack — clear pricing, real results, no lock-in.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+
+      <!-- Web Design -->
+      <div class="service-detail-card reveal">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">🌐</div>
+          <div>
+            <div class="service-detail-title">Website Design & Development</div>
+            <div class="service-detail-subtitle">New sites, redesigns, landing pages, and ongoing development</div>
+          </div>
+        </div>
+        <div class="service-detail-grid">
+          <div class="service-detail-block">
+            <h4>The Problem</h4>
+            <ul>
+              <li>Your website looks outdated or unprofessional</li>
+              <li>Visitors leave without contacting you</li>
+              <li>It's not showing up on Google searches</li>
+              <li>It doesn't work well on mobile devices</li>
+            </ul>
+          </div>
+          <div class="service-detail-block">
+            <h4>What we do</h4>
+            <ul>
+              <li>Custom website design built to convert</li>
+              <li>Fast, mobile-first development</li>
+              <li>SEO-friendly structure from day one</li>
+              <li>Clear calls to action on every page</li>
+              <li>Dedicated landing pages for campaigns</li>
+              <li>Monthly maintenance packages available</li>
+            </ul>
+          </div>
+          <div class="service-detail-block">
+            <h4>Deliverables</h4>
+            <ul>
+              <li>Fully responsive website</li>
+              <li>Up to 8 custom pages</li>
+              <li>Contact / booking forms</li>
+              <li>Google Analytics setup</li>
+              <li>1 month of post-launch support</li>
+              <li>Full ownership — no lock-in</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:1.75rem; padding-top:1.75rem; border-top:1px solid var(--c-ink-10); display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="navigate('audit')">Get a free audit first →</button>
+          <button class="btn btn-ghost" onclick="navigate('contact')">Enquire about this service</button>
+          <span class="badge badge-accent">From $2,500</span>
+        </div>
+      </div>
+
+      <!-- AI & Chatbots -->
+      <div class="service-detail-card reveal">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">🤖</div>
+          <div>
+            <div class="service-detail-title">AI Chatbots & AI Automation</div>
+            <div class="service-detail-subtitle">Intelligent systems that work for you around the clock</div>
+          </div>
+        </div>
+        <div class="service-detail-grid">
+          <div class="service-detail-block">
+            <h4>The Problem</h4>
+            <ul>
+              <li>Spending hours answering the same questions</li>
+              <li>Losing leads who contact you after hours</li>
+              <li>Manual processes that shouldn't need a human</li>
+              <li>Slow follow-up costing you sales</li>
+            </ul>
+          </div>
+          <div class="service-detail-block">
+            <h4>What we do</h4>
+            <ul>
+              <li>Train an AI on your business knowledge</li>
+              <li>Deploy a chatbot on your website or socials</li>
+              <li>Connect to your booking system or CRM</li>
+              <li>Automate lead follow-up sequences</li>
+              <li>Build AI-powered content pipelines</li>
+            </ul>
+          </div>
+          <div class="service-detail-block">
+            <h4>Deliverables</h4>
+            <ul>
+              <li>Custom-trained AI chatbot</li>
+              <li>Website embed or social integration</li>
+              <li>Conversation flow design</li>
+              <li>Lead capture automation</li>
+              <li>Performance dashboard</li>
+              <li>Ongoing optimisation</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:1.75rem; padding-top:1.75rem; border-top:1px solid var(--c-ink-10); display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="navigate('contact')">Book a discovery call →</button>
+          <button class="btn btn-ghost" onclick="navigate('contact')">Enquire about this service</button>
+          <span class="badge badge-accent">From $1,800</span>
+        </div>
+      </div>
+
+      <!-- Workflow automation -->
+      <div class="service-detail-card reveal">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">⚡</div>
+          <div>
+            <div class="service-detail-title">Workflow Automation</div>
+            <div class="service-detail-subtitle">Connect your tools, remove manual steps, save hours every week</div>
+          </div>
+        </div>
+        <div class="service-detail-grid">
+          <div class="service-detail-block">
+            <h4>The Problem</h4>
+            <ul>
+              <li>Copying data between tools manually</li>
+              <li>Sending the same emails over and over</li>
+              <li>Admin work filling your evenings</li>
+              <li>Systems that don't talk to each other</li>
+            </ul>
+          </div>
+          <div class="service-detail-block">
+            <h4>What we do</h4>
+            <ul>
+              <li>Map your current workflow and identify bottlenecks</li>
+              <li>Build automated pipelines between your tools</li>
+              <li>Set up smart notification systems</li>
+              <li>Create automated onboarding sequences</li>
+              <li>Connect forms, CRMs, calendars, and invoicing</li>
+            </ul>
+          </div>
+          <div class="service-detail-block">
+            <h4>Deliverables</h4>
+            <ul>
+              <li>Workflow audit and mapping</li>
+              <li>Custom automation builds</li>
+              <li>Tool integrations (Make, Zapier, n8n)</li>
+              <li>Testing and documentation</li>
+              <li>Training session for your team</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:1.75rem; padding-top:1.75rem; border-top:1px solid var(--c-ink-10); display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="navigate('contact')">Book a discovery call →</button>
+          <button class="btn btn-ghost" onclick="navigate('contact')">Enquire about this service</button>
+          <span class="badge badge-accent">From $1,200</span>
+        </div>
+      </div>
+
+      <!-- Lead Gen -->
+      <div class="service-detail-card reveal">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">📈</div>
+          <div>
+            <div class="service-detail-title">Lead Generation Systems</div>
+            <div class="service-detail-subtitle">Turn website visitors into qualified prospects automatically</div>
+          </div>
+        </div>
+        <div class="service-detail-grid">
+          <div class="service-detail-block">
+            <h4>The Problem</h4>
+            <ul>
+              <li>Lots of website traffic, very few enquiries</li>
+              <li>Relying entirely on referrals to grow</li>
+              <li>No system for capturing and nurturing leads</li>
+              <li>Paid ads with no funnel to convert them</li>
+            </ul>
+          </div>
+          <div class="service-detail-block">
+            <h4>What we do</h4>
+            <ul>
+              <li>Design high-converting landing pages</li>
+              <li>Build lead magnets and opt-in sequences</li>
+              <li>Set up email nurture campaigns</li>
+              <li>Install retargeting pixels and tracking</li>
+              <li>Integrate with your CRM or calendar</li>
+            </ul>
+          </div>
+          <div class="service-detail-block">
+            <h4>Deliverables</h4>
+            <ul>
+              <li>Dedicated landing page</li>
+              <li>Lead magnet design</li>
+              <li>Email sequence (3–5 emails)</li>
+              <li>CRM / calendar integration</li>
+              <li>Conversion tracking setup</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:1.75rem; padding-top:1.75rem; border-top:1px solid var(--c-ink-10); display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="navigate('contact')">Book a discovery call →</button>
+          <span class="badge badge-accent">From $1,500</span>
+        </div>
+      </div>
+
+      <!-- SEO / GBP -->
+      <div class="service-detail-card reveal">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">🔍</div>
+          <div>
+            <div class="service-detail-title">SEO & Google Business Profile</div>
+            <div class="service-detail-subtitle">Get found when your ideal customers are searching for you</div>
+          </div>
+        </div>
+        <div class="service-detail-grid">
+          <div class="service-detail-block">
+            <h4>The Problem</h4>
+            <ul>
+              <li>Competitors are ranking above you on Google</li>
+              <li>Google Business Profile is incomplete or wrong</li>
+              <li>Your website isn't optimised for search engines</li>
+              <li>You're missing local search traffic</li>
+            </ul>
+          </div>
+          <div class="service-detail-block">
+            <h4>What we do</h4>
+            <ul>
+              <li>Full SEO audit of your current site</li>
+              <li>Keyword research and content planning</li>
+              <li>On-page optimisation across all pages</li>
+              <li>Google Business Profile setup and optimisation</li>
+              <li>Local citation building and review strategy</li>
+            </ul>
+          </div>
+          <div class="service-detail-block">
+            <h4>Deliverables</h4>
+            <ul>
+              <li>SEO audit report</li>
+              <li>Keyword strategy document</li>
+              <li>On-page optimisation implementation</li>
+              <li>Google Business Profile overhaul</li>
+              <li>Monthly reporting (optional)</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:1.75rem; padding-top:1.75rem; border-top:1px solid var(--c-ink-10); display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="navigate('audit')">Get your free audit →</button>
+          <span class="badge badge-accent">From $800</span>
+        </div>
+      </div>
+
+      <!-- Custom software -->
+      <div class="service-detail-card reveal">
+        <div class="service-detail-header">
+          <div class="service-detail-icon">💻</div>
+          <div>
+            <div class="service-detail-title">Custom Software & Web Applications</div>
+            <div class="service-detail-subtitle">Bespoke solutions for problems off-the-shelf tools can't solve</div>
+          </div>
+        </div>
+        <div class="service-detail-grid">
+          <div class="service-detail-block">
+            <h4>The Problem</h4>
+            <ul>
+              <li>Your business has unique processes that no tool supports</li>
+              <li>You're stitching together too many apps</li>
+              <li>Staff are doing work that should be automated</li>
+              <li>You've outgrown generic software</li>
+            </ul>
+          </div>
+          <div class="service-detail-block">
+            <h4>What we do</h4>
+            <ul>
+              <li>Scope and architect a custom solution</li>
+              <li>Build robust, scalable web applications</li>
+              <li>Develop custom internal dashboards and portals</li>
+              <li>Create client-facing booking or quoting tools</li>
+              <li>Integrate with your existing systems via API</li>
+            </ul>
+          </div>
+          <div class="service-detail-block">
+            <h4>Deliverables</h4>
+            <ul>
+              <li>Technical scope and architecture plan</li>
+              <li>Fully functional custom application</li>
+              <li>Deployment and hosting setup</li>
+              <li>Admin documentation and training</li>
+              <li>Ongoing development retainer (optional)</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:1.75rem; padding-top:1.75rem; border-top:1px solid var(--c-ink-10); display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="navigate('contact')">Discuss your project →</button>
+          <span class="badge badge-surface">Custom pricing</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Services CTA -->
+  <div class="cta-band">
+    <div class="container">
+      <div class="cta-band-content">
+        <h2 class="display-md">Not sure where to start?</h2>
+        <p>A free website audit is the best first step. We'll review your current online presence and recommend exactly what would make the biggest difference for your business.</p>
+        <div class="cta-band-actions">
+          <button class="btn btn-accent btn-lg" onclick="navigate('audit')">Get Your Free Audit</button>
+          <button class="btn btn-outline-white btn-lg" onclick="navigate('contact')">Book a Call Instead</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div>
+          <p>Helping small businesses get more customers and save time through websites, AI, and automation.</p>
+        </div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a onclick="navigate('services')">Website Design</a></li><li><a onclick="navigate('services')">AI Chatbots</a></li><li><a onclick="navigate('services')">Automation</a></li><li><a onclick="navigate('services')">Lead Generation</a></li><li><a onclick="navigate('services')">SEO</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a onclick="navigate('home')">Home</a></li><li><a onclick="navigate('portfolio')">Portfolio</a></li><li><a onclick="navigate('about')">About</a></li><li><a onclick="navigate('contact')">Contact</a></li><li><a onclick="navigate('audit')">Free Audit</a></li></ul></div>
+        <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xylora.com.au">hello@xylora.com.au</a></p><button class="btn btn-accent btn-sm" style="margin-top:1rem;" onclick="navigate('audit')">Free audit →</button></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span><span>Websites · AI · Automation</span></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════ PORTFOLIO PAGE ═══════════════════════════ -->
+
+<div id="page-portfolio" class="page">
+  <section class="page-hero" style="padding-top:8rem;">
+    <div class="container">
+      <span class="eyebrow">Portfolio</span>
+      <h1 class="display-lg" style="margin-top:0.75rem;">Work that drives results</h1>
+      <p>Real projects, realistic sample concepts, and measurable outcomes for small businesses.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:3rem;" class="reveal">
+        <div class="cat-pill active">All Projects</div>
+        <div class="cat-pill">Websites</div>
+        <div class="cat-pill">AI & Automation</div>
+        <div class="cat-pill">Lead Generation</div>
+      </div>
+      <div class="portfolio-grid">
+
+
+        <!-- Project 1 -->
+        <div class="portfolio-card reveal reveal-delay-1">
+          <div class="portfolio-card-img portfolio-bg-1">
+            <div class="portfolio-mock">
+              <div class="portfolio-mock-bar accent"></div>
+              <div class="portfolio-mock-hero">Blue Moon Yoga</div>
+              <div class="portfolio-mock-bar med"></div>
+              <div class="portfolio-mock-bar short"></div>
+              <div style="display:flex;gap:4px;margin-top:8px;">
+                <div style="flex:1;height:30px;border-radius:4px;background:var(--c-accent-light);"></div>
+                <div style="flex:1;height:30px;border-radius:4px;background:var(--c-ink-05);"></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-meta" style="margin-top:0; margin-bottom:0.75rem;">
+              <div class="portfolio-card-tags">
+                <span class="badge badge-accent">Redesign</span>
+                <span class="badge badge-surface">Health & Wellness</span>
+              </div>
+            </div>
+            <div class="portfolio-card-title">Blue Moon Yoga</div>
+            <div class="portfolio-card-desc">Complete website overhaul for a 1-person yoga studio. Focused on trust signals, clear service areas, and an easy quote form.</div>
+            <div style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid var(--c-ink-10); display:flex; gap:1.5rem;">
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Enquiries</div><div style="font-family:var(--font-display);font-weight:800;color:var(--c-accent);font-size:1.1rem;">+220%</div></div>
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Timeline</div><div style="font-family:var(--font-display);font-weight:800;font-size:1.1rem;">3 weeks</div></div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Project 2 -->
+        <div class="portfolio-card reveal reveal-delay-2">
+          <div class="portfolio-card-img portfolio-bg-2">
+            <div class="portfolio-mock">
+              <div class="portfolio-mock-bar" style="background:var(--c-blue);width:55%"></div>
+              <div class="portfolio-mock-hero" style="background:var(--c-blue-light);color:var(--c-blue);">Elevate Yoga Studio</div>
+              <div class="portfolio-mock-bar med"></div>
+              <div class="portfolio-mock-bar short"></div>
+              <div style="display:flex;gap:4px;margin-top:8px;">
+                <div style="flex:2;height:30px;border-radius:4px;background:var(--c-blue-light);"></div>
+                <div style="flex:1;height:30px;border-radius:4px;background:var(--c-ink-05);"></div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-meta" style="margin-top:0; margin-bottom:0.75rem;">
+              <div class="portfolio-card-tags">
+                <span class="badge badge-blue">Booking System</span>
+                <span class="badge badge-surface">Wellness</span>
+              </div>
+            </div>
+            <div class="portfolio-card-title">Elevate Yoga Studio</div>
+            <div class="portfolio-card-desc">New website with online class booking integration. Customers can browse the timetable, book a spot, and receive automated reminders — all without any manual work from the studio owner.</div>
+            <div style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid var(--c-ink-10); display:flex; gap:1.5rem;">
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Admin saved</div><div style="font-family:var(--font-display);font-weight:800;color:var(--c-accent);font-size:1.1rem;">8hrs/wk</div></div>
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Bookings</div><div style="font-family:var(--font-display);font-weight:800;font-size:1.1rem;">+65%</div></div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Project 3 — Concept -->
+        <div class="portfolio-card reveal reveal-delay-1">
+          <div class="portfolio-card-img portfolio-bg-3">
+            <div class="portfolio-mock">
+              <div class="portfolio-mock-bar" style="background:var(--c-gold);width:65%"></div>
+              <div class="portfolio-mock-hero" style="background:var(--c-gold-light);color:var(--c-gold);">Pinnacle Coaching</div>
+              <div class="portfolio-mock-bar med"></div>
+              <div class="portfolio-mock-bar short"></div>
+            </div>
+          </div>
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-meta" style="margin-top:0; margin-bottom:0.75rem;">
+              <div class="portfolio-card-tags">
+                <span class="badge badge-gold">Concept Project</span>
+                <span class="badge badge-surface">Consulting</span>
+              </div>
+            </div>
+            <div class="portfolio-card-title">Pinnacle Business Coaching</div>
+            <div class="portfolio-card-desc">Concept redesign for a business coaching practice. Focused on authority positioning, a clear lead magnet, and a discovery call funnel. Designed to demonstrate potential for service businesses in the consulting space.</div>
+            <div style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid var(--c-ink-10);">
+              <span style="font-size:0.8rem; color:var(--c-ink-40); font-style:italic;">★ Concept project — demonstrates potential for similar businesses</span>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Project 4 — AI Chatbot -->
+        <div class="portfolio-card reveal reveal-delay-2">
+          <div class="portfolio-card-img portfolio-bg-1" style="background:linear-gradient(135deg,#f0fdf4,#d1fae5);">
+            <div class="portfolio-mock">
+              <div class="portfolio-mock-bar accent" style="width:50%"></div>
+              <div style="margin:0.75rem 0;display:flex;flex-direction:column;gap:6px;">
+                <div style="align-self:flex-start;background:var(--c-surface);border-radius:12px 12px 12px 2px;padding:6px 10px;font-size:0.7rem;color:var(--c-ink-60);max-width:80%;">Hi! How can I help you today?</div>
+                <div style="align-self:flex-end;background:var(--c-accent);border-radius:12px 12px 2px 12px;padding:6px 10px;font-size:0.7rem;color:white;max-width:80%;">I need a quote for my gym</div>
+                <div style="align-self:flex-start;background:var(--c-surface);border-radius:12px 12px 12px 2px;padding:6px 10px;font-size:0.7rem;color:var(--c-ink-60);max-width:80%;">Great! Let me gather some details...</div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-meta" style="margin-top:0; margin-bottom:0.75rem;">
+              <div class="portfolio-card-tags">
+                <span class="badge badge-accent">AI Chatbot</span>
+                <span class="badge badge-surface">Health & Fitness</span>
+              </div>
+            </div>
+            <div class="portfolio-card-title">FitForm Gym — AI Lead Qualifier</div>
+            <div class="portfolio-card-desc">AI chatbot trained on FitForm's memberships, pricing, and FAQs. Handles over 70% of initial enquiries automatically, captures lead details, and books discovery sessions directly into the owner's calendar.</div>
+            <div style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid var(--c-ink-10); display:flex; gap:1.5rem;">
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Auto-handled</div><div style="font-family:var(--font-display);font-weight:800;color:var(--c-accent);font-size:1.1rem;">72%</div></div>
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Response time</div><div style="font-family:var(--font-display);font-weight:800;font-size:1.1rem;">&lt;3 sec</div></div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Project 5 — Concept -->
+        <div class="portfolio-card reveal reveal-delay-1">
+          <div class="portfolio-card-img portfolio-bg-4">
+            <div class="portfolio-mock">
+              <div class="portfolio-mock-bar" style="background:#D4537E;width:60%"></div>
+              <div class="portfolio-mock-hero" style="background:rgba(212,83,126,0.1);color:#993556;">Pure Skin Clinic</div>
+              <div class="portfolio-mock-bar med"></div>
+              <div class="portfolio-mock-bar short"></div>
+            </div>
+          </div>
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-meta" style="margin-top:0; margin-bottom:0.75rem;">
+              <div class="portfolio-card-tags">
+                <span class="badge" style="background:#fbeaf0;color:#993556;">Concept Project</span>
+                <span class="badge badge-surface">Health</span>
+              </div>
+            </div>
+            <div class="portfolio-card-title">Pure Skin Clinic — Concept Redesign</div>
+            <div class="portfolio-card-desc">Concept redesign for a beauty and skin clinic. Focused on premium feel, service showcase, and an online booking system that converts Instagram traffic into appointments.</div>
+            <div style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid var(--c-ink-10);">
+              <span style="font-size:0.8rem; color:var(--c-ink-40); font-style:italic;">★ Concept project — demonstrates potential for similar businesses</span>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Project 6 — Lead gen -->
+        <div class="portfolio-card reveal reveal-delay-2">
+          <div class="portfolio-card-img portfolio-bg-2">
+            <div class="portfolio-mock">
+              <div class="portfolio-mock-bar" style="background:var(--c-blue);width:70%"></div>
+              <div class="portfolio-mock-hero" style="background:var(--c-blue-light);color:var(--c-blue);">ClearPath Finance</div>
+              <div style="margin:6px 0;display:grid;grid-template-columns:1fr 1fr;gap:4px;">
+                <div style="height:20px;border-radius:4px;background:var(--c-blue-light);"></div>
+                <div style="height:20px;border-radius:4px;background:var(--c-ink-05);"></div>
+              </div>
+              <div style="height:24px;border-radius:4px;background:var(--c-blue);margin-top:4px;"></div>
+            </div>
+          </div>
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-meta" style="margin-top:0; margin-bottom:0.75rem;">
+              <div class="portfolio-card-tags">
+                <span class="badge badge-blue">Lead Generation</span>
+                <span class="badge badge-surface">Finance</span>
+              </div>
+            </div>
+            <div class="portfolio-card-title">ClearPath Financial Services</div>
+            <div class="portfolio-card-desc">Lead generation funnel with a free financial health checklist as lead magnet. Drove 140 email signups in the first month via Google Ads campaign, with 18% converting to discovery calls.</div>
+            <div style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid var(--c-ink-10); display:flex; gap:1.5rem;">
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Email leads</div><div style="font-family:var(--font-display);font-weight:800;color:var(--c-accent);font-size:1.1rem;">140 / mo</div></div>
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Call rate</div><div style="font-family:var(--font-display);font-weight:800;font-size:1.1rem;">18%</div></div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <!-- Case study -->
+      <div class="portfolio-case-study reveal" style="margin-top:4rem;">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <span class="eyebrow">Case Study</span>
+            <h2 class="display-sm" style="margin-top:0.5rem;">Blue Moon Yoga — From Page 5 to Page 1</h2>
+          </div>
+          <span class="badge badge-accent">Real project</span>
+        </div>
+        <div class="portfolio-case-grid">
+          <div>
+            <h4 style="font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:1rem;">The challenge</h4>
+            <p style="font-size:0.925rem;color:var(--c-ink-60);line-height:1.75;margin-bottom:1rem;">Blue Moon Yoga had been in business for over 25 years but relied almost entirely on repeat customers and word-of-mouth. Their website was built in 2015 when the business was still small and hadn't been touched since. It loaded slowly, looked broken on mobile, and had no clear way for visitors to request a quote.</p>
+            <p style="font-size:0.925rem;color:var(--c-ink-60);line-height:1.75;">The owner spent significant time answering enquiry calls that could have been self-service — he was most likely regularly losing work to competitors with better-looking websites.</p>
+            <div class="before-after">
+              <div class="ba-panel">
+                <div class="ba-label ba-before">Before</div>
+                <div class="ba-content">
+                  <div class="ba-mock-line highlight"></div>
+                  <div class="ba-mock-line"></div>
+                  <div class="ba-mock-line highlight"></div>
+                  <div class="ba-mock-line short"></div>
+                  <div style="font-size:0.7rem;color:#991b1b;margin-top:6px;">Slow · Not mobile-friendly · No CTAs</div>
+                </div>
+              </div>
+              <div class="ba-panel">
+                <div class="ba-label ba-after">After</div>
+                <div class="ba-content">
+                  <div class="ba-mock-line highlight"></div>
+                  <div class="ba-mock-line"></div>
+                  <div class="ba-mock-line highlight"></div>
+                  <div class="ba-mock-line short"></div>
+                  <div style="font-size:0.7rem;color:var(--c-accent-dark);margin-top:6px;">Fast · Mobile-first · Clear quote form</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 style="font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:1rem;">What we built</h4>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;">
+              <li style="display:flex;gap:0.6rem;font-size:0.9rem;color:var(--c-ink-60);">
+                <span style="color:var(--c-accent);font-size:0.85rem;margin-top:1px;">→</span>
+                A fully rebuilt website with fast loading, modern design, and mobile-first layout
+              </li>
+              <li style="display:flex;gap:0.6rem;font-size:0.9rem;color:var(--c-ink-60);">
+                <span style="color:var(--c-accent);font-size:0.85rem;margin-top:1px;">→</span>
+                Prominent "Get a Quote" form on every page, leading to a streamlined email notification
+              </li>
+              <li style="display:flex;gap:0.6rem;font-size:0.9rem;color:var(--c-ink-60);">
+                <span style="color:var(--c-accent);font-size:0.85rem;margin-top:1px;">→</span>
+                Full on-page SEO across 7 service pages, targeting high-intent local keywords
+              </li>
+              <li style="display:flex;gap:0.6rem;font-size:0.9rem;color:var(--c-ink-60);">
+                <span style="color:var(--c-accent);font-size:0.85rem;margin-top:1px;">→</span>
+                Google Business Profile overhaul with photo strategy and review request automation
+              </li>
+            </ul>
+            <h4 style="font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:1rem;">The results (8 weeks post-launch)</h4>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+              <div style="text-align:center;background:white;border-radius:var(--radius-md);padding:1rem;border:1px solid var(--c-ink-10);">
+                <div style="font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:var(--c-accent);">+220%</div>
+                <div style="font-size:0.75rem;color:var(--c-ink-40);margin-top:0.25rem;">Online enquiries</div>
+              </div>
+              <div style="text-align:center;background:white;border-radius:var(--radius-md);padding:1rem;border:1px solid var(--c-ink-10);">
+                <div style="font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:var(--c-accent);">Pg. 1</div>
+                <div style="font-size:0.75rem;color:var(--c-ink-40);margin-top:0.25rem;">Google ranking</div>
+              </div>
+              <div style="text-align:center;background:white;border-radius:var(--radius-md);padding:1rem;border:1px solid var(--c-ink-10);">
+                <div style="font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:var(--c-accent);">4.2s→</div>
+                <div style="font-size:0.75rem;color:var(--c-ink-40);margin-top:0.25rem;">Load time: 0.9s</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="cta-band">
+    <div class="container">
+      <div class="cta-band-content">
+        <h2 class="display-md">Want results like these for your business?</h2>
+        <p>Start with a free website audit and we'll show you exactly what's possible.</p>
+        <div class="cta-band-actions">
+          <button class="btn btn-accent btn-lg" onclick="navigate('audit')">Get Your Free Audit</button>
+          <button class="btn btn-outline-white btn-lg" onclick="navigate('contact')">Book a Discovery Call</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div><p>Helping small businesses get more customers and save time.</p></div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a onclick="navigate('services')">Website Design</a></li><li><a onclick="navigate('services')">AI Chatbots</a></li><li><a onclick="navigate('services')">Automation</a></li><li><a onclick="navigate('services')">Lead Generation</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a onclick="navigate('home')">Home</a></li><li><a onclick="navigate('portfolio')">Portfolio</a></li><li><a onclick="navigate('about')">About</a></li><li><a onclick="navigate('contact')">Contact</a></li></ul></div>
+        <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xylora.com.au">hello@xylora.com.au</a></p><button class="btn btn-accent btn-sm" style="margin-top:1rem;" onclick="navigate('audit')">Free audit →</button></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span></div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ═══════════════════════════ ABOUT PAGE ═══════════════════════════ -->
+<div id="page-about" class="page">
+
+
+  <div class="about-mission" style="padding-top:8rem;">
+    <div class="container">
+      <div class="about-mission-content">
+        <span class="eyebrow">Our mission</span>
+        <h2 class="display-lg" style="margin-top:0.75rem;">Small businesses deserve digital tools that actually work.</h2>
+        <p>Most digital agencies were built for enterprise clients with big budgets and internal teams. Xylora was built for the plumber, the yoga studio owner, the consultant, and the startup — businesses that need real results without the complexity, jargon, or inflated prices.</p>
+        <div class="about-values">
+          <div class="about-value-card">
+            <div class="about-value-icon">🎯</div>
+            <div class="about-value-title">Outcomes first</div>
+            <div class="about-value-body">We measure our success by your results — more customers, more time, more growth. Beautiful work means nothing if it doesn't move the needle.</div>
+          </div>
+          <div class="about-value-card">
+            <div class="about-value-icon">🤝</div>
+            <div class="about-value-title">Genuine partnership</div>
+            <div class="about-value-body">We're not a churn-and-burn agency. We build long-term relationships with clients whose businesses we care about growing.</div>
+          </div>
+          <div class="about-value-card">
+            <div class="about-value-icon">⚡</div>
+            <div class="about-value-title">Smart use of technology</div>
+            <div class="about-value-body">We stay ahead of what's possible with AI and automation so our clients benefit from tools that were previously only available to large companies.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="about-story-grid" style="display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;">
+        <div class="reveal">
+          <span class="eyebrow" style="color:#00B37E;">Our story</span>
+          <h2 class="display-md" style="margin-top:0.75rem; color:#0D0F0E;">Built by people who've seen what small businesses actually need</h2>
+          <p style="font-size:1.125rem; line-height:1.7; color:#6b6e6c; margin-top:1.25rem;">Xylora started from a simple frustration: great small businesses were losing customers every day to competitors with better websites and smarter systems — even when they offered a better service.</p>
+          <p style="font-size:1rem; line-height:1.7; color:#6b6e6c; margin-top:1rem;">We saw owners spending evenings on admin that should be automated. We saw enquiries being lost because websites were confusing. We saw real businesses struggling to get found online despite genuinely excellent work.</p>
+          <p style="font-size:1rem; line-height:1.7; color:#6b6e6c; margin-top:1rem;">So we built Xylora to close that gap — combining the design quality of premium agencies with the practical focus and accessibility of a true small business partner.</p>
+          <p style="font-size:1rem; line-height:1.7; color:#6b6e6c; margin-top:1rem;">Today, we've helped over 60 businesses improve their online presence, automate their workflows, and grow their customer base. We're based in Australia and work with businesses across the country.</p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="about-numbers">
+            <div class="about-num-item">
+              <div class="about-num-big">30+</div>
+              <div class="about-num-label" style="color:#6b6e6c;">Businesses served</div>
+            </div>
+            <div class="about-num-item">
+              <div class="about-num-big">3×</div>
+              <div class="about-num-label" style="color:#6b6e6c;">Average enquiry increase</div>
+            </div>
+            <div class="about-num-item">
+              <div class="about-num-big">12hr</div>
+              <div class="about-num-label" style="color:#6b6e6c;">Avg. time saved per week</div>
+            </div>
+            <div class="about-num-item">
+              <div class="about-num-big">98%</div>
+              <div class="about-num-label" style="color:#6b6e6c;">Client satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section" style="background:#f6f7f5;">
+    <div class="container">
+      <div class="section-header-center reveal">
+        <span class="eyebrow" style="color:#00B37E;">The team</span>
+        <h2 class="display-md" style="margin-top:0.75rem; color:#0D0F0E;">The people behind Xylora</h2>
+        <p style="font-size:1.125rem; line-height:1.7; color:#6b6e6c;">A small, focused team with expertise across design, development, and digital strategy.</p>
+      </div>
+      <div class="about-team-grid">
+        <div class="team-card reveal reveal-delay-1">
+          <div class="team-avatar">AL</div>
+          <div class="team-name" style="color:#0D0F0E;">Alex Lin</div>
+          <div class="team-role" style="color:#6b6e6c;">Founder & Lead Developer</div>
+          <div class="team-bio" style="color:#6b6e6c;">Full-stack developer with 10 years building digital products. Passionate about writing clean, performant code that actually solves business problems — not just technical ones.</div>
+        </div>
+        <div class="team-card reveal reveal-delay-2">
+          <div class="team-avatar" style="background:#fdf3e0;color:#854F0B;">MP</div>
+          <div class="team-name" style="color:#0D0F0E;">Mia Patel</div>
+          <div class="team-role" style="color:#6b6e6c;">Head of Design & UX</div>
+          <div class="team-bio" style="color:#6b6e6c;">Former agency designer with a background in conversion optimisation. Believes every design decision should be made in service of the user — and the business owner's revenue.</div>
+        </div>
+        <div class="team-card reveal reveal-delay-3">
+          <div class="team-avatar" style="background:#EEF3FF;color:#2563EB;">JW</div>
+          <div class="team-name" style="color:#0D0F0E;">Jordan Walsh</div>
+          <div class="team-role" style="color:#6b6e6c;">AI & Automation Specialist</div>
+          <div class="team-bio" style="color:#6b6e6c;">Builds AI systems and workflow automations that save clients genuine time every week. Specialises in making cutting-edge technology practical, affordable, and actually useful for small business owners.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About CTA -->
+  <div class="cta-band">
+    <div class="container">
+      <div class="cta-band-content">
+        <h2 class="display-md">Let's work together</h2>
+        <p>Whether you're starting from scratch or looking to improve what you have — we'd love to hear about your business.</p>
+        <div class="cta-band-actions">
+          <button class="btn btn-accent btn-lg" onclick="navigate('contact')">Book a Discovery Call</button>
+          <button class="btn btn-outline-white btn-lg" onclick="navigate('audit')">Start with a Free Audit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div><p>Helping small businesses get more customers and save time.</p></div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a onclick="navigate('services')">Website Design</a></li><li><a onclick="navigate('services')">AI Chatbots</a></li><li><a onclick="navigate('services')">Automation</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a onclick="navigate('home')">Home</a></li><li><a onclick="navigate('portfolio')">Portfolio</a></li><li><a onclick="navigate('about')">About</a></li><li><a onclick="navigate('contact')">Contact</a></li></ul></div>
+        <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xylora.com.au">hello@xylora.com.au</a></p><button class="btn btn-accent btn-sm" style="margin-top:1rem;" onclick="navigate('audit')">Free audit →</button></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════ CONTACT PAGE ═══════════════════════════ -->
+<div id="page-contact" class="page">
+  <section class="page-hero" style="padding-top:8rem; background:#f6f7f5;">
+    <div class="container">
+      <span class="eyebrow" style="color:#00B37E;">Contact</span>
+      <h1 class="display-lg" style="margin-top:0.75rem; color:#0D0F0E;">Let's talk about your business</h1>
+      <p style="color:#6b6e6c;">Book a free discovery call, ask a question, or tell us about your project. We'll get back to you within one business day.</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:3rem; background:#ffffff;">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="reveal">
+          <h3 class="display-sm" style="margin-bottom:2rem; color:#0D0F0E;">Get in touch</h3>
+          <div class="contact-info-item">
+            <div class="contact-info-icon" style="background:#e6f7f2;">📧</div>
+            <div>
+              <div class="contact-info-label" style="color:#6b6e6c;">Email</div>
+              <div class="contact-info-value" style="color:#0D0F0E;"><a href="mailto:hello@xylora.com.au" style="color:#0D0F0E;text-decoration:none;">hello@xylora.com.au</a></div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon" style="background:#e6f7f2;">📍</div>
+            <div>
+              <div class="contact-info-label" style="color:#6b6e6c;">Location</div>
+              <div class="contact-info-value" style="color:#0D0F0E;">Australia — working remotely nationwide</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon" style="background:#e6f7f2;">🕐</div>
+            <div>
+              <div class="contact-info-label" style="color:#6b6e6c;">Response time</div>
+              <div class="contact-info-value" style="color:#0D0F0E;">Within 1 business day</div>
+            </div>
+          </div>
+          <div style="margin-top:2.5rem; padding-top:2rem; border-top:1px solid #d4d6d5;">
+            <h4 style="font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:1rem;color:#0D0F0E;">Not ready to reach out?</h4>
+            <p style="font-size:0.9rem;color:#6b6e6c;line-height:1.7;margin-bottom:1.25rem;">Start with a free website audit. We'll review your site and send you a detailed report — no call required, no commitment needed.</p>
+            <button class="btn btn-primary" onclick="navigate('audit')">Request Your Free Audit →</button>
+          </div>
+          <div style="margin-top:2rem; background:#f6f7f5; border-radius:20px; padding:1.5rem;">
+            <h4 style="font-family:var(--font-display);font-weight:700;font-size:0.9rem;margin-bottom:0.75rem;color:#0D0F0E;">What to expect on a discovery call</h4>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+              <li style="display:flex;gap:0.6rem;font-size:0.875rem;color:#3a3d3b;">
+                <span style="color:#00B37E;">→</span>30 minutes, no pressure
+              </li>
+              <li style="display:flex;gap:0.6rem;font-size:0.875rem;color:#3a3d3b;">
+                <span style="color:#00B37E;">→</span>We learn about your business and goals
+              </li>
+              <li style="display:flex;gap:0.6rem;font-size:0.875rem;color:#3a3d3b;">
+                <span style="color:#00B37E;">→</span>You get honest advice, even if we're not the right fit
+              </li>
+              <li style="display:flex;gap:0.6rem;font-size:0.875rem;color:#3a3d3b;">
+                <span style="color:#00B37E;">→</span>Clear next steps, always
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="contact-form-card reveal reveal-delay-2" style="background:#f6f7f5;">
+          <div class="contact-form-title" style="color:#0D0F0E;">Send us a message</div>
+          <div class="contact-form-subtitle" style="color:#6b6e6c;">We'll reply within 1 business day. Tell us as much or as little as you like.</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First name</label>
+              <input type="text" placeholder="Alex">
+            </div>
+            <div class="form-group">
+              <label>Last name</label>
+              <input type="text" placeholder="Smith">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email address</label>
+            <input type="email" placeholder="you@yourbusiness.com.au">
+          </div>
+          <div class="form-group">
+            <label>Business name</label>
+            <input type="text" placeholder="Your Business">
+          </div>
+          <div class="form-group">
+            <label>What can we help you with?</label>
+            <select>
+              <option value="" disabled selected>Choose a service area...</option>
+              <option>Website Design or Redesign</option>
+              <option>AI Chatbot</option>
+              <option>Workflow Automation</option>
+              <option>Lead Generation</option>
+              <option>SEO & Google Profile</option>
+              <option>Custom Software</option>
+              <option>Not sure — need advice</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell us a bit about your project</label>
+            <textarea placeholder="What's the challenge you're trying to solve? Any relevant context about your business is helpful..."></textarea>
+          </div>
+          <div class="form-submit-row">
+            <button class="btn btn-primary btn-lg" onclick="handleFormSubmit(this)">Send message →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div><p>Helping small businesses get more customers and save time.</p></div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a onclick="navigate('services')">Website Design</a></li><li><a onclick="navigate('services')">AI Chatbots</a></li><li><a onclick="navigate('services')">Automation</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a onclick="navigate('home')">Home</a></li><li><a onclick="navigate('portfolio')">Portfolio</a></li><li><a onclick="navigate('about')">About</a></li><li><a onclick="navigate('contact')">Contact</a></li></ul></div>
+        <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xylora.com.au">hello@xylora.com.au</a></p></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════ AUDIT PAGE ═══════════════════════════ -->
+<div id="page-audit" class="page">
+
+  <div class="audit-hero">
+    <div class="container">
+      <div class="audit-layout" style="padding-top:2rem;">
+        <div class="audit-hero-content audit-benefits">
+          <span class="eyebrow">Free website audit</span>
+          <h1 class="display-lg" style="margin-top:0.75rem; color:white;">Find out exactly what's costing you customers</h1>
+          <p>We'll review your website and online presence, then send you a detailed report showing exactly what to fix — and what it could mean for your business. Free, with no obligation.</p>
+          <div class="audit-checklist">
+            <div class="audit-check-item"><div class="audit-check-icon">✓</div>Website performance and speed analysis</div>
+            <div class="audit-check-item"><div class="audit-check-icon">✓</div>Mobile usability review</div>
+            <div class="audit-check-item"><div class="audit-check-icon">✓</div>Conversion rate assessment</div>
+            <div class="audit-check-item"><div class="audit-check-icon">✓</div>SEO and visibility check</div>
+            <div class="audit-check-item"><div class="audit-check-icon">✓</div>Google Business Profile review</div>
+            <div class="audit-check-item"><div class="audit-check-icon">✓</div>Competitor benchmarking</div>
+            <div class="audit-check-item"><div class="audit-check-icon">✓</div>Prioritised recommendations</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;margin-top:1rem;padding:1rem 1.25rem;background:rgba(255,255,255,0.05);border-radius:var(--radius-md);border:1px solid rgba(255,255,255,0.1);">
+            <div style="font-size:1.75rem;">🎁</div>
+            <div>
+              <div style="font-size:0.875rem;font-weight:600;color:white;">Completely free, no strings attached</div>
+              <div style="font-size:0.825rem;color:rgba(255,255,255,0.85);margin-top:0.2rem;">You'll receive a detailed report within 2 business days. No credit card required.</div>
+            </div>
+          </div>
+        </div>
+        <div style="position:relative;">
+          <div class="audit-form-card">
+            <div class="audit-form-title">Request your free audit</div>
+            <div class="audit-form-subtitle">Takes 60 seconds. Report delivered in 48 hours.</div>
+            <div class="form-group">
+              <label>Your name</label>
+              <input type="text" placeholder="Alex Smith">
+            </div>
+            <div class="form-group">
+              <label>Email address</label>
+              <input type="email" placeholder="you@yourbusiness.com.au">
+            </div>
+            <div class="form-group">
+              <label>Business name</label>
+              <input type="text" placeholder="Smith Electrical">
+            </div>
+            <div class="form-group">
+              <label>Your website URL</label>
+              <input type="url" placeholder="https://yourbusiness.com.au">
+            </div>
+            <div class="form-group">
+              <label>Industry</label>
+              <select>
+                <option value="" disabled selected>Select your industry...</option>
+                <option>Trades (Plumbing, Electrical, Building)</option>
+                <option>Gym or Fitness Studio</option>
+                <option>Yoga or Wellness Studio</option>
+                <option>Consulting or Coaching</option>
+                <option>Health Business</option>
+                <option>Retail or eCommerce</option>
+                <option>Hospitality</option>
+                <option>Startup</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>What's your biggest online challenge? (optional)</label>
+              <textarea placeholder="e.g. We get traffic but very few enquiries, or We're not showing up on Google..." style="min-height:80px;"></textarea>
+            </div>
+            <button class="btn btn-accent btn-lg" style="width:100%; justify-content:center;" onclick="handleFormSubmit(this)">
+              Send My Free Audit Request →
+            </button>
+            <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:1rem;">
+              <div style="font-size:0.75rem;color:var(--c-ink-40);">✓ No credit card</div>
+              <div style="color:var(--c-ink-20);">·</div>
+              <div style="font-size:0.75rem;color:var(--c-ink-40);">✓ No commitment</div>
+              <div style="color:var(--c-ink-20);">·</div>
+              <div style="font-size:0.75rem;color:var(--c-ink-40);">✓ 48hr turnaround</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audit process -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal">
+        <span class="eyebrow" style="color:#00B37E;">The audit process</span>
+        <h2 class="display-md" style="margin-top:0.75rem; color:#0D0F0E;">What happens after you submit</h2>
+        <p style="font-size:1.125rem; line-height:1.7; color:#6b6e6c;">A clear, methodical review of everything affecting your online performance.</p>
+      </div>
+      <div class="grid-auto" style="margin-top:3.5rem;">
+        <div class="audit-step reveal reveal-delay-1" style="flex-direction:column;padding:2rem;border:1px solid #d4d6d5;border-radius:20px;background:#ffffff;">
+          <div class="audit-step-num" style="margin-bottom:1rem;flex-shrink:0;background:#0D0F0E;color:#ffffff;">1</div>
+          <div class="audit-step-title" style="color:#0D0F0E;">Website crawl & speed test</div>
+          <div class="audit-step-body" style="color:#6b6e6c;">We run your site through professional SEO and performance tools to identify technical issues, broken links, slow load times, and mobile problems.</div>
+        </div>
+        <div class="audit-step reveal reveal-delay-2" style="flex-direction:column;padding:2rem;border:1px solid #d4d6d5;border-radius:20px;background:#ffffff;">
+          <div class="audit-step-num" style="margin-bottom:1rem;flex-shrink:0;background:#0D0F0E;color:#ffffff;">2</div>
+          <div class="audit-step-title" style="color:#0D0F0E;">Conversion review</div>
+          <div class="audit-step-body" style="color:#6b6e6c;">We manually review your website from a customer's perspective — evaluating clarity, trust signals, calls to action, and the likelihood of a visitor becoming a lead.</div>
+        </div>
+        <div class="audit-step reveal reveal-delay-3" style="flex-direction:column;padding:2rem;border:1px solid #d4d6d5;border-radius:20px;background:#ffffff;">
+          <div class="audit-step-num" style="margin-bottom:1rem;flex-shrink:0;background:#0D0F0E;color:#ffffff;">3</div>
+          <div class="audit-step-title" style="color:#0D0F0E;">SEO & visibility check</div>
+          <div class="audit-step-body" style="color:#6b6e6c;">We check your search rankings, keyword opportunities, and Google Business Profile against your top 3 local competitors to show where you're winning and losing.</div>
+        </div>
+        <div class="audit-step reveal reveal-delay-4" style="flex-direction:column;padding:2rem;border:1px solid #d4d6d5;border-radius:20px;background:#ffffff;">
+          <div class="audit-step-num" style="margin-bottom:1rem;flex-shrink:0;background:#0D0F0E;color:#ffffff;">4</div>
+          <div class="audit-step-title" style="color:#0D0F0E;">Report & recommendations</div>
+          <div class="audit-step-body" style="color:#6b6e6c;">You receive a clear written report with prioritised recommendations. We flag quick wins, important fixes, and longer-term opportunities — with honest impact estimates for each.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audit testimonial -->
+  <section class="section-sm" style="background:#f6f7f5;">
+    <div class="container">
+      <div style="max-width:720px; margin:0 auto; text-align:center;" class="reveal">
+        <div style="font-size:1.5rem; margin-bottom:1rem; color:#E8A020;">★★★★★</div>
+        <blockquote style="font-size:1.15rem; font-style:italic; color:#3a3d3b; line-height:1.75; margin-bottom:1.5rem;">"The free audit was honestly more useful than the paid consultation we got from another agency. It was specific, honest, and clearly written by someone who actually knows what they're doing. We signed up to work with Xylora the same week."</blockquote>
+        <div style="display:flex;align-items:center;justify-content:center;gap:0.75rem;">
+          <div class="testimonial-avatar" style="background:#e6f7f2;color:#009068;">DM</div>
+          <div style="text-align:left;">
+            <div style="font-weight:600;font-size:0.9rem;color:#0D0F0E;">David Morrison</div>
+            <div style="font-size:0.8rem;color:#6b6e6c;">Owner, Morrison Mechanical</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ for audit page -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div style="max-width:720px; margin:0 auto;">
+        <div class="section-header-center reveal" style="margin-bottom:2.5rem;">
+          <span class="eyebrow" style="color:#00B37E;">Common questions</span>
+          <h2 class="display-sm" style="margin-top:0.75rem; color:#0D0F0E;">About the free audit</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid #d4d6d5;">
+            <div class="faq-q" style="color:#0D0F0E;">Is it really free, no strings attached? <div class="faq-icon">+</div></div>
+            <div class="faq-a" style="color:#6b6e6c;">Yes, completely. We produce a genuine audit report for every business that requests one. We don't gate it behind a sales call or require payment information. If you choose to work with us afterwards, that's great — but the audit has real value regardless.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid #d4d6d5;">
+            <div class="faq-q" style="color:#0D0F0E;">Do I need to have a website already? <div class="faq-icon">+</div></div>
+            <div class="faq-a" style="color:#6b6e6c;">You don't need a website to benefit from an audit. If you don't have one, we'll review your current online presence — Google Business Profile, social media, and anything else — and recommend where to start.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid #d4d6d5;">
+            <div class="faq-q" style="color:#0D0F0E;">How long does the audit take? <div class="faq-icon">+</div></div>
+            <div class="faq-a" style="color:#6b6e6c;">We deliver your audit report within 2 business days. For businesses in certain highly competitive niches, we may take a little longer to ensure the competitor analysis is thorough.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)" style="border-bottom:1px solid #d4d6d5;">
+            <div class="faq-q" style="color:#0D0F0E;">What happens after I receive the audit? <div class="faq-icon">+</div></div>
+            <div class="faq-a" style="color:#6b6e6c;">Nothing, unless you want it to. The report is yours to use however you like — implement the changes yourself, take them to another developer, or book a call with us to discuss what we could do together. There's no pressure to proceed.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div><p>Helping small businesses get more customers and save time.</p></div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a onclick="navigate('services')">Website Design</a></li><li><a onclick="navigate('services')">AI Chatbots</a></li><li><a onclick="navigate('services')">Automation</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a onclick="navigate('home')">Home</a></li><li><a onclick="navigate('portfolio')">Portfolio</a></li><li><a onclick="navigate('about')">About</a></li><li><a onclick="navigate('contact')">Contact</a></li></ul></div>
+        <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xylora.com.au">hello@xylora.com.au</a></p></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span></div>
+    </div>
+  </footer>
+</div>
+
+<!-- NOTIFICATION -->
+<div class="notification" id="notification">
+  <span class="notification-icon">✓</span>
+  <span id="notification-text">Message sent! We'll be in touch within 1 business day.</span>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
