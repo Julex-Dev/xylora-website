@@ -1756,6 +1756,55 @@ footer {
 .portfolio-bg-3 { background: linear-gradient(135deg, #fdf3e0, #fae7c0); }
 .portfolio-bg-4 { background: linear-gradient(135deg, #fbeaf0, #f5c4d1); }
 
+/* Blue Moon Yoga before/after comparison */
+.portfolio-card-img.bmy-img-area {
+  aspect-ratio: 3/2;
+  padding: 0;
+  align-items: stretch;
+}
+.bmy-before-after {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.bmy-panel {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.bmy-screen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.bmy-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  pointer-events: none;
+}
+.bmy-before-label { background: rgba(120,0,0,0.82); color: #fff; }
+.bmy-after-label  { background: var(--c-accent); color: #fff; }
+.bmy-split-line {
+  width: 2px;
+  flex-shrink: 0;
+  background: white;
+  z-index: 3;
+}
+
 /* Home pillar cards */
 .home-pillar-card:hover {
   box-shadow: var(--shadow-lg);
