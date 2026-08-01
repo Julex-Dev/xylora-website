@@ -1812,10 +1812,21 @@ footer {
   border-color: var(--c-ink-20);
 }
 
-.home-pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+/* Flagship spans the full row, the other four sit in a 2x2 beneath it */
+.home-pillar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+
+.home-pillar-wide { grid-column: 1 / -1; }
+
+.home-pillar-wide-body {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
 
 @media (max-width: 860px) {
   .home-pillar-grid { grid-template-columns: 1fr; }
+  .home-pillar-wide-body { grid-template-columns: 1fr; gap: 1.5rem; }
   .about-story-grid { grid-template-columns: 1fr !important; }
 }
 
