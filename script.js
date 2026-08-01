@@ -1,28 +1,159 @@
-// ─── NAVIGATION ───────────────────────────────
+// ─── ROUTES ───────────────────────────────
+// Every page has a real, shareable URL. `key` matches the id of its <div class="page">
+// (id="page-<key>"), `nav` is the top-level nav item that should highlight for it.
+const ROUTES = {
+  'home': {
+    path: '/',
+    nav: 'home',
+    title: 'Xylora — Helping Local Businesses Grow with AI, Websites & Automation',
+    desc: 'Xylora Digital helps Australian local businesses attract more customers and save time with AI lead capture, websites, SEO, automation and custom software. Book a free Discovery Call.'
+  },
+  'services': {
+    path: '/services',
+    nav: 'services',
+    title: 'Services — AI, Websites, SEO & Automation | Xylora Digital',
+    desc: 'From AI-powered lead capture to high-performing websites, SEO, automation and custom software — explore how Xylora Digital helps your business grow.'
+  },
+  'service-never-miss-a-lead': {
+    path: '/services/never-miss-a-lead',
+    nav: 'services',
+    title: 'Never Miss a Lead — AI Missed Call Recovery | Xylora Digital',
+    desc: 'AI-powered missed call recovery that texts customers back automatically, answers common questions, captures and qualifies leads, and notifies you when action is required.'
+  },
+  'service-seo': {
+    path: '/services/seo',
+    nav: 'services',
+    title: 'SEO — Local, Technical & AI Search Optimisation | Xylora Digital',
+    desc: 'Improve your visibility on Google, attract more local customers and build long-term organic growth with SEO tailored to your business.'
+  },
+  'service-websites': {
+    path: '/services/websites',
+    nav: 'services',
+    title: 'Customer-Winning Websites — Fast, Modern, Conversion-Focused | Xylora Digital',
+    desc: 'Beautiful, fast, conversion-focused websites designed to turn visitors into customers. Mobile responsive, modern and SEO-ready from day one.'
+  },
+  'service-automation': {
+    path: '/services/automation',
+    nav: 'services',
+    title: 'Time Back Automation — Follow-Ups, Bookings & Workflows | Xylora Digital',
+    desc: 'Automate repetitive tasks so you spend less time on admin and more time running your business. Follow-ups, booking workflows, lead management and internal automation.'
+  },
+  'service-custom-software': {
+    path: '/services/custom-software',
+    nav: 'services',
+    title: 'Custom Software & Apps — Portals, Systems & Mobile | Xylora Digital',
+    desc: 'We design and build custom software, client portals, internal systems and mobile applications tailored to how your business actually works.'
+  },
+  'portfolio': {
+    path: '/portfolio',
+    nav: 'portfolio',
+    title: 'Portfolio — Work That Drives Results | Xylora Digital',
+    desc: 'Concept redesigns and sample work showcasing the websites and systems we build for small businesses.'
+  },
+  'about': {
+    path: '/about',
+    nav: 'about',
+    title: 'About — Founder-Led Digital Growth | Xylora Digital',
+    desc: 'Xylora Digital is founder-led. You work directly with the person building your website, AI and automation — no account managers, no hand-offs.'
+  },
+  'contact': {
+    path: '/contact',
+    nav: 'contact',
+    title: 'Contact — Let’s Talk About Your Business | Xylora Digital',
+    desc: 'Get in touch with Xylora Digital, or book a free Discovery Call to discuss your goals and where technology can help.'
+  },
+  'audit': {
+    path: '/website-review',
+    nav: null,
+    title: 'Free Website Review — See Where Customers Slip Through | Xylora Digital',
+    desc: 'A thorough, no-obligation review of your website and online presence, showing exactly where enquiries are being lost.'
+  }
+};
+
 // Pages that start with a dark hero (nav logo needs to be white)
 const darkHeroPages = ['about', 'audit'];
 
+// path → key lookup, built once from ROUTES so the two can never drift apart
+const PATH_TO_KEY = Object.keys(ROUTES).reduce((map, key) => {
+  map[ROUTES[key].path] = key;
+  return map;
+}, {});
+
+const SITE_ORIGIN = window.location.origin;
+
 function setNavTheme(page) {
   const nav = document.getElementById('mainNav');
-  if (darkHeroPages.includes(page)) {
-    nav.classList.add('dark-hero');
-  } else {
-    nav.classList.remove('dark-hero');
-  }
+  nav.classList.toggle('dark-hero', darkHeroPages.includes(page));
 }
 
-function navigate(page) {
+// Normalise a pathname to the canonical form used as a ROUTES key
+function keyFromPath(pathname) {
+  let p = (pathname || '/').replace(/\/index\.html$/i, '/');
+  if (p.length > 1) p = p.replace(/\/+$/, '');   // strip trailing slash, keep bare "/"
+  if (p === '') p = '/';
+  return PATH_TO_KEY[p.toLowerCase()] || null;
+}
+
+function setMeta(route) {
+  document.title = route.title;
+
+  const desc = document.querySelector('meta[name="description"]');
+  if (desc) desc.setAttribute('content', route.desc);
+
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.setAttribute('href', SITE_ORIGIN + route.path);
+
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', route.title);
+
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.setAttribute('content', route.desc);
+
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl) ogUrl.setAttribute('content', SITE_ORIGIN + route.path);
+}
+
+// ─── NAVIGATION ───────────────────────────────
+// `push` is false when we're responding to the browser's own history (back/forward)
+// or restoring the page on first load — otherwise we'd push a duplicate entry.
+function navigate(page, push = true) {
+  const route = ROUTES[page];
+  if (!route) return;
+
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + page);
   if (target) target.classList.add('active');
+
   document.querySelectorAll('[data-page]').forEach(a => {
-    a.classList.toggle('active', a.dataset.page === page);
+    a.classList.toggle('active', a.dataset.page === route.nav);
   });
+
+  if (push && window.location.pathname !== route.path) {
+    history.pushState({ page }, '', route.path);
+  }
+
+  setMeta(route);
   closeMobile();
+  closeServicesMenu();
   window.scrollTo({ top: 0, behavior: 'instant' });
   setNavTheme(page);
   setTimeout(initReveals, 100);
 }
+
+window.addEventListener('popstate', (e) => {
+  const page = (e.state && e.state.page) || keyFromPath(window.location.pathname) || 'home';
+  navigate(page, false);
+});
+
+// Let internal links behave like real links (open in a new tab, copy link address,
+// show their destination in the status bar) while still routing client-side.
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[data-route]');
+  if (!link) return;
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+  e.preventDefault();
+  navigate(link.dataset.route);
+});
 
 // ─── MOBILE NAV ─────────────────────────────────
 function toggleMobile() {
@@ -32,6 +163,41 @@ function toggleMobile() {
 function closeMobile() {
   document.getElementById('mobileNav').classList.remove('open');
 }
+
+// Services submenu inside the mobile drawer
+function toggleMobileServices(btn) {
+  btn.closest('.mobile-nav-group').classList.toggle('open');
+}
+
+// ─── SERVICES DROPDOWN (desktop) ─────────────────
+function syncServicesMenuAria(item) {
+  const caret = item.querySelector('.nav-caret');
+  if (caret) caret.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
+}
+
+function closeServicesMenu() {
+  const item = document.getElementById('navServices');
+  if (!item) return;
+  item.classList.remove('open');
+  syncServicesMenuAria(item);
+}
+
+function toggleServicesMenu(e) {
+  e.stopPropagation();
+  e.preventDefault();
+  const item = document.getElementById('navServices');
+  item.classList.toggle('open');
+  syncServicesMenuAria(item);
+}
+
+document.addEventListener('click', (e) => {
+  const item = document.getElementById('navServices');
+  if (item && !item.contains(e.target)) closeServicesMenu();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { closeServicesMenu(); closeMobile(); }
+});
 
 // ─── SCROLL NAV ─────────────────────────────────
 window.addEventListener('scroll', () => {
@@ -58,7 +224,9 @@ function initReveals() {
 // ─── FAQ ─────────────────────────────────
 function toggleFaq(item) {
   const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  // Only collapse siblings within the same list, so separate FAQ blocks don't fight
+  const list = item.closest('.faq-list') || document;
+  list.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
 }
 
@@ -78,9 +246,25 @@ function showNotification(msg) {
 
 // ─── INIT ─────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  navigate('home');
+  // GitHub Pages can't rewrite deep paths, so 404.html bounces them here as
+  // "/?/services/seo". Put the real path back before we resolve the route.
+  if (window.location.search.charAt(1) === '/') {
+    const restored = window.location.search.slice(1).replace(/~and~/g, '&');
+    history.replaceState(null, '', restored + window.location.hash);
+  }
+
+  const page = keyFromPath(window.location.pathname) || 'home';
+  navigate(page, false);
+
+  // Unknown deep link — land on home with a clean URL rather than a blank page
+  if (!keyFromPath(window.location.pathname)) {
+    history.replaceState({ page: 'home' }, '', '/');
+  } else {
+    history.replaceState({ page }, '', ROUTES[page].path);
+  }
+
   setTimeout(() => {
-    document.querySelectorAll('#page-home .reveal').forEach(el => {
+    document.querySelectorAll('.page.active .reveal').forEach(el => {
       if (!el.classList.contains('visible')) {
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight) el.classList.add('visible');

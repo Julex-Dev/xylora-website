@@ -3,8 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xylora — Never Miss Another Customer | Websites, AI & Automation for Australian Small Business</title>
-<meta name="description" content="Xylora helps Australian local businesses stop losing customers. We build the website, AI, and automation that answer every enquiry, follow up instantly, and win back your time. Book a free Discovery Call.">
+<title>Xylora — Helping Local Businesses Grow with AI, Websites & Automation</title>
+<meta name="description" content="Xylora Digital helps Australian local businesses attract more customers and save time with AI lead capture, websites, SEO, automation and custom software. Book a free Discovery Call.">
+<link rel="canonical" href="https://xyloradigital.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Xylora Digital">
+<meta property="og:title" content="Xylora — Helping Local Businesses Grow with AI, Websites & Automation">
+<meta property="og:description" content="Xylora Digital helps Australian local businesses attract more customers and save time with AI lead capture, websites, SEO, automation and custom software.">
+<meta property="og:url" content="https://xyloradigital.com/">
 <meta name="color-scheme" content="light">
 <meta name="supported-color-schemes" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,15 +23,44 @@
 
 <!-- ═══════════════════════════ NAVIGATION ═══════════════════════════ -->
 <nav id="mainNav">
-  <div class="nav-logo" onclick="navigate('home')">
+  <a class="nav-logo" href="/" data-route="home">
     <span>Xylora</span><span class="nav-logo-dot"></span>
-  </div>
+  </a>
   <ul class="nav-links">
-    <li><a onclick="navigate('home')" data-page="home">Home</a></li>
-    <li><a onclick="navigate('services')" data-page="services">Services</a></li>
-    <li><a onclick="navigate('portfolio')" data-page="portfolio">Portfolio</a></li>
-    <li><a onclick="navigate('about')" data-page="about">About</a></li>
-    <li><a onclick="navigate('contact')" data-page="contact">Contact</a></li>
+    <li><a href="/" data-route="home" data-page="home">Home</a></li>
+    <li class="nav-item-has-menu" id="navServices">
+      <span class="nav-menu-head">
+        <a href="/services" data-route="services" data-page="services" class="nav-menu-trigger">Services</a>
+        <button class="nav-caret" onclick="toggleServicesMenu(event)" aria-label="Show services menu" aria-haspopup="true" aria-expanded="false">▾</button>
+      </span>
+      <div class="nav-menu">
+        <a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">
+          <span class="nav-menu-icon">📞</span>
+          <span><strong>Never Miss a Lead</strong><em>AI missed call recovery</em></span>
+          <span class="nav-menu-flag">Flagship</span>
+        </a>
+        <a href="/services/seo" data-route="service-seo">
+          <span class="nav-menu-icon">📈</span>
+          <span><strong>SEO</strong><em>Get found on Google</em></span>
+        </a>
+        <a href="/services/websites" data-route="service-websites">
+          <span class="nav-menu-icon">🌐</span>
+          <span><strong>Customer-Winning Websites</strong><em>Built to convert</em></span>
+        </a>
+        <a href="/services/automation" data-route="service-automation">
+          <span class="nav-menu-icon">⚡</span>
+          <span><strong>Time Back Automation</strong><em>Less admin, more business</em></span>
+        </a>
+        <a href="/services/custom-software" data-route="service-custom-software">
+          <span class="nav-menu-icon">💻</span>
+          <span><strong>Custom Software &amp; Apps</strong><em>Built around your business</em></span>
+        </a>
+        <a href="/services" data-route="services" class="nav-menu-all">View all services →</a>
+      </div>
+    </li>
+    <li><a href="/portfolio" data-route="portfolio" data-page="portfolio">Portfolio</a></li>
+    <li><a href="/about" data-route="about" data-page="about">About</a></li>
+    <li><a href="/contact" data-route="contact" data-page="contact">Contact</a></li>
     <li><a href="https://calendar.app.google/oaUif22okaWAZrWB7" target="_blank" rel="noopener" class="nav-cta">Book a Call</a></li>
   </ul>
   <button class="nav-hamburger" onclick="toggleMobile()" aria-label="Toggle menu">
@@ -34,11 +69,21 @@
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
-  <a onclick="navigate('home')">Home</a>
-  <a onclick="navigate('services')">Services</a>
-  <a onclick="navigate('portfolio')">Portfolio</a>
-  <a onclick="navigate('about')">About</a>
-  <a onclick="navigate('contact')">Contact</a>
+  <a href="/" data-route="home">Home</a>
+  <div class="mobile-nav-group">
+    <button class="mobile-nav-group-toggle" onclick="toggleMobileServices(this)">Services <span class="mobile-nav-caret">▾</span></button>
+    <div class="mobile-nav-sub">
+      <a href="/services" data-route="services">All Services</a>
+      <a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead</a>
+      <a href="/services/seo" data-route="service-seo">SEO</a>
+      <a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a>
+      <a href="/services/automation" data-route="service-automation">Time Back Automation</a>
+      <a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a>
+    </div>
+  </div>
+  <a href="/portfolio" data-route="portfolio">Portfolio</a>
+  <a href="/about" data-route="about">About</a>
+  <a href="/contact" data-route="contact">Contact</a>
   <a href="https://calendar.app.google/oaUif22okaWAZrWB7" target="_blank" rel="noopener" class="mobile-nav-cta">Book a Call</a>
 </div>
 
@@ -373,10 +418,11 @@
         <div class="footer-col">
           <h4>Services</h4>
           <ul class="footer-links">
-            <li><a onclick="navigate('services')">Never-Miss-A-Lead System</a></li>
-            <li><a onclick="navigate('services')">Customer-Winning Websites</a></li>
-            <li><a onclick="navigate('services')">Time-Back Automation</a></li>
-            <li><a onclick="navigate('services')">Custom Software</a></li>
+            <li><a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead</a></li>
+            <li><a href="/services/seo" data-route="service-seo">SEO</a></li>
+            <li><a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a></li>
+            <li><a href="/services/automation" data-route="service-automation">Time Back Automation</a></li>
+            <li><a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -405,220 +451,540 @@
   </footer>
 </div>
 
-<!-- ═══════════════════════════ SERVICES PAGE ═══════════════════════════ -->
+<!-- ═══════════════════════════ SERVICES OVERVIEW PAGE ═══════════════════════════ -->
 <div id="page-services" class="page">
   <section class="page-hero" style="padding-top:8rem;">
     <div class="container">
       <span class="eyebrow">Services</span>
-      <h1 class="display-lg" style="margin-top:0.75rem;">Stop losing customers. Win back your time.</h1>
-      <p>Four ways we help — starting with the system that makes sure no enquiry ever slips through. Clear pricing, no lock-in, founder-led.</p>
+      <h1 class="display-lg" style="margin-top:0.75rem;">Helping Local Businesses Grow with AI, Websites &amp; Automation</h1>
+      <p>From AI-powered lead capture to high-performing websites, SEO, automation and custom software, Xylora Digital helps businesses attract more customers while saving time.</p>
     </div>
   </section>
+
   <section class="section">
     <div class="container">
+      <div class="svc-grid">
 
-      <!-- Never-Miss-A-Lead System (FLAGSHIP) -->
-      <div class="service-detail-card reveal" style="border:2px solid var(--c-accent);">
-        <div style="display:inline-block; font-size:0.7rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--c-accent); background:var(--c-accent-light); padding:0.35rem 0.7rem; border-radius:999px; margin-bottom:1rem;">★ Our flagship</div>
-        <div class="service-detail-header">
-          <div class="service-detail-icon">📞</div>
-          <div>
-            <div class="service-detail-title">The Never-Miss-A-Lead System</div>
-            <div class="service-detail-subtitle">Capture and follow up every enquiry — automatically, 24/7</div>
+        <!-- 1. Never Miss a Lead (FLAGSHIP) -->
+        <div class="card svc-card svc-card-flagship reveal">
+          <div class="svc-card-flag">★ Our flagship</div>
+          <div class="svc-card-main">
+            <div class="service-card-icon">📞</div>
+            <div class="svc-card-body">
+              <h2 class="service-card-title">Never Miss a Lead</h2>
+              <p class="service-card-body">AI-powered missed call recovery that automatically texts customers back, answers common questions, captures leads, qualifies enquiries, and notifies the business owner when action is required.</p>
+              <div class="svc-card-tags">
+                <span class="badge badge-accent">Missed-call text-back</span>
+                <span class="badge badge-surface">AI question answering</span>
+                <span class="badge badge-surface">Lead qualification</span>
+                <span class="badge badge-surface">Owner alerts</span>
+              </div>
+              <a class="btn btn-primary svc-card-cta" href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Learn More →</a>
+            </div>
           </div>
         </div>
-        <div class="service-detail-grid">
-          <div class="service-detail-block">
-            <h4>The Problem</h4>
-            <ul>
-              <li>Calls go to voicemail while you're on the job</li>
-              <li>After-hours enquiries never get a reply</li>
-              <li>Leads go cold before you get a chance to follow up</li>
-              <li>The fastest business to respond wins — and it isn't always you</li>
-            </ul>
+
+        <!-- 2. SEO -->
+        <div class="card svc-card reveal reveal-delay-1">
+          <div class="service-card-icon">📈</div>
+          <h2 class="service-card-title">SEO</h2>
+          <p class="service-card-body">Improve your visibility on Google, attract more local customers, and build long-term organic growth with professional search engine optimisation.</p>
+          <div class="svc-card-tags">
+            <span class="badge badge-surface">Local SEO</span>
+            <span class="badge badge-surface">Technical SEO</span>
+            <span class="badge badge-surface">AI Search Optimisation</span>
           </div>
-          <div class="service-detail-block">
-            <h4>What we do</h4>
-            <ul>
-              <li>AI receptionist that answers calls, chats &amp; messages 24/7</li>
-              <li>Instant missed-call text-back so no caller is lost</li>
-              <li>Automatic follow-up until the lead books or replies</li>
-              <li>Online booking, reminders and owner notifications</li>
-              <li>Trained on your business, your services, your tone</li>
-            </ul>
-          </div>
-          <div class="service-detail-block">
-            <h4>What you get</h4>
-            <ul>
-              <li>Every enquiry answered — day, night and weekends</li>
-              <li>More booked jobs from the leads you already get</li>
-              <li>A simple dashboard of every captured lead</li>
-              <li>Hours of phone-tag and admin off your plate</li>
-              <li>Ongoing tuning as your business grows</li>
-            </ul>
-          </div>
+          <a class="btn btn-ghost svc-card-cta" href="/services/seo" data-route="service-seo">Learn More →</a>
         </div>
-        <div style="margin-top:1.75rem; padding-top:1.75rem; border-top:1px solid var(--c-ink-10); display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-          <button class="btn btn-primary" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Discovery Call →</button>
-          <button class="btn btn-ghost" onclick="navigate('contact')">Enquire about this service</button>
-          <span class="badge badge-accent">Setup + monthly plan · pricing to confirm</span>
+
+        <!-- 3. Customer-Winning Websites -->
+        <div class="card svc-card reveal reveal-delay-2">
+          <div class="service-card-icon">🌐</div>
+          <h2 class="service-card-title">Customer-Winning Websites</h2>
+          <p class="service-card-body">Beautiful, fast, conversion-focused websites designed to turn visitors into customers. Mobile responsive, modern and SEO-ready from day one — and built around the actions you actually want visitors to take.</p>
+          <div class="svc-card-tags">
+            <span class="badge badge-surface">Mobile responsive</span>
+            <span class="badge badge-surface">Fast</span>
+            <span class="badge badge-surface">SEO-ready</span>
+          </div>
+          <a class="btn btn-ghost svc-card-cta" href="/services/websites" data-route="service-websites">Learn More →</a>
+        </div>
+
+        <!-- 4. Time Back Automation -->
+        <div class="card svc-card reveal reveal-delay-3">
+          <div class="service-card-icon">⚡</div>
+          <h2 class="service-card-title">Time Back Automation</h2>
+          <p class="service-card-body">Automate repetitive tasks so you spend less time on admin and more time running your business. Follow-ups, booking workflows and lead management run quietly in the background.</p>
+          <div class="svc-card-tags">
+            <span class="badge badge-surface">Follow-ups</span>
+            <span class="badge badge-surface">Booking workflows</span>
+            <span class="badge badge-surface">Lead management</span>
+          </div>
+          <a class="btn btn-ghost svc-card-cta" href="/services/automation" data-route="service-automation">Learn More →</a>
+        </div>
+
+        <!-- 5. Custom Software & Apps -->
+        <div class="card svc-card reveal reveal-delay-4">
+          <div class="service-card-icon">💻</div>
+          <h2 class="service-card-title">Custom Software &amp; Apps</h2>
+          <p class="service-card-body">Need something unique? We design and build custom software, portals and mobile applications tailored to your business — from internal systems to client-facing tools.</p>
+          <div class="svc-card-tags">
+            <span class="badge badge-surface">Internal systems</span>
+            <span class="badge badge-surface">Client portals</span>
+            <span class="badge badge-surface">Mobile apps</span>
+          </div>
+          <a class="btn btn-ghost svc-card-cta" href="/services/custom-software" data-route="service-custom-software">Learn More →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Discovery CTA -->
+  <div class="cta-band">
+    <div class="container">
+      <div class="cta-band-content">
+        <h2 class="display-md reveal">Let's Talk About Your Business</h2>
+        <p class="reveal reveal-delay-1">Book a free Discovery Call and we'll discuss your goals, answer your questions, and show you where we think technology can help.</p>
+        <div class="cta-band-actions reveal reveal-delay-2">
+          <button class="btn btn-accent btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
+          <a class="btn btn-outline-white btn-lg" href="/about" data-route="about">About Xylora</a>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Customer-Winning Website -->
-      <div class="service-detail-card reveal">
-        <div class="service-detail-header">
-          <div class="service-detail-icon">🌐</div>
-          <div>
-            <div class="service-detail-title">Customer-Winning Website</div>
-            <div class="service-detail-subtitle">The front door your whole system lives behind — built to earn trust and capture leads</div>
-          </div>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div>
+          <p>Helping local businesses grow with AI, websites, SEO, automation and custom software.</p>
         </div>
-        <div class="service-detail-grid">
-          <div class="service-detail-block">
-            <h4>The Problem</h4>
-            <ul>
-              <li>Your website looks outdated or unprofessional</li>
-              <li>Visitors leave without contacting you</li>
-              <li>It's not showing up on Google searches</li>
-              <li>It doesn't work well on mobile devices</li>
-            </ul>
-          </div>
-          <div class="service-detail-block">
-            <h4>What we do</h4>
-            <ul>
-              <li>Custom website design built to convert</li>
-              <li>Fast, mobile-first development</li>
-              <li>SEO-friendly structure from day one</li>
-              <li>Clear calls to action on every page</li>
-              <li>Dedicated landing pages for campaigns</li>
-              <li>Monthly maintenance packages available</li>
-            </ul>
-          </div>
-          <div class="service-detail-block">
-            <h4>Every project includes</h4>
-            <ul>
-              <li>Custom website</li>
-              <li>Mobile optimisation</li>
-              <li>Contact forms</li>
-              <li>Basic SEO setup</li>
-              <li>Performance optimisation</li>
-              <li>Launch support</li>
-            </ul>
-          </div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead</a></li><li><a href="/services/seo" data-route="service-seo">SEO</a></li><li><a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a></li><li><a href="/services/automation" data-route="service-automation">Time Back Automation</a></li><li><a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="/" data-route="home">Home</a></li><li><a href="/portfolio" data-route="portfolio">Portfolio</a></li><li><a href="/about" data-route="about">About</a></li><li><a href="/contact" data-route="contact">Contact</a></li><li><a href="/website-review" data-route="audit">Website Review</a></li></ul></div>
+        <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xyloradigital.com">hello@xyloradigital.com</a></p><button class="btn btn-accent btn-sm" style="margin-top:1rem;" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Call →</button></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span><span>AI · Websites · SEO · Automation</span></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════ SERVICE: NEVER MISS A LEAD ═══════════════════════════ -->
+<div id="page-service-never-miss-a-lead" class="page">
+  <section class="page-hero" style="padding-top:8rem;">
+    <div class="container">
+      <a class="svc-breadcrumb" href="/services" data-route="services">← All Services</a>
+      <span class="eyebrow">Never Miss a Lead</span>
+      <h1 class="display-lg" style="margin-top:0.75rem;">Every missed call, answered in seconds.</h1>
+      <p>AI-powered missed call recovery that texts your customers back automatically, answers their questions, captures the lead, and tells you when you need to step in.</p>
+      <div class="svc-hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
+        <a class="btn btn-ghost btn-lg" href="#nmal-how" onclick="document.getElementById('nmal-how').scrollIntoView({behavior:'smooth'});return false;">See how it works ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">The Problem</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">A missed call is usually a lost job</h2>
+        <p class="body-lg text-muted">You can't answer the phone while you're on a roof, under a sink, or with a client. But the customer calling you doesn't wait — they call the next business on the list.</p>
+      </div>
+      <div class="svc-problem-grid">
+        <div class="svc-problem-card reveal"><span class="svc-problem-x">✕</span><div><strong>Calls go to voicemail</strong><p>Most people won't leave one. They just hang up and try someone else.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-1"><span class="svc-problem-x">✕</span><div><strong>After-hours enquiries go unanswered</strong><p>Evenings and weekends are when customers actually have time to call.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-2"><span class="svc-problem-x">✕</span><div><strong>Leads go cold before you follow up</strong><p>By the time you get back to the ute at 5pm, they've already booked someone.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-3"><span class="svc-problem-x">✕</span><div><strong>You have no record of who called</strong><p>No list, no follow-up, no way to know how much work you're losing.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="section" id="nmal-how" style="background:var(--c-surface);">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3.5rem;">
+        <span class="eyebrow">The Solution</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">An AI assistant that picks up where your phone left off</h2>
+        <p class="body-lg text-muted">We set up a system that reacts the instant a call is missed — and keeps working until the enquiry is captured or you take over.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="process-step-num">1</div>
+          <div class="process-step-title">The call is missed</div>
+          <div class="process-step-body">Your phone rings out, goes to voicemail, or you're already on another job. The system notices immediately.</div>
         </div>
-        <div style="margin-top:1.75rem; padding-top:1.75rem; border-top:1px solid var(--c-ink-10); display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-          <button class="btn btn-primary" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Discovery Call →</button>
-          <button class="btn btn-ghost" onclick="navigate('contact')">Enquire about this service</button>
-          <span class="badge badge-accent">From $900</span>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-num">2</div>
+          <div class="process-step-title">They get a text back</div>
+          <div class="process-step-body">Within seconds the caller receives a friendly SMS from your business — apologising for the miss and asking how you can help.</div>
         </div>
-        <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--c-ink-10);">
-          <div style="font-family:var(--font-display); font-weight:700; font-size:1rem; margin-bottom:0.45rem;">Ongoing Support Available</div>
-          <p style="color:var(--c-ink-40); font-size:0.9rem; line-height:1.7; max-width:58ch; margin:0 0 1rem;">Your website doesn't have to stop improving after launch. Xylora offers optional monthly Growth Plans to keep your website secure, updated and continually improving as your business grows.</p>
-          <button class="btn btn-ghost" onclick="document.getElementById('web-growth-plans').scrollIntoView({behavior:'smooth'})">View Growth Plans →</button>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step-num">3</div>
+          <div class="process-step-title">AI answers and qualifies</div>
+          <div class="process-step-body">Trained on your services, pricing approach and service area, it answers common questions and works out what the customer actually needs.</div>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-step-num">4</div>
+          <div class="process-step-title">You get notified</div>
+          <div class="process-step-body">When the enquiry is worth your time — or needs a human — you get an alert with the full conversation and their details already captured.</div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Time-Back Automation -->
-      <div class="service-detail-card reveal">
-        <div class="service-detail-header">
-          <div class="service-detail-icon">⚡</div>
-          <div>
-            <div class="service-detail-title">Time-Back Automation</div>
-            <div class="service-detail-subtitle">Connect your tools, remove the manual busywork, get your week back</div>
-          </div>
+  <!-- Benefits -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">Benefits</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">What changes for your business</h2>
+      </div>
+      <div class="grid-auto">
+        <div class="card reveal"><div class="service-card-icon">⏱️</div><h3 class="service-card-title">Respond in seconds, not hours</h3><p class="service-card-body">The business that replies first usually wins the job. Yours now replies faster than you ever could manually.</p></div>
+        <div class="card reveal reveal-delay-1"><div class="service-card-icon">🌙</div><h3 class="service-card-title">Covered after hours</h3><p class="service-card-body">Nights, weekends and public holidays are handled the same way as a Tuesday morning.</p></div>
+        <div class="card reveal reveal-delay-2"><div class="service-card-icon">📋</div><h3 class="service-card-title">Every enquiry captured</h3><p class="service-card-body">Name, number, and what they wanted — recorded in one place instead of lost in a call log.</p></div>
+        <div class="card reveal reveal-delay-3"><div class="service-card-icon">🎯</div><h3 class="service-card-title">Fewer time-wasters</h3><p class="service-card-body">Enquiries are qualified before they reach you, so you spend your time on the jobs worth quoting.</p></div>
+        <div class="card reveal reveal-delay-4"><div class="service-card-icon">🔔</div><h3 class="service-card-title">You stay in control</h3><p class="service-card-body">You're notified when action is required. The AI handles the routine; you handle the decisions.</p></div>
+        <div class="card reveal reveal-delay-5"><div class="service-card-icon">🧠</div><h3 class="service-card-title">Trained on your business</h3><p class="service-card-body">Your services, your service area, your tone of voice — not a generic chatbot script.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideal For -->
+  <section class="section" style="background:var(--c-surface);">
+    <div class="container">
+      <div class="svc-ideal">
+        <div class="reveal">
+          <span class="eyebrow">Ideal For</span>
+          <h2 class="display-md" style="margin-top:0.75rem;">Businesses that live and die by the phone</h2>
+          <p class="body-lg text-muted">If most of your work starts with a phone call and you can't always answer it, this is the highest-impact thing we can build for you.</p>
         </div>
-        <div class="service-detail-grid">
-          <div class="service-detail-block">
-            <h4>The Problem</h4>
-            <ul>
-              <li>Copying data between tools manually</li>
-              <li>Sending the same emails over and over</li>
-              <li>Admin work filling your evenings</li>
-              <li>Systems that don't talk to each other</li>
-            </ul>
-          </div>
-          <div class="service-detail-block">
-            <h4>What we do</h4>
-            <ul>
-              <li>Map your current workflow and identify bottlenecks</li>
-              <li>Build automated pipelines between your tools</li>
-              <li>Set up smart notification systems</li>
-              <li>Create automated onboarding sequences</li>
-              <li>Connect forms, CRMs, calendars, and invoicing</li>
-            </ul>
-          </div>
-          <div class="service-detail-block">
-            <h4>Deliverables</h4>
-            <ul>
-              <li>Workflow audit and mapping</li>
-              <li>Custom automation builds</li>
-              <li>Tool integrations (Make, Zapier, n8n)</li>
-              <li>Testing and documentation</li>
-              <li>Training session for your team</li>
-            </ul>
-          </div>
-        </div>
-        <div style="margin-top:1.75rem; padding-top:1.75rem; border-top:1px solid var(--c-ink-10); display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-          <button class="btn btn-primary" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Discovery Call →</button>
-          <button class="btn btn-ghost" onclick="navigate('contact')">Enquire about this service</button>
-          <span class="badge badge-accent">From $500</span>
+        <div class="svc-ideal-list reveal reveal-delay-1">
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Trades — plumbers, electricians, builders, landscapers</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Mobile and on-site services who can't stop to answer</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Clinics, salons and studios with a busy front desk</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Solo operators with no receptionist</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Any business getting enquiries outside business hours</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Owners who suspect they're losing work but can't prove it</div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Custom software -->
-      <div class="service-detail-card reveal">
-        <div class="service-detail-header">
-          <div class="service-detail-icon">💻</div>
-          <div>
-            <div class="service-detail-title">Custom Software & Web Applications</div>
-            <div class="service-detail-subtitle">Bespoke solutions for problems off-the-shelf tools can't solve</div>
-          </div>
-        </div>
-        <div class="service-detail-grid">
-          <div class="service-detail-block">
-            <h4>The Problem</h4>
-            <ul>
-              <li>Your business has unique processes that no tool supports</li>
-              <li>You're stitching together too many apps</li>
-              <li>Staff are doing work that should be automated</li>
-              <li>You've outgrown generic software</li>
-            </ul>
-          </div>
-          <div class="service-detail-block">
-            <h4>What we do</h4>
-            <ul>
-              <li>Scope and architect a custom solution</li>
-              <li>Build robust, scalable web applications</li>
-              <li>Develop custom internal dashboards and portals</li>
-              <li>Create client-facing booking or quoting tools</li>
-              <li>Integrate with your existing systems via API</li>
-            </ul>
-          </div>
-          <div class="service-detail-block">
-            <h4>Deliverables</h4>
-            <ul>
-              <li>Technical scope and architecture plan</li>
-              <li>Fully functional custom application</li>
-              <li>Deployment and hosting setup</li>
-              <li>Admin documentation and training</li>
-              <li>Ongoing development retainer (optional)</li>
-            </ul>
-          </div>
-        </div>
-        <div style="margin-top:1.75rem; padding-top:1.75rem; border-top:1px solid var(--c-ink-10); display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-          <button class="btn btn-primary" onclick="navigate('contact')">Discuss your project →</button>
-          <span class="badge badge-surface">Custom Pricing</span>
+  <!-- FAQ -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">Never Miss a Lead — questions</h2>
+      </div>
+      <div class="faq-list" style="max-width:760px; margin:0 auto;">
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I need to change my phone number? <div class="faq-icon">+</div></div><div class="faq-a">No. The system works alongside your existing number, so your business cards, signage and Google listing all stay exactly as they are.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Will customers know they're talking to AI? <div class="faq-icon">+</div></div><div class="faq-a">We're upfront about it — the messages come from your business and are written in your tone, and we never pretend a bot is a person. In practice customers care far more that someone replied quickly than about who typed it.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What happens if the AI can't answer something? <div class="faq-icon">+</div></div><div class="faq-a">It hands over. The system is set up with clear limits — anything outside them triggers a notification to you with the full conversation, so you can jump in and reply yourself.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can it quote prices? <div class="faq-icon">+</div></div><div class="faq-a">That's your call. Some businesses want indicative pricing given out; others want every quote to come from them personally. We configure it either way during setup.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How long does setup take? <div class="faq-icon">+</div></div><div class="faq-a">Most setups are live within a couple of weeks. The bulk of that is training the assistant on your services and testing it properly before it ever talks to a real customer.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What does it cost? <div class="faq-icon">+</div></div><div class="faq-a">There's a one-off setup fee plus a monthly plan that covers messaging, hosting and ongoing tuning. The exact figure depends on your call volume and how much you want the assistant to handle, so we confirm it after the Discovery Call — always fixed and agreed upfront.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I turn it off or take over a conversation? <div class="faq-icon">+</div></div><div class="faq-a">Yes. You can step into any conversation at any time, and the whole system can be paused if you're on leave or fully booked.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I need a website for this to work? <div class="faq-icon">+</div></div><div class="faq-a">No — it works from your phone number alone. It does work better alongside a good website, because more of the enquiries it captures will already be warm, but a website isn't a requirement.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="container">
+      <div class="cta-band-content">
+        <h2 class="display-md reveal">Let's Talk About Your Business</h2>
+        <p class="reveal reveal-delay-1">Book a free Discovery Call and we'll discuss your goals, answer your questions, and show you where we think technology can help.</p>
+        <div class="cta-band-actions reveal reveal-delay-2">
+          <button class="btn btn-accent btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
+          <a class="btn btn-outline-white btn-lg" href="/services" data-route="services">View All Services</a>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Web Design Growth Plans -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div>
+          <p>Helping local businesses grow with AI, websites, SEO, automation and custom software.</p>
+        </div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead</a></li><li><a href="/services/seo" data-route="service-seo">SEO</a></li><li><a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a></li><li><a href="/services/automation" data-route="service-automation">Time Back Automation</a></li><li><a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="/" data-route="home">Home</a></li><li><a href="/portfolio" data-route="portfolio">Portfolio</a></li><li><a href="/about" data-route="about">About</a></li><li><a href="/contact" data-route="contact">Contact</a></li><li><a href="/website-review" data-route="audit">Website Review</a></li></ul></div>
+        <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xyloradigital.com">hello@xyloradigital.com</a></p><button class="btn btn-accent btn-sm" style="margin-top:1rem;" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Call →</button></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span><span>AI · Websites · SEO · Automation</span></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════ SERVICE: SEO ═══════════════════════════ -->
+<div id="page-service-seo" class="page">
+  <section class="page-hero" style="padding-top:8rem;">
+    <div class="container">
+      <a class="svc-breadcrumb" href="/services" data-route="services">← All Services</a>
+      <span class="eyebrow">SEO</span>
+      <h1 class="display-lg" style="margin-top:0.75rem;">Get found by the customers already looking for you.</h1>
+      <p>Improve your visibility on Google, attract more local customers, and build long-term organic growth with search engine optimisation tailored to your business.</p>
+      <div class="svc-hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
+        <a class="btn btn-ghost btn-lg" href="#seo-how" onclick="document.getElementById('seo-how').scrollIntoView({behavior:'smooth'});return false;">What's involved ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">The Problem</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">Being good at what you do isn't enough if nobody can find you</h2>
+        <p class="body-lg text-muted">When someone searches for your service in your area, you're either on that first screen or you may as well not exist. Most small business websites simply aren't built to show up.</p>
+      </div>
+      <div class="svc-problem-grid">
+        <div class="svc-problem-card reveal"><span class="svc-problem-x">✕</span><div><strong>Competitors outrank you</strong><p>Often businesses no better than yours — they've just done the groundwork online.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-1"><span class="svc-problem-x">✕</span><div><strong>Your Google Business Profile is thin</strong><p>Incomplete or unmanaged listings lose out on map and local pack visibility.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-2"><span class="svc-problem-x">✕</span><div><strong>Technical issues hold the site back</strong><p>Slow pages, broken structure and missing basics quietly cap what you can rank for.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-3"><span class="svc-problem-x">✕</span><div><strong>You're paying for every click</strong><p>Ads stop the moment you stop paying. Organic visibility keeps working.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="section" id="seo-how" style="background:var(--c-surface);">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">The Solution</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">SEO built around your business, not a template</h2>
+        <p class="body-lg text-muted">Every business competes in a different market, in a different area, against different competitors. We build the strategy around yours — there is no fixed package that gets applied to everyone.</p>
+      </div>
+
+      <div class="svc-note reveal">
+        <strong>How we work</strong>
+        <p>We start by understanding your market and where you currently stand, then agree on what to focus on first. SEO is a long-term investment: progress is gradual, and we'd rather set honest expectations than promise you a position on Google that nobody can guarantee.</p>
+      </div>
+
+      <div class="grid-auto" style="margin-top:2.5rem;">
+        <div class="card reveal"><div class="service-card-icon">📍</div><h3 class="service-card-title">Local SEO</h3><p class="service-card-body">Helping you appear for searches in the areas you actually service, so the people nearby find you first.</p></div>
+        <div class="card reveal reveal-delay-1"><div class="service-card-icon">🔧</div><h3 class="service-card-title">Technical SEO</h3><p class="service-card-body">Making sure your website is fast, crawlable and structured in a way search engines can properly understand.</p></div>
+        <div class="card reveal reveal-delay-2"><div class="service-card-icon">🤖</div><h3 class="service-card-title">AI Search Optimisation</h3><p class="service-card-body">More people now start with an AI assistant instead of a search box. We work on how your business is represented there too.</p></div>
+        <div class="card reveal reveal-delay-3"><div class="service-card-icon">🗺️</div><h3 class="service-card-title">Google Business Profile</h3><p class="service-card-body">Setting up and maintaining the listing that drives map results, reviews and calls straight from search.</p></div>
+        <div class="card reveal reveal-delay-4"><div class="service-card-icon">🔁</div><h3 class="service-card-title">Ongoing optimisation</h3><p class="service-card-body">Search doesn't stand still. We keep reviewing, refining and improving rather than treating SEO as a one-off job.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">Benefits</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">Why it's worth the patience</h2>
+      </div>
+      <div class="grid-auto">
+        <div class="card reveal"><div class="service-card-icon">🌱</div><h3 class="service-card-title">Compounding, not rented</h3><p class="service-card-body">Unlike ads, the work you do this quarter keeps paying off next year.</p></div>
+        <div class="card reveal reveal-delay-1"><div class="service-card-icon">🎯</div><h3 class="service-card-title">Intent-driven enquiries</h3><p class="service-card-body">Someone searching for your service in your suburb is already close to buying.</p></div>
+        <div class="card reveal reveal-delay-2"><div class="service-card-icon">📞</div><h3 class="service-card-title">More calls from maps</h3><p class="service-card-body">A well-managed Google Business Profile often drives more direct calls than the website itself.</p></div>
+        <div class="card reveal reveal-delay-3"><div class="service-card-icon">⚡</div><h3 class="service-card-title">A faster, healthier website</h3><p class="service-card-body">Technical SEO work improves the experience for real visitors, not just crawlers.</p></div>
+        <div class="card reveal reveal-delay-4"><div class="service-card-icon">📊</div><h3 class="service-card-title">Clear reporting</h3><p class="service-card-body">You'll know what was done, what moved, and what we're focusing on next — in plain English.</p></div>
+        <div class="card reveal reveal-delay-5"><div class="service-card-icon">🛡️</div><h3 class="service-card-title">No risky shortcuts</h3><p class="service-card-body">No bought links, no keyword stuffing, nothing that puts your site at risk down the track.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideal For -->
+  <section class="section" style="background:var(--c-surface);">
+    <div class="container">
+      <div class="svc-ideal">
+        <div class="reveal">
+          <span class="eyebrow">Ideal For</span>
+          <h2 class="display-md" style="margin-top:0.75rem;">Businesses playing the long game</h2>
+          <p class="body-lg text-muted">SEO rewards consistency. It suits businesses that want a steady flow of enquiries built up over time, rather than a spike this week.</p>
+        </div>
+        <div class="svc-ideal-list reveal reveal-delay-1">
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Local service businesses competing in a defined area</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Businesses relying too heavily on paid ads</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Anyone with a website that gets almost no traffic</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Clinics, trades and studios that live on local search</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Businesses expanding into new suburbs or regions</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Owners who want honest reporting, not vanity metrics</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">SEO — questions</h2>
+      </div>
+      <div class="faq-list" style="max-width:760px; margin:0 auto;">
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can you guarantee I'll rank number one on Google? <div class="faq-icon">+</div></div><div class="faq-a">No, and you should be cautious of anyone who does. Nobody controls Google's rankings. What we can do is the work that genuinely improves your visibility, and report honestly on how it's tracking.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How long before I see results? <div class="faq-icon">+</div></div><div class="faq-a">SEO is gradual. Some technical and Google Business Profile improvements can show up relatively quickly, while competitive search terms take months of consistent work. We'll be straight with you about what's realistic in your market.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Is SEO the same for every business? <div class="faq-icon">+</div></div><div class="faq-a">Not at all. Strategies are tailored to each business — your industry, your service area, your competition and your current starting point all change what we prioritise.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What does SEO cost? <div class="faq-icon">+</div></div><div class="faq-a">It depends entirely on your market and how competitive it is, so we don't publish set prices. We'll scope it properly after the Discovery Call and give you a clear figure before any work starts.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What is AI Search Optimisation? <div class="faq-icon">+</div></div><div class="faq-a">A growing share of people now ask an AI assistant for recommendations instead of scrolling search results. That means making sure your business information is accurate, consistent and clearly structured wherever those tools look for it.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I need a new website to do SEO? <div class="faq-icon">+</div></div><div class="faq-a">Usually not. We'll assess what you have first. If the existing site has fundamental problems that would cap results, we'll tell you honestly rather than charging you for SEO on a foundation that can't support it.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I have to sign a long contract? <div class="faq-icon">+</div></div><div class="faq-a">No lock-in contracts. SEO does need consistency to work, so we'll be upfront that stopping after a month won't achieve much — but you're never trapped.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What will you actually report on? <div class="faq-icon">+</div></div><div class="faq-a">The things that matter to your business: visibility for the searches you care about, traffic, and the enquiries and calls coming through. Not a wall of numbers designed to look impressive.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="container">
+      <div class="cta-band-content">
+        <h2 class="display-md reveal">Let's Talk About Your Business</h2>
+        <p class="reveal reveal-delay-1">Book a free Discovery Call and we'll discuss your goals, answer your questions, and show you where we think technology can help.</p>
+        <div class="cta-band-actions reveal reveal-delay-2">
+          <button class="btn btn-accent btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
+          <a class="btn btn-outline-white btn-lg" href="/services" data-route="services">View All Services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div>
+          <p>Helping local businesses grow with AI, websites, SEO, automation and custom software.</p>
+        </div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead</a></li><li><a href="/services/seo" data-route="service-seo">SEO</a></li><li><a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a></li><li><a href="/services/automation" data-route="service-automation">Time Back Automation</a></li><li><a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="/" data-route="home">Home</a></li><li><a href="/portfolio" data-route="portfolio">Portfolio</a></li><li><a href="/about" data-route="about">About</a></li><li><a href="/contact" data-route="contact">Contact</a></li><li><a href="/website-review" data-route="audit">Website Review</a></li></ul></div>
+        <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xyloradigital.com">hello@xyloradigital.com</a></p><button class="btn btn-accent btn-sm" style="margin-top:1rem;" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Call →</button></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span><span>AI · Websites · SEO · Automation</span></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════ SERVICE: WEBSITES ═══════════════════════════ -->
+<div id="page-service-websites" class="page">
+  <section class="page-hero" style="padding-top:8rem;">
+    <div class="container">
+      <a class="svc-breadcrumb" href="/services" data-route="services">← All Services</a>
+      <span class="eyebrow">Customer-Winning Websites</span>
+      <h1 class="display-lg" style="margin-top:0.75rem;">A website that wins customers, not just compliments.</h1>
+      <p>Beautiful, fast, conversion-focused websites designed to turn visitors into customers — mobile responsive, modern and SEO-ready from day one.</p>
+      <div class="svc-hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
+        <a class="btn btn-ghost btn-lg" href="/portfolio" data-route="portfolio">See our work →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">The Problem</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">Most small business websites are brochures, not salespeople</h2>
+        <p class="body-lg text-muted">They describe the business, sit there looking tidy, and never actually ask anyone to get in touch. Visitors arrive, have a quick look, and leave without doing anything.</p>
+      </div>
+      <div class="svc-problem-grid">
+        <div class="svc-problem-card reveal"><span class="svc-problem-x">✕</span><div><strong>It looks dated</strong><p>An old-looking website makes people quietly question whether you're still any good.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-1"><span class="svc-problem-x">✕</span><div><strong>It's slow or awkward on a phone</strong><p>Most of your visitors are on mobile. If it's fiddly, they're gone in seconds.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-2"><span class="svc-problem-x">✕</span><div><strong>There's no clear next step</strong><p>People land, read a bit, and then have no obvious reason to call or book.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-3"><span class="svc-problem-x">✕</span><div><strong>It was never built to be found</strong><p>Poor structure and missing basics leave it invisible in search from day one.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="section" style="background:var(--c-surface);">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3.5rem;">
+        <span class="eyebrow">The Solution</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">Designed around one job: getting the enquiry</h2>
+        <p class="body-lg text-muted">We start from what you want visitors to do, then design backwards from there — so every page has a purpose and a next step.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="process-step-num">1</div>
+          <div class="process-step-title">Understand the customer</div>
+          <div class="process-step-body">Who's landing on your site, what they're worried about, and what would make them pick up the phone.</div>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-num">2</div>
+          <div class="process-step-title">Structure and design</div>
+          <div class="process-step-body">A clear layout that builds trust quickly, in your branding, on desktop and mobile alike.</div>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step-num">3</div>
+          <div class="process-step-title">Build fast and SEO-ready</div>
+          <div class="process-step-body">Clean, quick-loading pages with proper structure so search engines can read them from launch.</div>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-step-num">4</div>
+          <div class="process-step-title">Launch and support</div>
+          <div class="process-step-body">We handle going live, then stay available — with optional Growth Plans to keep improving it.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">Benefits</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">What you end up with</h2>
+      </div>
+      <div class="grid-auto">
+        <div class="card reveal"><div class="service-card-icon">📱</div><h3 class="service-card-title">Mobile responsive</h3><p class="service-card-body">Built mobile-first, because that's where the majority of your visitors already are.</p></div>
+        <div class="card reveal reveal-delay-1"><div class="service-card-icon">⚡</div><h3 class="service-card-title">Fast</h3><p class="service-card-body">Quick-loading pages that don't lose people before your site has even appeared.</p></div>
+        <div class="card reveal reveal-delay-2"><div class="service-card-icon">✨</div><h3 class="service-card-title">Modern</h3><p class="service-card-body">A current, professional look that makes your business feel established and safe to call.</p></div>
+        <div class="card reveal reveal-delay-3"><div class="service-card-icon">🔍</div><h3 class="service-card-title">SEO-ready</h3><p class="service-card-body">Proper structure, headings and metadata in place from launch, ready to build on.</p></div>
+        <div class="card reveal reveal-delay-4"><div class="service-card-icon">🎯</div><h3 class="service-card-title">Designed around conversions</h3><p class="service-card-body">Clear calls to action on every page, so the next step is never a mystery.</p></div>
+        <div class="card reveal reveal-delay-5"><div class="service-card-icon">🔑</div><h3 class="service-card-title">Yours to own</h3><p class="service-card-body">Once it's paid for, the site is yours. No lock-in on the website itself.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideal For -->
+  <section class="section" style="background:var(--c-surface);">
+    <div class="container">
+      <div class="svc-ideal">
+        <div class="reveal">
+          <span class="eyebrow">Ideal For</span>
+          <h2 class="display-md" style="margin-top:0.75rem;">Businesses whose website is letting them down</h2>
+          <p class="body-lg text-muted">If your website isn't producing enquiries, it isn't doing its job — no matter how nice it looks.</p>
+        </div>
+        <div class="svc-ideal-list reveal reveal-delay-1">
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Businesses still running a site built years ago</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>New businesses that need a proper first website</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Anyone getting traffic but almost no enquiries</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Trades and local services needing to look credible fast</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Businesses about to invest in SEO or ads</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Owners who want one point of contact, not an agency queue</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Investment + Growth Plans -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">Investment</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">Fixed pricing, agreed before we start</h2>
+        <p class="body-lg text-muted">Websites start from $900 for a simple site, with most small-business builds landing between $900 and $3,000 depending on pages and integrations. You'll always have the total in writing upfront.</p>
+      </div>
+
       <div id="web-growth-plans" class="service-detail-card reveal">
-        <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--c-ink-40); margin-bottom:0.6rem;">Website Design &amp; Development</div>
+        <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--c-ink-40); margin-bottom:0.6rem;">Optional ongoing support</div>
         <h3 style="font-family:var(--font-display); font-weight:800; font-size:1.5rem; margin:0 0 0.4rem;">Growth Plans</h3>
         <p style="color:var(--c-ink-40); font-size:0.95rem; line-height:1.7; margin:0 0 1.75rem;">Your website should keep growing long after launch.</p>
         <div style="display:flex; flex-wrap:wrap; gap:1.5rem; margin-bottom:1.75rem;">
-          <!-- Growth -->
           <div style="flex:1 1 280px; border:1px solid var(--c-ink-10); border-radius:var(--radius-lg); padding:1.75rem;">
             <div style="font-family:var(--font-display); font-weight:800; font-size:1.05rem; margin-bottom:0.35rem;">Growth</div>
             <div style="font-family:var(--font-display); font-weight:800; font-size:1.75rem; color:var(--c-accent); margin-bottom:1.25rem;">$29<span style="font-size:0.9rem; font-weight:500; color:var(--c-ink-40);">/month</span></div>
@@ -633,7 +999,6 @@
             </ul>
             <div style="font-size:0.82rem; color:var(--c-ink-40); padding-top:1rem; border-top:1px solid var(--c-ink-10);"><strong style="color:var(--c-ink-60);">Best for:</strong> Businesses that simply want their website looked after.</div>
           </div>
-          <!-- Growth Plus -->
           <div style="flex:1 1 280px; border:2px solid var(--c-accent); border-radius:var(--radius-lg); padding:1.75rem;">
             <div style="font-family:var(--font-display); font-weight:800; font-size:1.05rem; margin-bottom:0.35rem;">Growth Plus</div>
             <div style="font-family:var(--font-display); font-weight:800; font-size:1.75rem; color:var(--c-accent); margin-bottom:0.75rem;">$59<span style="font-size:0.9rem; font-weight:500; color:var(--c-ink-40);">/month</span></div>
@@ -655,22 +1020,40 @@
           <p style="color:var(--c-ink-40); font-size:0.875rem; line-height:1.7; margin:0;">New pages, major redesigns, booking systems and other larger improvements are quoted separately before any work begins.</p>
         </div>
         <div style="margin-top:1.5rem;">
-          <button class="btn btn-ghost" onclick="navigate('contact')">Enquire about a Growth Plan →</button>
+          <a class="btn btn-ghost" href="/contact" data-route="contact">Enquire about a Growth Plan →</a>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- Services CTA -->
+  <!-- FAQ -->
+  <section class="section" style="background:var(--c-surface);">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">Websites — questions</h2>
+      </div>
+      <div class="faq-list" style="max-width:760px; margin:0 auto;">
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How long does a website take? <div class="faq-icon">+</div></div><div class="faq-a">Most projects run 2–6 weeks. A straightforward service website is usually 2–3 weeks; something with booking or ecommerce integration is closer to 4–6. You'll get a specific timeline in your proposal.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What does it cost? <div class="faq-icon">+</div></div><div class="faq-a">From $900 for a simple site, with most small-business builds between $900 and $3,000 depending on pages and integrations. Fixed price, agreed before we start — no surprise invoices.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I own the website? <div class="faq-icon">+</div></div><div class="faq-a">Yes. Once it's paid for, the site, the content and the domain are yours. Third-party tools like hosting or booking platforms have their own fees, which we explain upfront.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I update it myself? <div class="faq-icon">+</div></div><div class="faq-a">Yes. We'll set things up so the content you're likely to change is easy to edit, and walk you through it before launch. If you'd rather not touch it at all, a Growth Plan covers small updates for you.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I need to provide the content and photos? <div class="faq-icon">+</div></div><div class="faq-a">It helps enormously if you have them, but you don't need to arrive with everything written. We'll guide you on what's needed and can help shape the wording so it reads well and converts.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Will it be good for SEO? <div class="faq-icon">+</div></div><div class="faq-a">Every site is built SEO-ready — fast, properly structured, with correct headings and metadata. That's the foundation. Ongoing SEO work to compete for specific searches is a separate service.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What happens after launch? <div class="faq-icon">+</div></div><div class="faq-a">We don't disappear. There's launch support included, and optional monthly Growth Plans if you want hosting, updates and continual improvements handled for you.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can you redesign my existing site instead of starting over? <div class="faq-icon">+</div></div><div class="faq-a">Often, yes. We'll look at what you've got and tell you honestly whether it's better to build on it or start fresh — whichever gives you the better result for the money.</div></div>
+      </div>
+    </div>
+  </section>
+
   <div class="cta-band">
     <div class="container">
       <div class="cta-band-content">
-        <h2 class="display-md">Not sure where to start?</h2>
-        <p>A free Discovery Call is the best first step. We'll review your website and online presence, discuss your goals, and recommend exactly what would make the biggest difference for your business.</p>
-        <div class="cta-band-actions">
+        <h2 class="display-md reveal">Let's Talk About Your Business</h2>
+        <p class="reveal reveal-delay-1">Book a free Discovery Call and we'll discuss your goals, answer your questions, and show you where we think technology can help.</p>
+        <div class="cta-band-actions reveal reveal-delay-2">
           <button class="btn btn-accent btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
-          <button class="btn btn-outline-white btn-lg" onclick="navigate('about')">About Xylora</button>
+          <a class="btn btn-outline-white btn-lg" href="/services" data-route="services">View All Services</a>
         </div>
       </div>
     </div>
@@ -681,13 +1064,330 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div>
-          <p>Helping small businesses get more customers and save time through websites, AI, and automation.</p>
+          <p>Helping local businesses grow with AI, websites, SEO, automation and custom software.</p>
         </div>
-        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a onclick="navigate('services')">Never-Miss-A-Lead System</a></li><li><a onclick="navigate('services')">Customer-Winning Websites</a></li><li><a onclick="navigate('services')">Time-Back Automation</a></li><li><a onclick="navigate('services')">Custom Software</a></li></ul></div>
-        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a onclick="navigate('home')">Home</a></li><li><a onclick="navigate('portfolio')">Portfolio</a></li><li><a onclick="navigate('about')">About</a></li><li><a onclick="navigate('contact')">Contact</a></li><li><a onclick="navigate('audit')">Website Review</a></li></ul></div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead</a></li><li><a href="/services/seo" data-route="service-seo">SEO</a></li><li><a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a></li><li><a href="/services/automation" data-route="service-automation">Time Back Automation</a></li><li><a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="/" data-route="home">Home</a></li><li><a href="/portfolio" data-route="portfolio">Portfolio</a></li><li><a href="/about" data-route="about">About</a></li><li><a href="/contact" data-route="contact">Contact</a></li><li><a href="/website-review" data-route="audit">Website Review</a></li></ul></div>
         <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xyloradigital.com">hello@xyloradigital.com</a></p><button class="btn btn-accent btn-sm" style="margin-top:1rem;" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Call →</button></div>
       </div>
-      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span><span>Websites · AI · Automation</span></div>
+      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span><span>AI · Websites · SEO · Automation</span></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════ SERVICE: AUTOMATION ═══════════════════════════ -->
+<div id="page-service-automation" class="page">
+  <section class="page-hero" style="padding-top:8rem;">
+    <div class="container">
+      <a class="svc-breadcrumb" href="/services" data-route="services">← All Services</a>
+      <span class="eyebrow">Time Back Automation</span>
+      <h1 class="display-lg" style="margin-top:0.75rem;">Stop doing the same job twice.</h1>
+      <p>Automate repetitive tasks so you spend less time on admin and more time running your business — follow-ups, bookings, lead management and internal processes handled in the background.</p>
+      <div class="svc-hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
+        <a class="btn btn-ghost btn-lg" href="#auto-how" onclick="document.getElementById('auto-how').scrollIntoView({behavior:'smooth'});return false;">What we automate ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">The Problem</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">The admin doesn't grow your business — it just eats your evenings</h2>
+        <p class="body-lg text-muted">Every small business accumulates manual jobs that nobody ever questions. Individually they take five minutes. Together they take your week.</p>
+      </div>
+      <div class="svc-problem-grid">
+        <div class="svc-problem-card reveal"><span class="svc-problem-x">✕</span><div><strong>Copying the same details between tools</strong><p>Form to inbox, inbox to spreadsheet, spreadsheet to invoice — by hand, every time.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-1"><span class="svc-problem-x">✕</span><div><strong>Follow-ups that never happen</strong><p>You meant to chase that quote. Then a job ran late and the week disappeared.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-2"><span class="svc-problem-x">✕</span><div><strong>Booking back-and-forth</strong><p>Four messages to land on a time that a calendar link would have sorted instantly.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-3"><span class="svc-problem-x">✕</span><div><strong>Systems that don't talk to each other</strong><p>You're the integration holding the whole thing together — and that doesn't scale.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="section" id="auto-how" style="background:var(--c-surface);">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">The Solution</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">We map the busywork, then take it off your plate</h2>
+        <p class="body-lg text-muted">First we work out where your time actually goes. Then we automate the parts that don't need a human — carefully, one at a time, so nothing breaks.</p>
+      </div>
+      <div class="grid-auto" style="margin-bottom:3rem;">
+        <div class="card reveal"><div class="service-card-icon">🔁</div><h3 class="service-card-title">Follow-ups</h3><p class="service-card-body">Quotes chased, enquiries nurtured and reviews requested automatically, without you remembering to do it.</p></div>
+        <div class="card reveal reveal-delay-1"><div class="service-card-icon">📅</div><h3 class="service-card-title">Booking workflows</h3><p class="service-card-body">Online booking, confirmations and reminders that cut no-shows and end the scheduling ping-pong.</p></div>
+        <div class="card reveal reveal-delay-2"><div class="service-card-icon">🎯</div><h3 class="service-card-title">Lead management</h3><p class="service-card-body">Every enquiry captured, tagged and routed to the right place so nothing sits unanswered.</p></div>
+        <div class="card reveal reveal-delay-3"><div class="service-card-icon">⚙️</div><h3 class="service-card-title">Internal automation</h3><p class="service-card-body">Onboarding, job handovers, invoicing triggers and reporting — connected so your tools update each other.</p></div>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="process-step-num">1</div>
+          <div class="process-step-title">Map your workflow</div>
+          <div class="process-step-body">We walk through how work actually flows through your business and find the bottlenecks.</div>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-num">2</div>
+          <div class="process-step-title">Pick the biggest wins</div>
+          <div class="process-step-body">We start with what costs you the most time or loses you the most money — not what's easiest to build.</div>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step-num">3</div>
+          <div class="process-step-title">Build and test</div>
+          <div class="process-step-body">Automations are built between your existing tools and tested properly before they touch live work.</div>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-step-num">4</div>
+          <div class="process-step-title">Hand over</div>
+          <div class="process-step-body">You get documentation and a walkthrough, so you understand exactly what's running and why.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">Benefits</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">What you get back</h2>
+      </div>
+      <div class="grid-auto">
+        <div class="card reveal"><div class="service-card-icon">⏳</div><h3 class="service-card-title">Hours back each week</h3><p class="service-card-body">The admin still happens — it just doesn't happen at 9pm on your kitchen table.</p></div>
+        <div class="card reveal reveal-delay-1"><div class="service-card-icon">✅</div><h3 class="service-card-title">Nothing slips</h3><p class="service-card-body">Automations don't get distracted, forget, or go on holiday.</p></div>
+        <div class="card reveal reveal-delay-2"><div class="service-card-icon">💬</div><h3 class="service-card-title">Faster, consistent responses</h3><p class="service-card-body">Every customer gets the same prompt, professional experience regardless of how busy you are.</p></div>
+        <div class="card reveal reveal-delay-3"><div class="service-card-icon">📉</div><h3 class="service-card-title">Fewer mistakes</h3><p class="service-card-body">Remove manual re-typing and you remove the typos, missed steps and double bookings that come with it.</p></div>
+        <div class="card reveal reveal-delay-4"><div class="service-card-icon">📈</div><h3 class="service-card-title">Room to grow</h3><p class="service-card-body">Take on more work without needing to take on more admin to support it.</p></div>
+        <div class="card reveal reveal-delay-5"><div class="service-card-icon">🔗</div><h3 class="service-card-title">Tools that finally connect</h3><p class="service-card-body">Your forms, calendar, CRM and invoicing working as one system instead of four islands.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideal For -->
+  <section class="section" style="background:var(--c-surface);">
+    <div class="container">
+      <div class="svc-ideal">
+        <div class="reveal">
+          <span class="eyebrow">Ideal For</span>
+          <h2 class="display-md" style="margin-top:0.75rem;">Businesses where the owner is the bottleneck</h2>
+          <p class="body-lg text-muted">If growth means more admin landing on you personally, automation is usually the cheapest fix available.</p>
+        </div>
+        <div class="svc-ideal-list reveal reveal-delay-1">
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Owners doing admin after hours</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Businesses juggling several disconnected tools</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Teams re-typing the same information repeatedly</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Service businesses losing quotes to slow follow-up</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Clinics and studios dealing with no-shows</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Anyone growing faster than their processes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">Automation — questions</h2>
+      </div>
+      <div class="faq-list" style="max-width:760px; margin:0 auto;">
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I have to change the tools I already use? <div class="faq-icon">+</div></div><div class="faq-a">Usually not. We prefer to connect what you've already got. If a tool genuinely can't do the job we'll say so, but we won't move you off something that works just for the sake of it.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What does automation cost? <div class="faq-icon">+</div></div><div class="faq-a">Automation projects start from $500, depending on how many workflows are involved and how complex the tools are to connect. You'll get a fixed price before any work begins.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Will this replace my staff? <div class="faq-icon">+</div></div><div class="faq-a">That's not the goal. It removes the repetitive work nobody enjoys so your people can spend their time on customers and the jobs that actually need judgement.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What if something breaks? <div class="faq-icon">+</div></div><div class="faq-a">Automations are tested before they go live, and we build in notifications so failures surface rather than silently doing nothing. We're available to fix things if a tool changes on us.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How long does it take to set up? <div class="faq-icon">+</div></div><div class="faq-a">A single focused workflow can often be live in a week or two. Larger multi-step builds take longer, and we'd usually roll those out in stages so you get value early.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">I'm not technical — can I still manage it? <div class="faq-icon">+</div></div><div class="faq-a">Yes. You get a plain-English walkthrough and documentation, and the day-to-day experience is meant to be invisible — things simply happen without you doing them.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Where should I start? <div class="faq-icon">+</div></div><div class="faq-a">Whatever wastes the most of your time right now. On the Discovery Call we'll talk through your week and point at the one or two things worth automating first.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="container">
+      <div class="cta-band-content">
+        <h2 class="display-md reveal">Let's Talk About Your Business</h2>
+        <p class="reveal reveal-delay-1">Book a free Discovery Call and we'll discuss your goals, answer your questions, and show you where we think technology can help.</p>
+        <div class="cta-band-actions reveal reveal-delay-2">
+          <button class="btn btn-accent btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
+          <a class="btn btn-outline-white btn-lg" href="/services" data-route="services">View All Services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div>
+          <p>Helping local businesses grow with AI, websites, SEO, automation and custom software.</p>
+        </div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead</a></li><li><a href="/services/seo" data-route="service-seo">SEO</a></li><li><a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a></li><li><a href="/services/automation" data-route="service-automation">Time Back Automation</a></li><li><a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="/" data-route="home">Home</a></li><li><a href="/portfolio" data-route="portfolio">Portfolio</a></li><li><a href="/about" data-route="about">About</a></li><li><a href="/contact" data-route="contact">Contact</a></li><li><a href="/website-review" data-route="audit">Website Review</a></li></ul></div>
+        <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xyloradigital.com">hello@xyloradigital.com</a></p><button class="btn btn-accent btn-sm" style="margin-top:1rem;" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Call →</button></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span><span>AI · Websites · SEO · Automation</span></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════ SERVICE: CUSTOM SOFTWARE ═══════════════════════════ -->
+<div id="page-service-custom-software" class="page">
+  <section class="page-hero" style="padding-top:8rem;">
+    <div class="container">
+      <a class="svc-breadcrumb" href="/services" data-route="services">← All Services</a>
+      <span class="eyebrow">Custom Software &amp; Apps</span>
+      <h1 class="display-lg" style="margin-top:0.75rem;">When off-the-shelf doesn't fit, we build it.</h1>
+      <p>Need something unique? We design and build custom software, portals and mobile applications tailored to how your business actually works.</p>
+      <div class="svc-hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
+        <a class="btn btn-ghost btn-lg" href="/contact" data-route="contact">Discuss your project →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">The Problem</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">You've outgrown the software you're using</h2>
+        <p class="body-lg text-muted">Generic tools are built for the average business. If yours works differently — and most good ones do — you end up bending your process to fit the software instead of the other way around.</p>
+      </div>
+      <div class="svc-problem-grid">
+        <div class="svc-problem-card reveal"><span class="svc-problem-x">✕</span><div><strong>Nothing on the market fits</strong><p>Your process is genuinely specific, and every product does 70% of it.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-1"><span class="svc-problem-x">✕</span><div><strong>Too many subscriptions stitched together</strong><p>Five tools, five logins, five bills — and they still don't quite work as one.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-2"><span class="svc-problem-x">✕</span><div><strong>The spreadsheet has become the system</strong><p>Business-critical work living in a file only one person truly understands.</p></div></div>
+        <div class="svc-problem-card reveal reveal-delay-3"><span class="svc-problem-x">✕</span><div><strong>Clients want visibility you can't give them</strong><p>Constant status update emails that a simple portal would answer instantly.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="section" style="background:var(--c-surface);">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:2.5rem;">
+        <span class="eyebrow">The Solution</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">Software shaped around your business</h2>
+        <p class="body-lg text-muted">We scope the problem properly first, then build something focused — starting with the smallest version that solves the real issue, rather than a two-year project.</p>
+      </div>
+      <div class="grid-auto" style="margin-bottom:3rem;">
+        <div class="card reveal"><div class="service-card-icon">🏢</div><h3 class="service-card-title">Internal systems</h3><p class="service-card-body">Job tracking, scheduling, quoting or reporting tools built around how your team actually operates.</p></div>
+        <div class="card reveal reveal-delay-1"><div class="service-card-icon">🔐</div><h3 class="service-card-title">Client portals</h3><p class="service-card-body">A secure place for your customers to check progress, access documents and submit what you need from them.</p></div>
+        <div class="card reveal reveal-delay-2"><div class="service-card-icon">🧩</div><h3 class="service-card-title">Business software</h3><p class="service-card-body">Web applications that replace the tangle of spreadsheets and subscriptions holding your operation together.</p></div>
+        <div class="card reveal reveal-delay-3"><div class="service-card-icon">📱</div><h3 class="service-card-title">Mobile apps</h3><p class="service-card-body">Apps for your team in the field or your customers in their pocket, connected to the same system.</p></div>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="process-step-num">1</div>
+          <div class="process-step-title">Scope</div>
+          <div class="process-step-body">We define the actual problem, who uses it, and what success looks like — before anyone writes code.</div>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-num">2</div>
+          <div class="process-step-title">Design</div>
+          <div class="process-step-body">Architecture and interface planned together, so it's practical to use and sensible to maintain.</div>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step-num">3</div>
+          <div class="process-step-title">Build</div>
+          <div class="process-step-body">Developed in stages with regular check-ins, so you see it taking shape and can steer as we go.</div>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-step-num">4</div>
+          <div class="process-step-title">Launch &amp; support</div>
+          <div class="process-step-body">Deployment, documentation and training — with an optional retainer for ongoing development.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">Benefits</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">Why build rather than buy</h2>
+      </div>
+      <div class="grid-auto">
+        <div class="card reveal"><div class="service-card-icon">🎯</div><h3 class="service-card-title">Fits exactly</h3><p class="service-card-body">No workarounds, no unused features you're paying for, no compromise on how you work.</p></div>
+        <div class="card reveal reveal-delay-1"><div class="service-card-icon">💰</div><h3 class="service-card-title">No per-seat creep</h3><p class="service-card-body">Software you own doesn't get more expensive every time you hire someone.</p></div>
+        <div class="card reveal reveal-delay-2"><div class="service-card-icon">🔗</div><h3 class="service-card-title">Integrates with what you have</h3><p class="service-card-body">Built to connect to your existing tools via API rather than replacing everything at once.</p></div>
+        <div class="card reveal reveal-delay-3"><div class="service-card-icon">📈</div><h3 class="service-card-title">Grows with you</h3><p class="service-card-body">New requirements become new features instead of a search for a different product.</p></div>
+        <div class="card reveal reveal-delay-4"><div class="service-card-icon">🏆</div><h3 class="service-card-title">A real advantage</h3><p class="service-card-body">Doing something your competitors can't easily copy, because they can't just buy it.</p></div>
+        <div class="card reveal reveal-delay-5"><div class="service-card-icon">📚</div><h3 class="service-card-title">Documented and yours</h3><p class="service-card-body">You get the code, the documentation and the ability to take it elsewhere if you ever want to.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideal For -->
+  <section class="section" style="background:var(--c-surface);">
+    <div class="container">
+      <div class="svc-ideal">
+        <div class="reveal">
+          <span class="eyebrow">Ideal For</span>
+          <h2 class="display-md" style="margin-top:0.75rem;">Businesses with a problem worth solving properly</h2>
+          <p class="body-lg text-muted">Custom software is an investment. It makes sense when the process it fixes is central to how you make money.</p>
+        </div>
+        <div class="svc-ideal-list reveal reveal-delay-1">
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Businesses running critical work out of spreadsheets</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Teams paying for several tools that don't integrate</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Service businesses wanting a client-facing portal</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Operations with a genuinely unique process</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Founders validating a software product idea</div>
+          <div class="svc-ideal-item"><span class="svc-check">✓</span>Companies needing field staff on mobile</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background:#ffffff;">
+    <div class="container">
+      <div class="section-header-center reveal" style="margin-bottom:3rem;">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="display-md" style="margin-top:0.75rem;">Custom software — questions</h2>
+      </div>
+      <div class="faq-list" style="max-width:760px; margin:0 auto;">
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What does custom software cost? <div class="faq-icon">+</div></div><div class="faq-a">It's quoted per project, because the range is enormous — a focused internal tool is a very different job to a full platform. We scope it properly first and give you a fixed price for a clearly defined build.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How long does a build take? <div class="faq-icon">+</div></div><div class="faq-a">A small, well-defined tool can be a few weeks. Larger systems run over months and are usually delivered in stages so you get something useful early rather than waiting for everything.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Do I own the software and the code? <div class="faq-icon">+</div></div><div class="faq-a">Yes. You own what we build for you, along with the documentation. You're never locked into us to keep using it.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can you build a mobile app? <div class="faq-icon">+</div></div><div class="faq-a">Yes — for your team in the field or your customers. We'll talk through whether a true app or a mobile-optimised web app is the better fit, since one is often considerably cheaper for the same result.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can it work with the systems we already use? <div class="faq-icon">+</div></div><div class="faq-a">That's usually the point. Most builds connect to existing accounting, CRM or scheduling tools via API so information flows automatically instead of being re-entered.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What if my idea is still rough? <div class="faq-icon">+</div></div><div class="faq-a">That's normal and it's a good time to talk. A big part of the value is scoping — working out what's genuinely needed, what can wait, and whether building is even the right answer.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What happens after launch? <div class="faq-icon">+</div></div><div class="faq-a">You get deployment, documentation and training. Beyond that, an optional retainer covers ongoing development, improvements and support as your needs evolve.</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Would you tell me if I shouldn't build it? <div class="faq-icon">+</div></div><div class="faq-a">Yes. If an existing product or a simple automation would solve your problem for a fraction of the cost, we'll say so. It's a better outcome for you and a better reputation for us.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="container">
+      <div class="cta-band-content">
+        <h2 class="display-md reveal">Let's Talk About Your Business</h2>
+        <p class="reveal reveal-delay-1">Book a free Discovery Call and we'll discuss your goals, answer your questions, and show you where we think technology can help.</p>
+        <div class="cta-band-actions reveal reveal-delay-2">
+          <button class="btn btn-accent btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
+          <a class="btn btn-outline-white btn-lg" href="/services" data-route="services">View All Services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div>
+          <p>Helping local businesses grow with AI, websites, SEO, automation and custom software.</p>
+        </div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead</a></li><li><a href="/services/seo" data-route="service-seo">SEO</a></li><li><a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a></li><li><a href="/services/automation" data-route="service-automation">Time Back Automation</a></li><li><a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="/" data-route="home">Home</a></li><li><a href="/portfolio" data-route="portfolio">Portfolio</a></li><li><a href="/about" data-route="about">About</a></li><li><a href="/contact" data-route="contact">Contact</a></li><li><a href="/website-review" data-route="audit">Website Review</a></li></ul></div>
+        <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xyloradigital.com">hello@xyloradigital.com</a></p><button class="btn btn-accent btn-sm" style="margin-top:1rem;" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Call →</button></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span><span>AI · Websites · SEO · Automation</span></div>
     </div>
   </footer>
 </div>
@@ -813,7 +1513,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand"><div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div><p>Helping small businesses get more customers and save time.</p></div>
-        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a onclick="navigate('services')">Never-Miss-A-Lead System</a></li><li><a onclick="navigate('services')">Customer-Winning Websites</a></li><li><a onclick="navigate('services')">Time-Back Automation</a></li><li><a onclick="navigate('services')">Custom Software</a></li></ul></div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead</a></li><li><a href="/services/seo" data-route="service-seo">SEO</a></li><li><a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a></li><li><a href="/services/automation" data-route="service-automation">Time Back Automation</a></li><li><a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a></li></ul></div>
         <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a onclick="navigate('home')">Home</a></li><li><a onclick="navigate('portfolio')">Portfolio</a></li><li><a onclick="navigate('about')">About</a></li><li><a onclick="navigate('contact')">Contact</a></li></ul></div>
         <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xyloradigital.com">hello@xyloradigital.com</a></p><button class="btn btn-accent btn-sm" style="margin-top:1rem;" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Call →</button></div>
       </div>
@@ -919,7 +1619,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand"><div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div><p>Helping small businesses get more customers and save time.</p></div>
-        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a onclick="navigate('services')">Never-Miss-A-Lead System</a></li><li><a onclick="navigate('services')">Customer-Winning Websites</a></li><li><a onclick="navigate('services')">Time-Back Automation</a></li></ul></div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead</a></li><li><a href="/services/seo" data-route="service-seo">SEO</a></li><li><a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a></li><li><a href="/services/automation" data-route="service-automation">Time Back Automation</a></li><li><a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a></li></ul></div>
         <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a onclick="navigate('home')">Home</a></li><li><a onclick="navigate('portfolio')">Portfolio</a></li><li><a onclick="navigate('about')">About</a></li><li><a onclick="navigate('contact')">Contact</a></li></ul></div>
         <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xyloradigital.com">hello@xyloradigital.com</a></p><button class="btn btn-accent btn-sm" style="margin-top:1rem;" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Call →</button></div>
       </div>
@@ -1004,7 +1704,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand"><div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div><p>Helping small businesses get more customers and save time.</p></div>
-        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a onclick="navigate('services')">Never-Miss-A-Lead System</a></li><li><a onclick="navigate('services')">Customer-Winning Websites</a></li><li><a onclick="navigate('services')">Time-Back Automation</a></li></ul></div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead</a></li><li><a href="/services/seo" data-route="service-seo">SEO</a></li><li><a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a></li><li><a href="/services/automation" data-route="service-automation">Time Back Automation</a></li><li><a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a></li></ul></div>
         <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a onclick="navigate('home')">Home</a></li><li><a onclick="navigate('portfolio')">Portfolio</a></li><li><a onclick="navigate('about')">About</a></li><li><a onclick="navigate('contact')">Contact</a></li></ul></div>
         <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xyloradigital.com">hello@xyloradigital.com</a></p></div>
       </div>
@@ -1149,7 +1849,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand"><div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div><p>Helping small businesses get more customers and save time.</p></div>
-        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a onclick="navigate('services')">Never-Miss-A-Lead System</a></li><li><a onclick="navigate('services')">Customer-Winning Websites</a></li><li><a onclick="navigate('services')">Time-Back Automation</a></li></ul></div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead</a></li><li><a href="/services/seo" data-route="service-seo">SEO</a></li><li><a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a></li><li><a href="/services/automation" data-route="service-automation">Time Back Automation</a></li><li><a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a></li></ul></div>
         <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a onclick="navigate('home')">Home</a></li><li><a onclick="navigate('portfolio')">Portfolio</a></li><li><a onclick="navigate('about')">About</a></li><li><a onclick="navigate('contact')">Contact</a></li></ul></div>
         <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xyloradigital.com">hello@xyloradigital.com</a></p></div>
       </div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Xylora</title>
+<script>
+  // GitHub Pages serves this file for any path it doesn't recognise, which includes
+  // every client-routed URL such as /services/seo. We re-encode the requested path
+  // into the query string and bounce to the site root; script.js reads it back out
+  // and restores the real URL before routing. Hosts that support rewrites
+  // (_redirects, vercel.json) never reach this file.
+  (function () {
+    var l = window.location;
+    l.replace(
+      l.protocol + '//' + l.host + '/?' +
+      l.pathname.replace(/&/g, '~and~') +
+      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
+    );
+  })();
+</script>
+</head>
+<body></body>
+</html>
