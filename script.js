@@ -67,11 +67,17 @@ const ROUTES = {
     nav: null,
     title: 'Free Website Review — See Where Customers Slip Through | Xylora Digital',
     desc: 'A thorough, no-obligation review of your website and online presence, showing exactly where enquiries are being lost.'
+  },
+  'newsletter': {
+    path: '/newsletter',
+    nav: 'newsletter',
+    title: 'The Xylora Digest — AI Newsletter for Business Leaders | Xylora Digital',
+    desc: 'The Xylora Digest is a free AI newsletter for Australian business leaders — weekly executive AI insights and a fortnightly curated tech wrap-up. Subscribe free.'
   }
 };
 
 // Pages that start with a dark hero (nav logo needs to be white)
-const darkHeroPages = ['about', 'audit'];
+const darkHeroPages = ['about', 'audit', 'newsletter'];
 
 // path → key lookup, built once from ROUTES so the two can never drift apart
 const PATH_TO_KEY = Object.keys(ROUTES).reduce((map, key) => {

@@ -1585,6 +1585,62 @@ footer {
   flex-shrink: 0;
 }
 
+/* ─────────────────────────────────────────────────── */
+/*  NEWSLETTER PAGE                                    */
+/* ─────────────────────────────────────────────────── */
+
+.digest-subscribe-form { max-width: 440px; }
+
+.digest-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  font-size: 0.825rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.digest-cadence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.digest-cadence-card {
+  background: white;
+  border: 1px solid var(--c-ink-10);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: all var(--transition);
+}
+
+.digest-cadence-card:hover {
+  border-color: var(--c-ink-20);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.digest-cadence-card h3 { color: var(--c-ink); }
+.digest-cadence-card p { font-size: 0.95rem; line-height: 1.7; color: var(--c-ink-40); margin-top: 0.75rem; }
+
+.digest-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.digest-subscribe-card {
+  background: var(--c-ink);
+  border-radius: var(--radius-xl);
+  padding: clamp(2.5rem, 6vw, 4rem);
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.digest-subscribe-card .eyebrow { color: rgba(255,255,255,0.9); }
+
 /* ─── CONTRAST FIXES ─────────────────────────────── */
 
 /* Process step numbers — was near-invisible ink-20 on white */
@@ -2235,4 +2291,11 @@ nav.dark-hero:not(.scrolled) .nav-menu a { color: var(--c-ink) !important; }
   .svc-card-flagship .service-card-title { font-size: 1.25rem; }
   .svc-hero-actions { flex-direction: column; align-items: stretch; }
   .svc-hero-actions .btn { width: 100%; justify-content: center; }
+}
+
+/* ─── NEWSLETTER PAGE RESPONSIVE ─────────────────── */
+@media (max-width: 720px) {
+  .digest-cadence-grid { grid-template-columns: 1fr; }
+  .digest-subscribe-card { padding: 2.5rem 1.5rem; }
+  .digest-subscribe-form { max-width: 100%; }
 }
