@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/book",
+      "destination": "https://calendar.app.google/oaUif22okaWAZrWB7",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
