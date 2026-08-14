@@ -2144,7 +2144,7 @@ nav.dark-hero:not(.scrolled) .nav-menu a { color: var(--c-ink) !important; }
 /* ─────────────────────────────────────────────────── */
 
 .svc-breadcrumb {
-  display: inline-block;
+  display: block;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--c-ink-40);
