@@ -17,8 +17,8 @@ const ROUTES = {
   'service-never-miss-a-lead': {
     path: '/services/never-miss-a-lead',
     nav: 'services',
-    title: 'Never Miss a Lead — AI Missed Call Recovery | Xylora Digital',
-    desc: 'AI-powered missed call recovery that texts customers back automatically, answers common questions, captures and qualifies leads, and notifies you when action is required.'
+    title: 'Never Miss a Lead (Coming Soon) — AI Missed Call Recovery | Xylora Digital',
+    desc: 'Coming soon: AI-powered missed call recovery that texts customers back automatically, answers common questions, captures and qualifies leads, and notifies you when action is required.'
   },
   'service-seo': {
     path: '/services/seo',

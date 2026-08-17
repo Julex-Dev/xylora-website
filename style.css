@@ -2007,6 +2007,75 @@ nav.dark-hero:not(.scrolled) .nav-caret { color: rgba(255,255,255,0.7); }
   white-space: nowrap;
 }
 
+.nav-menu-flag-soon { color: var(--c-gold); background: var(--c-gold-light); }
+
+.mobile-nav-soon {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  background: var(--c-gold-light);
+  padding: 0.15rem 0.4rem;
+  border-radius: 999px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.footer-soon-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-left: 0.4rem;
+}
+
+/* ─── COMING SOON BANNER ─────────────────────────────── */
+.coming-soon-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--c-gold-light);
+  border: 1px solid var(--c-gold);
+  border-radius: var(--radius-md, 12px);
+  padding: 0.9rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--c-ink-80);
+}
+
+.coming-soon-banner strong {
+  color: var(--c-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 800;
+}
+
+.coming-soon-banner-icon { font-size: 1.35rem; line-height: 1; flex-shrink: 0; }
+
+.pillar-soon-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  background: white;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  z-index: 1;
+}
+
+.svc-card-flag-soon {
+  color: var(--c-gold);
+  background: white;
+  border-color: var(--c-gold);
+}
+
 .nav-menu-all {
   display: block !important;
   text-align: center;
