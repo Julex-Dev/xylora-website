@@ -23,20 +23,20 @@ const ROUTES = {
   'service-seo': {
     path: '/services/seo',
     nav: 'services',
-    title: 'SEO — Local, Technical & AI Search Optimisation | Xylora Digital',
-    desc: 'Improve your visibility on Google, attract more local customers and build long-term organic growth with SEO tailored to your business.'
+    title: 'SEO (Coming Soon) — Local, Technical & AI Search Optimisation | Xylora Digital',
+    desc: 'Coming soon: SEO tailored to your business to improve your visibility on Google, attract more local customers and build long-term organic growth. Register your interest.'
   },
   'service-websites': {
     path: '/services/websites',
     nav: 'services',
     title: 'Customer-Winning Websites — Fast, Modern, Conversion-Focused | Xylora Digital',
-    desc: 'Beautiful, fast, conversion-focused websites designed to turn visitors into customers. Mobile responsive, modern and SEO-ready from day one.'
+    desc: 'Beautiful, fast, conversion-focused websites — whether that means a new build or improving your existing site — designed to turn visitors into customers. Mobile responsive, modern and SEO-ready.'
   },
   'service-automation': {
     path: '/services/automation',
     nav: 'services',
-    title: 'Time Back Automation — Follow-Ups, Bookings & Workflows | Xylora Digital',
-    desc: 'Automate repetitive tasks so you spend less time on admin and more time running your business. Follow-ups, booking workflows, lead management and internal automation.'
+    title: 'Time Back Automation (Coming Soon) — Follow-Ups, Bookings & Workflows | Xylora Digital',
+    desc: 'Coming soon: automation that handles repetitive tasks so you spend less time on admin and more time running your business. Register your interest.'
   },
   'service-custom-software': {
     path: '/services/custom-software',
