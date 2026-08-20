@@ -385,8 +385,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <button class="btn btn-ghost reveal" style="margin-top:1.5rem;" onclick="navigate('portfolio')">View all projects →</button>
       </div>
-      <div class="portfolio-grid" style="grid-template-columns:1fr; max-width:700px; margin:0 auto;">
-        <div class="portfolio-card reveal reveal-delay-1">
+      <div class="portfolio-grid">
+        <a class="portfolio-card reveal reveal-delay-1" href="/portfolio/websites" data-route="portfolio-websites" style="display:block; color:inherit; text-decoration:none;">
           <div class="portfolio-card-img portfolio-bg-1 bmy-img-area">
             <div class="bmy-before-after">
               <div class="bmy-panel">
@@ -416,7 +416,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Includes</div><div style="font-family:var(--font-display);font-weight:800;font-size:1.1rem;">SEO Structure</div></div>
             </div>
           </div>
-        </div>
+        </a>
+        <a class="portfolio-card reveal reveal-delay-2" href="/portfolio/software" data-route="portfolio-software" style="display:block; color:inherit; text-decoration:none;">
+          <div class="portfolio-card-img portfolio-bg-2">
+            <div class="portfolio-mock">
+              <div class="portfolio-mock-bar accent"></div>
+              <div class="portfolio-mock-bar short"></div>
+              <div class="portfolio-mock-hero">🔐 Client Portal</div>
+              <div class="portfolio-mock-bar med"></div>
+              <div class="portfolio-mock-bar short"></div>
+            </div>
+          </div>
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-meta" style="margin-bottom:0.75rem; margin-top:0;">
+              <div class="portfolio-card-tags">
+                <span class="badge badge-accent">Client Portal</span>
+                <span class="badge badge-surface">Custom Software</span>
+                <span class="badge badge-gold">In Development</span>
+              </div>
+            </div>
+            <div class="portfolio-card-title">Xylora Digital Client Portal</div>
+            <div class="portfolio-card-desc">A client-facing dashboard we built for ourselves — clients log in to request changes to their website, with a growing set of tools being added as clients take up more of our services.</div>
+            <div style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid var(--c-ink-10); display:flex; gap:2rem; flex-wrap:wrap;">
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Status</div><div style="font-family:var(--font-display);font-weight:800;color:var(--c-accent);font-size:1.1rem;">Live &amp; Expanding</div></div>
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Type</div><div style="font-family:var(--font-display);font-weight:800;font-size:1.1rem;">Custom Software</div></div>
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Focus</div><div style="font-family:var(--font-display);font-weight:800;font-size:1.1rem;">Self-Service · Automation</div></div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -953,7 +980,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Beautiful, fast, conversion-focused websites — whether that means a new build or improving the site you already have — designed to turn visitors into customers, mobile responsive and modern.</p>
       <div class="svc-hero-actions">
         <button class="btn btn-primary btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
-        <a class="btn btn-ghost btn-lg" href="/portfolio" data-route="portfolio">See our work →</a>
+        <a class="btn btn-ghost btn-lg" href="/portfolio/websites" data-route="portfolio-websites">See our work →</a>
       </div>
     </div>
   </section>
@@ -1324,6 +1351,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="svc-hero-actions">
         <button class="btn btn-primary btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
         <a class="btn btn-ghost btn-lg" href="/contact" data-route="contact">Discuss your project →</a>
+        <a class="btn btn-ghost btn-lg" href="/portfolio/software" data-route="portfolio-software">See our work →</a>
       </div>
     </div>
   </section>
@@ -1472,14 +1500,84 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 </div>
 
-<!-- ═══════════════════════════ PORTFOLIO PAGE ═══════════════════════════ -->
+<!-- ═══════════════════════════ PORTFOLIO HUB ═══════════════════════════ -->
 
 <div id="page-portfolio" class="page">
   <section class="page-hero" style="padding-top:8rem;">
     <div class="container">
       <span class="eyebrow">Portfolio</span>
       <h1 class="display-lg" style="margin-top:0.75rem;">Work that drives results</h1>
-      <p>Concept redesigns and sample work showcasing what we build for small businesses.</p>
+      <p>Client websites and custom software — concept redesigns and real systems we build for small businesses.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="svc-grid" style="grid-template-columns:repeat(2, 1fr); max-width:900px; margin:0 auto;">
+
+        <div class="card svc-card reveal">
+          <div class="service-card-icon">🌐</div>
+          <h2 class="service-card-title">Client Websites</h2>
+          <p class="service-card-body">Website builds and redesigns for local businesses — modern, mobile-first, and built to turn visitors into enquiries.</p>
+          <div class="svc-card-tags">
+            <span class="badge badge-accent">Website Redesign</span>
+            <span class="badge badge-surface">Health & Wellness</span>
+          </div>
+          <a class="btn btn-ghost svc-card-cta" href="/portfolio/websites" data-route="portfolio-websites">View Client Websites →</a>
+        </div>
+
+        <div class="card svc-card reveal reveal-delay-1">
+          <div class="service-card-icon">💻</div>
+          <h2 class="service-card-title">Custom Software &amp; Apps</h2>
+          <p class="service-card-body">Portals, internal systems and apps built around how a business actually works — including the client portal we build and use ourselves.</p>
+          <div class="svc-card-tags">
+            <span class="badge badge-accent">Client Portal</span>
+            <span class="badge badge-gold">In Development</span>
+          </div>
+          <a class="btn btn-ghost svc-card-cta" href="/portfolio/software" data-route="portfolio-software">View Custom Software →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <div class="cta-band">
+    <div class="container">
+      <div class="cta-band-content">
+        <h2 class="display-md">Ready to transform your online presence?</h2>
+        <p>Book a free Discovery Call and we'll show you exactly what's possible for your business — including a complimentary review of your website and online presence.</p>
+        <div class="cta-band-actions">
+          <button class="btn btn-accent btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
+          <button class="btn btn-outline-white btn-lg" onclick="navigate('contact')">Get in Touch</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div><p>Helping small businesses get more customers and save time.</p></div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead<span class="footer-soon-tag">Coming Soon</span></a></li><li><a href="/services/seo" data-route="service-seo">SEO<span class="footer-soon-tag">Coming Soon</span></a></li><li><a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a></li><li><a href="/services/automation" data-route="service-automation">Time Back Automation<span class="footer-soon-tag">Coming Soon</span></a></li><li><a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a onclick="navigate('home')">Home</a></li><li><a onclick="navigate('portfolio')">Portfolio</a></li><li><a onclick="navigate('about')">About</a></li><li><a onclick="navigate('contact')">Contact</a></li><li><a onclick="navigate('newsletter')">Newsletter</a></li></ul></div>
+        <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xyloradigital.com">hello@xyloradigital.com</a></p><button class="btn btn-accent btn-sm" style="margin-top:1rem;" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Call →</button></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span></div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ═══════════════════════════ PORTFOLIO: CLIENT WEBSITES ═══════════════════════════ -->
+
+<div id="page-portfolio-websites" class="page">
+  <section class="page-hero" style="padding-top:8rem;">
+    <div class="container">
+      <a class="svc-breadcrumb" href="/portfolio" data-route="portfolio">← All Portfolio</a>
+      <span class="eyebrow">Client Websites</span>
+      <h1 class="display-lg" style="margin-top:0.75rem;">Websites built to win customers</h1>
+      <p>Concept redesigns and builds showcasing what we do for local businesses that need a website which actually works.</p>
     </div>
   </section>
   <section class="section">
@@ -1580,6 +1678,128 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="cta-band-content">
         <h2 class="display-md">Ready to transform your online presence?</h2>
         <p>Book a free Discovery Call and we'll show you exactly what's possible for your business — including a complimentary review of your website and online presence.</p>
+        <div class="cta-band-actions">
+          <button class="btn btn-accent btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
+          <button class="btn btn-outline-white btn-lg" onclick="navigate('contact')">Get in Touch</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo-text">Xylora<span style="color:var(--c-accent);">.</span></div><p>Helping small businesses get more customers and save time.</p></div>
+        <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="/services/never-miss-a-lead" data-route="service-never-miss-a-lead">Never Miss a Lead<span class="footer-soon-tag">Coming Soon</span></a></li><li><a href="/services/seo" data-route="service-seo">SEO<span class="footer-soon-tag">Coming Soon</span></a></li><li><a href="/services/websites" data-route="service-websites">Customer-Winning Websites</a></li><li><a href="/services/automation" data-route="service-automation">Time Back Automation<span class="footer-soon-tag">Coming Soon</span></a></li><li><a href="/services/custom-software" data-route="service-custom-software">Custom Software &amp; Apps</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a onclick="navigate('home')">Home</a></li><li><a onclick="navigate('portfolio')">Portfolio</a></li><li><a onclick="navigate('about')">About</a></li><li><a onclick="navigate('contact')">Contact</a></li><li><a onclick="navigate('newsletter')">Newsletter</a></li></ul></div>
+        <div class="footer-contact footer-col"><h4>Get in touch</h4><p><a href="mailto:hello@xyloradigital.com">hello@xyloradigital.com</a></p><button class="btn btn-accent btn-sm" style="margin-top:1rem;" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Call →</button></div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Xylora. All rights reserved.</span></div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ═══════════════════════════ PORTFOLIO: CUSTOM SOFTWARE & APPS ═══════════════════════════ -->
+
+<div id="page-portfolio-software" class="page">
+  <section class="page-hero" style="padding-top:8rem;">
+    <div class="container">
+      <a class="svc-breadcrumb" href="/portfolio" data-route="portfolio">← All Portfolio</a>
+      <span class="eyebrow">Custom Software &amp; Apps</span>
+      <h1 class="display-lg" style="margin-top:0.75rem;">Software we build — and use ourselves</h1>
+      <p>Portals, internal systems and apps shaped around how a business actually works, starting with the platform that runs our own client relationships.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div style="max-width:760px; margin:0 auto;">
+        <div class="portfolio-card reveal">
+          <div class="portfolio-card-img portfolio-bg-2">
+            <div class="portfolio-mock">
+              <div class="portfolio-mock-bar accent"></div>
+              <div class="portfolio-mock-bar short"></div>
+              <div class="portfolio-mock-hero">🔐 Client Portal</div>
+              <div class="portfolio-mock-bar med"></div>
+              <div class="portfolio-mock-bar short"></div>
+            </div>
+          </div>
+          <div class="portfolio-card-content">
+            <div class="portfolio-card-meta" style="margin-top:0; margin-bottom:0.75rem;">
+              <div class="portfolio-card-tags">
+                <span class="badge badge-accent">Client Portal</span>
+                <span class="badge badge-surface">Custom Software</span>
+                <span class="badge badge-gold">In Development</span>
+              </div>
+            </div>
+            <div class="portfolio-card-title">Xylora Digital Client Portal</div>
+            <div class="portfolio-card-desc">A client-facing dashboard we built for ourselves. Clients who've bought a website and Growth Plan log in to request changes to their site, with a growing set of tools being added as clients take up more of our services.</div>
+            <div style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid var(--c-ink-10); display:flex; gap:2rem; flex-wrap:wrap;">
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Status</div><div style="font-family:var(--font-display);font-weight:800;color:var(--c-accent);font-size:1.1rem;">Live &amp; Expanding</div></div>
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Used By</div><div style="font-family:var(--font-display);font-weight:800;font-size:1.1rem;">Website + Growth Plan Clients</div></div>
+              <div><div style="font-size:0.75rem;color:var(--c-ink-40);margin-bottom:0.2rem;">Focus</div><div style="font-family:var(--font-display);font-weight:800;font-size:1.1rem;">Self-Service · Automation</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Case study -->
+      <div class="portfolio-case-study reveal" style="margin-top:4rem;">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <span class="eyebrow">Case Study</span>
+            <h2 class="display-sm" style="margin-top:0.5rem;">Xylora Digital Client Portal</h2>
+          </div>
+          <span class="badge badge-accent">Custom Software</span>
+        </div>
+        <div class="portfolio-case-grid">
+          <div>
+            <h4 style="font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:1rem;">The challenge</h4>
+            <p style="font-size:0.925rem;color:var(--c-ink-60);line-height:1.75;margin-bottom:1rem;">Once a client's website goes live, the work doesn't stop — copy needs updating, new pages get requested, small fixes come up. Handling all of that through scattered emails doesn't scale, and it leaves clients with no clear way to see what they've asked for or where it's up to.</p>
+            <p style="font-size:0.925rem;color:var(--c-ink-60);line-height:1.75;">We also wanted a single place clients could eventually go for everything they'd bought from us, rather than a different tool or thread for every service.</p>
+          </div>
+          <div>
+            <h4 style="font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:1rem;">What we built</h4>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;">
+              <li style="display:flex;gap:0.6rem;font-size:0.9rem;color:var(--c-ink-60);">
+                <span style="color:var(--c-accent);font-size:0.85rem;margin-top:1px;">→</span>
+                A secure client-facing dashboard, currently used by clients on a website + Growth Plan
+              </li>
+              <li style="display:flex;gap:0.6rem;font-size:0.9rem;color:var(--c-ink-60);">
+                <span style="color:var(--c-accent);font-size:0.85rem;margin-top:1px;">→</span>
+                A structured way to log in and request changes to their website, replacing back-and-forth email
+              </li>
+              <li style="display:flex;gap:0.6rem;font-size:0.9rem;color:var(--c-ink-60);">
+                <span style="color:var(--c-accent);font-size:0.85rem;margin-top:1px;">→</span>
+                A visual refresh underway to bring the portal in line with Xylora's brand
+              </li>
+              <li style="display:flex;gap:0.6rem;font-size:0.9rem;color:var(--c-ink-60);">
+                <span style="color:var(--c-accent);font-size:0.85rem;margin-top:1px;">→</span>
+                A move towards a multi-service hub, so each client's dashboard reflects the services they've actually bought
+              </li>
+            </ul>
+            <div class="coming-soon-banner" style="margin-bottom:0;">
+              <span class="coming-soon-banner-icon">🚧</span>
+              <div><strong>In Development</strong> — website change requests are live today. A Never Miss a Lead dashboard and an AI Website Assistant dashboard are being built into the portal next, and aren't yet available to clients.</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;">
+          <!-- TODO: replace with public demo URL -->
+          <a class="btn btn-primary btn-lg" href="#" target="_blank" rel="noopener">View Live Demo →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="cta-band">
+    <div class="container">
+      <div class="cta-band-content">
+        <h2 class="display-md">Need something built around how your business works?</h2>
+        <p>Book a free Discovery Call and we'll talk through what a custom portal, internal system or app could look like for you.</p>
         <div class="cta-band-actions">
           <button class="btn btn-accent btn-lg" onclick="window.open('https://calendar.app.google/oaUif22okaWAZrWB7','_blank')">Book a Free Discovery Call</button>
           <button class="btn btn-outline-white btn-lg" onclick="navigate('contact')">Get in Touch</button>
