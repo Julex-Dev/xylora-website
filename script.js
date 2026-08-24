@@ -334,7 +334,7 @@ function renderNewsletterFeatured(issues) {
   grid.className = 'newsletter-issues-grid';
 
   const [featured, ...rest] = issues;
-  const side = rest.slice(0, 3);
+  const side = rest.slice(0, 6);
 
   const featuredLink = buildIssueLink(featured);
   featuredLink.className = 'newsletter-featured-card';
@@ -430,7 +430,7 @@ async function loadNewsletterFeatured() {
   if (newsletterLoading.featured) return;
   newsletterLoading.featured = true;
   try {
-    const issues = await fetchNewsletterIssues(4);
+    const issues = await fetchNewsletterIssues(7);
     newsletterCache.featured = issues;
     renderNewsletterFeatured(issues);
   } catch (err) {

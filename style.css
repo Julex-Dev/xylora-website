@@ -1708,13 +1708,12 @@ footer {
   margin-top: 1.1rem;
 }
 
-.newsletter-side-list { display: flex; flex-direction: column; gap: 1rem; }
+.newsletter-side-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-content: start; }
 
-.newsletter-side-card { display: flex; gap: 0.9rem; align-items: center; padding: 0.75rem; }
+.newsletter-side-card { display: flex; flex-direction: column; gap: 0.6rem; padding: 0.75rem; }
 
 .newsletter-side-img {
-  flex: none;
-  width: 100px;
+  width: 100%;
   aspect-ratio: 16/9;
   background: var(--c-surface);
   border-radius: 10px;
@@ -1792,8 +1791,7 @@ footer {
 }
 
 .newsletter-skel-featured { aspect-ratio: 16/9; }
-.newsletter-side-list .newsletter-skel-side,
-.newsletter-issues-grid .newsletter-skel-side { height: 110px; margin-bottom: 1rem; }
+.newsletter-side-list .newsletter-skel-side { height: 160px; }
 .newsletter-skel-row { height: 88px; margin-bottom: 1rem; }
 
 @keyframes newsletter-shimmer {
@@ -1838,6 +1836,10 @@ footer {
   .newsletter-issues-grid { grid-template-columns: 1fr; }
   .archive-item { flex-direction: column; align-items: flex-start; }
   .archive-item-img { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .newsletter-side-list { grid-template-columns: 1fr; }
 }
 
 /* ─── CONTRAST FIXES ─────────────────────────────── */
