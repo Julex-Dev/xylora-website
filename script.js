@@ -85,11 +85,17 @@ const ROUTES = {
     nav: 'newsletter',
     title: 'The Xylora Digest — AI Newsletter for Business Leaders | Xylora Digital',
     desc: 'The Xylora Digest is a free AI newsletter for Australian business leaders — weekly executive AI insights and a fortnightly curated tech wrap-up. Subscribe free.'
+  },
+  'newsletter-archive': {
+    path: '/newsletter/archive',
+    nav: 'newsletter',
+    title: 'Archive — The Xylora Digest | Xylora Digital',
+    desc: 'Every past issue of The Xylora Digest — Xylora Digital\'s free AI newsletter for Australian business leaders.'
   }
 };
 
 // Pages that start with a dark hero (nav logo needs to be white)
-const darkHeroPages = ['about', 'audit', 'newsletter'];
+const darkHeroPages = ['about', 'audit', 'newsletter', 'newsletter-archive'];
 
 // path → key lookup, built once from ROUTES so the two can never drift apart
 const PATH_TO_KEY = Object.keys(ROUTES).reduce((map, key) => {
@@ -156,6 +162,9 @@ function navigate(page, push = true) {
   window.scrollTo({ top: 0, behavior: 'instant' });
   setNavTheme(page);
   setTimeout(initReveals, 100);
+
+  if (page === 'newsletter') loadNewsletterFeatured();
+  if (page === 'newsletter-archive') loadNewsletterArchive();
 }
 
 window.addEventListener('popstate', (e) => {
@@ -246,6 +255,206 @@ function toggleFaq(item) {
   const list = item.closest('.faq-list') || document;
   list.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
+}
+
+// ─── NEWSLETTER (live beehiiv RSS via /api/newsletter) ─────────────────────
+const DIGEST_FALLBACK_URL = 'https://digest.xyloradigital.com';
+const newsletterCache = { featured: null, archive: null };
+const newsletterLoading = { featured: false, archive: false };
+
+function formatIssueDate(dateStr) {
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return '';
+  return d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+// Feed descriptions can carry markup — strip tags with a regex rather than
+// round-tripping through innerHTML, so nothing in the feed ever gets parsed as DOM.
+function stripHtml(html) {
+  return (html || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function clearChildren(el) {
+  while (el.firstChild) el.removeChild(el.firstChild);
+}
+
+function buildIssueLink(issue) {
+  const a = document.createElement('a');
+  a.href = typeof issue.link === 'string' && /^https?:\/\//i.test(issue.link) ? issue.link : DIGEST_FALLBACK_URL;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  return a;
+}
+
+function buildIssueThumb(issue, width, height, className) {
+  const wrap = document.createElement('div');
+  wrap.className = className;
+  if (issue.thumbnailUrl) {
+    const img = document.createElement('img');
+    img.src = issue.thumbnailUrl;
+    img.alt = issue.title || 'The Xylora Digest';
+    img.loading = 'lazy';
+    img.width = width;
+    img.height = height;
+    wrap.appendChild(img);
+  } else {
+    wrap.classList.add('newsletter-thumb-placeholder');
+    wrap.textContent = 'The Xylora Digest';
+  }
+  return wrap;
+}
+
+function renderNewsletterFallback(container, message) {
+  clearChildren(container);
+  const box = document.createElement('div');
+  box.className = 'newsletter-fallback';
+  const msg = document.createElement('p');
+  msg.textContent = message;
+  const link = document.createElement('a');
+  link.href = DIGEST_FALLBACK_URL;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.className = 'btn btn-ghost';
+  link.textContent = 'Read the Digest on beehiiv →';
+  box.append(msg, link);
+  container.appendChild(box);
+}
+
+function renderNewsletterFeatured(issues) {
+  const container = document.getElementById('newsletterIssues');
+  if (!container) return;
+  clearChildren(container);
+
+  if (!issues.length) {
+    renderNewsletterFallback(container, 'No issues are live yet.');
+    return;
+  }
+
+  const grid = document.createElement('div');
+  grid.className = 'newsletter-issues-grid';
+
+  const [featured, ...rest] = issues;
+  const side = rest.slice(0, 3);
+
+  const featuredLink = buildIssueLink(featured);
+  featuredLink.className = 'newsletter-featured-card';
+  featuredLink.appendChild(buildIssueThumb(featured, 640, 360, 'newsletter-featured-img'));
+  const fBody = document.createElement('div');
+  fBody.className = 'newsletter-featured-body';
+  const fDate = document.createElement('span');
+  fDate.className = 'newsletter-card-date';
+  fDate.textContent = formatIssueDate(featured.publishedDate);
+  const fTitle = document.createElement('h3');
+  fTitle.className = 'newsletter-featured-title';
+  fTitle.textContent = featured.title;
+  const fSub = document.createElement('p');
+  fSub.className = 'newsletter-card-subtitle';
+  fSub.textContent = stripHtml(featured.subtitle);
+  const fCta = document.createElement('span');
+  fCta.className = 'newsletter-card-cta';
+  fCta.textContent = 'Read issue →';
+  fBody.append(fDate, fTitle, fSub, fCta);
+  featuredLink.appendChild(fBody);
+
+  const sideList = document.createElement('div');
+  sideList.className = 'newsletter-side-list';
+  side.forEach((issue) => {
+    const link = buildIssueLink(issue);
+    link.className = 'newsletter-side-card';
+    link.appendChild(buildIssueThumb(issue, 160, 90, 'newsletter-side-img'));
+    const body = document.createElement('div');
+    body.className = 'newsletter-side-body';
+    const date = document.createElement('span');
+    date.className = 'newsletter-card-date';
+    date.textContent = formatIssueDate(issue.publishedDate);
+    const title = document.createElement('h4');
+    title.className = 'newsletter-side-title';
+    title.textContent = issue.title;
+    body.append(date, title);
+    link.appendChild(body);
+    sideList.appendChild(link);
+  });
+
+  grid.append(featuredLink, sideList);
+  container.appendChild(grid);
+}
+
+function renderArchiveList(issues) {
+  const container = document.getElementById('archiveIssues');
+  if (!container) return;
+  clearChildren(container);
+
+  if (!issues.length) {
+    renderNewsletterFallback(container, 'No issues are live yet.');
+    return;
+  }
+
+  const list = document.createElement('div');
+  list.className = 'archive-list';
+  issues.forEach((issue) => {
+    const link = buildIssueLink(issue);
+    link.className = 'archive-item';
+    link.appendChild(buildIssueThumb(issue, 120, 68, 'archive-item-img'));
+    const body = document.createElement('div');
+    body.className = 'archive-item-body';
+    const title = document.createElement('h3');
+    title.className = 'archive-item-title';
+    title.textContent = issue.title;
+    const meta = document.createElement('div');
+    meta.className = 'archive-item-meta';
+    const dateSpan = document.createElement('span');
+    dateSpan.textContent = formatIssueDate(issue.publishedDate);
+    meta.appendChild(dateSpan);
+    if (issue.author) {
+      const authorSpan = document.createElement('span');
+      authorSpan.textContent = issue.author;
+      meta.appendChild(authorSpan);
+    }
+    body.append(title, meta);
+    link.appendChild(body);
+    list.appendChild(link);
+  });
+  container.appendChild(list);
+}
+
+async function fetchNewsletterIssues(limit) {
+  const url = '/api/newsletter' + (limit ? ('?limit=' + limit) : '');
+  const res = await fetch(url);
+  const data = await res.json().catch(() => null);
+  if (!res.ok || !data || data.error) throw new Error((data && data.error) || 'Request failed');
+  return Array.isArray(data.issues) ? data.issues : [];
+}
+
+async function loadNewsletterFeatured() {
+  if (newsletterCache.featured) { renderNewsletterFeatured(newsletterCache.featured); return; }
+  if (newsletterLoading.featured) return;
+  newsletterLoading.featured = true;
+  try {
+    const issues = await fetchNewsletterIssues(4);
+    newsletterCache.featured = issues;
+    renderNewsletterFeatured(issues);
+  } catch (err) {
+    const container = document.getElementById('newsletterIssues');
+    if (container) renderNewsletterFallback(container, "We couldn't load the latest issues right now.");
+  } finally {
+    newsletterLoading.featured = false;
+  }
+}
+
+async function loadNewsletterArchive() {
+  if (newsletterCache.archive) { renderArchiveList(newsletterCache.archive); return; }
+  if (newsletterLoading.archive) return;
+  newsletterLoading.archive = true;
+  try {
+    const issues = await fetchNewsletterIssues(null);
+    newsletterCache.archive = issues;
+    renderArchiveList(issues);
+  } catch (err) {
+    const container = document.getElementById('archiveIssues');
+    if (container) renderNewsletterFallback(container, "We couldn't load the archive right now.");
+  } finally {
+    newsletterLoading.archive = false;
+  }
 }
 
 // ─── FORM SUBMIT ─────────────────────────────────
