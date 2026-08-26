@@ -32,6 +32,12 @@ const ROUTES = {
     title: 'Web Design Agency Sydney | We Create Websites That Win',
     desc: 'We create websites that win! Xylora Digital delivers strategic web design that captures attention, builds trust and turns visitors into customers.'
   },
+  'service-ai-website-assistant': {
+    path: '/services/ai-website-assistant',
+    nav: 'services',
+    title: 'AI Website Assistant — 24/7 Website Chatbot | Xylora Digital',
+    desc: 'A monthly managed AI chatbot for your website that answers questions, qualifies enquiries and captures leads around the clock, then notifies you when it matters.'
+  },
   'service-automation': {
     path: '/services/automation',
     nav: 'services',
