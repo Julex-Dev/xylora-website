@@ -5,8 +5,8 @@ const ROUTES = {
   'home': {
     path: '/',
     nav: 'home',
-    title: 'Xylora — Helping Local Businesses Grow with AI, Websites & Automation',
-    desc: 'Xylora Digital helps Australian local businesses attract more customers and save time with AI lead capture, websites, SEO, automation and custom software. Book a free Discovery Call.'
+    title: 'Digital Marketing Sydney | Xylora Digital',
+    desc: 'Looking for digital marketing in Sydney? Xylora Digital offers expert digital marketing consultancy to boost visibility, generate leads and grow your business.'
   },
   'services': {
     path: '/services',
@@ -23,20 +23,20 @@ const ROUTES = {
   'service-seo': {
     path: '/services/seo',
     nav: 'services',
-    title: 'SEO (Coming Soon) — Local, Technical & AI Search Optimisation | Xylora Digital',
-    desc: 'Coming soon: SEO tailored to your business to improve your visibility on Google, attract more local customers and build long-term organic growth. Register your interest.'
+    title: 'Search Engine Marketing Agency Sydney | Xylora Digital',
+    desc: 'Get found, get clicks, get more customers. Xylora Digital delivers powerful search marketing services in Sydney to help small businesses grow online.'
   },
   'service-websites': {
     path: '/services/websites',
     nav: 'services',
-    title: 'Customer-Winning Websites — Fast, Modern, Conversion-Focused | Xylora Digital',
-    desc: 'Beautiful, fast, conversion-focused websites — whether that means a new build or improving your existing site — designed to turn visitors into customers. Mobile responsive, modern and SEO-ready.'
+    title: 'Web Design Agency Sydney | We Create Websites That Win',
+    desc: 'We create websites that win! Xylora Digital delivers strategic web design that captures attention, builds trust and turns visitors into customers.'
   },
   'service-automation': {
     path: '/services/automation',
     nav: 'services',
-    title: 'Time Back Automation (Coming Soon) — Follow-Ups, Bookings & Workflows | Xylora Digital',
-    desc: 'Coming soon: automation that handles repetitive tasks so you spend less time on admin and more time running your business. Register your interest.'
+    title: 'AI Agency Sydney | We Automate What Slows You Down',
+    desc: 'We automate what slows you down. From repetitive tasks to smarter workflows, our AI solutions help you save time, work smarter and grow with ease.'
   },
   'service-custom-software': {
     path: '/services/custom-software',
