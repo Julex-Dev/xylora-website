@@ -29,8 +29,8 @@ const ROUTES = {
   'service-websites': {
     path: '/services/websites',
     nav: 'services',
-    title: 'Web Design Agency Sydney | We Create Websites That Win',
-    desc: 'We create websites that win! Xylora Digital delivers strategic web design that captures attention, builds trust and turns visitors into customers.'
+    title: 'Web Design Agency Sydney | Website Design Companies | Xylora',
+    desc: 'Looking for a web design agency in Sydney? Xylora Digital is one of the website design companies in Sydney building fast, modern sites that build trust and turn visitors into enquiries.'
   },
   'service-ai-website-assistant': {
     path: '/services/ai-website-assistant',
