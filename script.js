@@ -23,8 +23,8 @@ const ROUTES = {
   'service-seo': {
     path: '/services/seo',
     nav: 'services',
-    title: 'Search Engine Marketing Agency Sydney | Xylora Digital',
-    desc: 'Get found, get clicks, get more customers. Xylora Digital delivers powerful search marketing services in Sydney to help small businesses grow online.'
+    title: 'Search Engine Marketing Agency in Sydney | Xylora Digital',
+    desc: 'Looking for a search engine marketing agency in Sydney? Xylora Digital delivers local SEO, technical SEO and Google Business Profile management that build lasting organic visibility.'
   },
   'service-websites': {
     path: '/services/websites',
