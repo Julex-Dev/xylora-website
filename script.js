@@ -143,6 +143,36 @@ function setMeta(route) {
   if (ogUrl) ogUrl.setAttribute('content', SITE_ORIGIN + route.path);
 }
 
+const SEO_FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Can you guarantee I'll rank number one on Google?", "acceptedAnswer": { "@type": "Answer", "text": "No, and you should be cautious of anyone who does. Nobody controls Google's rankings. What we can do is the work that genuinely improves your visibility, and report honestly on how it's tracking." } },
+    { "@type": "Question", "name": "How long does SEO take to produce results?", "acceptedAnswer": { "@type": "Answer", "text": "SEO typically requires consistent work over time. Some technical and local improvements may produce changes sooner, while competitive searches can take considerably longer. We assess your market before explaining what timeframe may be realistic." } },
+    { "@type": "Question", "name": "What does SEO cost?", "acceptedAnswer": { "@type": "Answer", "text": "We publish three starting packages — SEO Starter from $599/month, Customise Visibility from $899/month, and Visibility from $1,199/month — scaled to how many keywords and locations you're targeting. Your market and competition still shape the final scope, so we'll confirm the exact figure together on your Discovery Call before any work begins." } },
+    { "@type": "Question", "name": "Is SEO suitable for a small business with a limited budget?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. SEO can be scaled around your priorities and resources. We identify areas with the greatest potential value first, helping small businesses focus on their investment instead of paying for unnecessary activities." } },
+    { "@type": "Question", "name": "Do I need a new website to do SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Usually not. We'll assess what you have first. If the existing site has fundamental problems that would cap results, we'll tell you honestly rather than charging you for SEO on a foundation that can't support it." } },
+    { "@type": "Question", "name": "Why is Google Business Profile important for local SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Google Business Profile helps customers discover essential business information through Google Search and Maps. Accurate details, relevant information, and ongoing management can strengthen your local presence and make it easier for nearby customers to contact you." } },
+    { "@type": "Question", "name": "Do you use AI as part of SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. AI Search Optimisation is part of our SEO capabilities. We consider how your business information is structured and represented as customers increasingly use AI-powered tools to discover information and recommendations." } },
+    { "@type": "Question", "name": "Do you only work with businesses in Sydney?", "acceptedAnswer": { "@type": "Answer", "text": "As a trusted search engine marketing agency in Sydney, we focus strongly on businesses and their local search requirements. The team can also support suitable businesses beyond Sydney where the services and working arrangements are appropriate for their objectives." } },
+    { "@type": "Question", "name": "Is there a long-term SEO contract?", "acceptedAnswer": { "@type": "Answer", "text": "We do not use lock-in contracts. However, SEO requires consistency to deliver meaningful long-term progress. We explain this clearly while keeping the relationship flexible as your business requirements change." } },
+    { "@type": "Question", "name": "Will you provide regular SEO reports?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Reporting focuses on useful information such as relevant visibility, traffic, completed work, and areas being prioritised next. We avoid overwhelming clients with unnecessary metrics that do not help explain business progress." } }
+  ]
+};
+
+function setFaqSchema(page) {
+  const existing = document.getElementById('faq-schema');
+  if (existing) existing.remove();
+
+  if (page !== 'service-seo') return;
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.id = 'faq-schema';
+  script.textContent = JSON.stringify(SEO_FAQ_SCHEMA);
+  document.head.appendChild(script);
+}
+
 // ─── NAVIGATION ───────────────────────────────
 // `push` is false when we're responding to the browser's own history (back/forward)
 // or restoring the page on first load — otherwise we'd push a duplicate entry.
@@ -163,6 +193,7 @@ function navigate(page, push = true) {
   }
 
   setMeta(route);
+  setFaqSchema(page);
   closeMobile();
   closeServicesMenu();
   window.scrollTo({ top: 0, behavior: 'instant' });
