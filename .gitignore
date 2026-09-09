@@ -1,2 +1,13 @@
 node_modules/
 .vercel
+
+# Generated at build time by scripts/generate-static-routes.js — one
+# index.html per route, baking in that route's title/desc/canonical/OG
+# tags for crawlers. Regenerated fresh from ROUTES (script.js) + index.html
+# on every deploy; never commit these, they'd just go stale in git.
+/services/
+/portfolio/
+/about/
+/contact/
+/website-review/
+/newsletter/
