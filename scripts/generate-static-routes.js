@@ -26,7 +26,42 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const SCRIPT_JS_PATH = path.join(ROOT, 'script.js');
 const INDEX_HTML_PATH = path.join(ROOT, 'index.html');
+const VERCEL_JSON_PATH = path.join(ROOT, 'vercel.json');
 const SITE_ORIGIN = 'https://xyloradigital.com';
+
+/*
+ * Vercel only auto-resolves a directory's index.html for a trailing-slash
+ * request (e.g. /services/seo/). The no-slash form actually used
+ * everywhere on this site (ROUTES paths, sitemap.xml, every internal
+ * link) falls straight through to the SPA catch-all rewrite instead of
+ * the generated static file — confirmed by hand on a preview deployment.
+ * So vercel.json needs an explicit rewrite per route (both forms) ahead
+ * of the catch-all. This check fails the build loudly if a route in
+ * ROUTES doesn't have a matching pair of rewrites, so a future route
+ * added to ROUTES without updating vercel.json can't silently ship
+ * without this fix applying to it.
+ */
+function assertRewritesCoverRoutes(routes, nonHomeKeys) {
+  const vercelConfig = JSON.parse(fs.readFileSync(VERCEL_JSON_PATH, 'utf8'));
+  const sources = new Set((vercelConfig.rewrites || []).map((r) => r.source));
+
+  const missing = [];
+  for (const key of nonHomeKeys) {
+    const routePath = routes[key].path;
+    const withSlash = routePath.endsWith('/') ? routePath : routePath + '/';
+    if (!sources.has(routePath)) missing.push(routePath);
+    if (!sources.has(withSlash)) missing.push(withSlash);
+  }
+
+  if (missing.length > 0) {
+    throw new Error(
+      'generate-static-routes: vercel.json is missing explicit rewrites for: ' +
+      missing.join(', ') +
+      '. Add a rewrite for each (both with and without a trailing slash) ' +
+      'pointing at its generated <path>/index.html, ahead of the catch-all rewrite.'
+    );
+  }
+}
 
 function extractRoutes(scriptSource) {
   const marker = "const ROUTES = {";
@@ -124,6 +159,8 @@ function main() {
       `generate-static-routes: expected ${expectedCount} non-home routes, got ${keysToGenerate.length}`
     );
   }
+
+  assertRewritesCoverRoutes(ROUTES, keysToGenerate);
 
   let written = 0;
   for (const key of keysToGenerate) {
