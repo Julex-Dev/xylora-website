@@ -2308,24 +2308,88 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
 
-        <!-- About Julian + Socials -->
-        <div class="reveal reveal-delay-2" style="display:flex; flex-direction:column; gap:1.5rem;">
-          <div style="background:#f6f7f5; border-radius:20px; padding:2rem;">
-            <h4 style="font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:1rem;color:#0D0F0E;">Work Directly With the Founder</h4>
-            <p style="font-size:0.9rem;color:#6b6e6c;line-height:1.75;margin-bottom:0.75rem;">Julian is the founder of Xylora Digital. He works directly with local businesses to improve their websites, online presence, and lead generation systems.</p>
-            <p style="font-size:0.9rem;color:#6b6e6c;line-height:1.75;margin-bottom:0.75rem;">No account managers, no handoffs. When you reach out, you're talking to the person who will actually build your project — from first conversation to final launch.</p>
-            <p style="font-size:0.9rem;color:#6b6e6c;line-height:1.75;">Most agencies pass you around. At Xylora, you get one point of contact who knows your business inside out.</p>
-          </div>
-          <div style="background:#f6f7f5; border-radius:20px; padding:2rem;">
-            <h4 style="font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:1rem;color:#0D0F0E;">What happens after you reach out</h4>
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.85rem;margin:0;padding:0;">
-              <li style="display:flex;gap:0.7rem;font-size:0.9rem;color:#3a3d3b;line-height:1.6;"><span style="color:#00B37E;font-weight:700;flex-shrink:0;">1.</span>We reply within one business day to set up a quick call.</li>
-              <li style="display:flex;gap:0.7rem;font-size:0.9rem;color:#3a3d3b;line-height:1.6;"><span style="color:#00B37E;font-weight:700;flex-shrink:0;">2.</span>On the call we map where customers are slipping through and what to fix first.</li>
-              <li style="display:flex;gap:0.7rem;font-size:0.9rem;color:#3a3d3b;line-height:1.6;"><span style="color:#00B37E;font-weight:700;flex-shrink:0;">3.</span>If it's a fit, you get a clear fixed-price proposal. If not, the advice is yours to keep.</li>
-            </ul>
-          </div>
+        <!-- Contact form -->
+        <div class="reveal reveal-delay-2 contact-form-card">
+          <h3 class="contact-form-title" style="color:#0D0F0E;">Send us a message</h3>
+          <p class="contact-form-subtitle">Tell us a bit about your business and what you need — we'll reply within one business day.</p>
+          <form id="contactForm" onsubmit="return submitContactForm(event)" novalidate>
+            <!-- Honeypot: hidden from real visitors, left blank by them; bots tend to fill every field -->
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="contactWebsite">Website</label>
+              <input type="text" id="contactWebsite" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Name</label>
+                <input type="text" id="contactName" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Email</label>
+                <input type="email" id="contactEmail" name="email" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactPhone">Phone <span style="color:var(--c-ink-40); font-weight:500;">(optional)</span></label>
+                <input type="tel" id="contactPhone" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="contactBusiness">Business name</label>
+                <input type="text" id="contactBusiness" name="business" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactEnquiry">Nature of enquiry</label>
+              <select id="contactEnquiry" name="enquiry" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="Never Miss a Lead (Coming Soon)">Never Miss a Lead (Coming Soon)</option>
+                <option value="SEO">SEO</option>
+                <option value="Customer-Winning Websites">Customer-Winning Websites</option>
+                <option value="AI Website Assistant">AI Website Assistant</option>
+                <option value="Time Back Automation (Coming Soon)">Time Back Automation (Coming Soon)</option>
+                <option value="Custom Software & Apps">Custom Software &amp; Apps</option>
+                <option value="General Enquiry / Other">General Enquiry / Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="message" required></textarea>
+            </div>
+
+            <div id="contactFormError" class="form-error" hidden></div>
+
+            <div class="form-submit-row">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+          </form>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder + process -->
+  <section class="section" style="padding-top:0; background:#ffffff;">
+    <div class="container">
+      <div class="contact-founder-grid">
+        <div class="reveal" style="background:#f6f7f5; border-radius:20px; padding:2rem;">
+          <h4 style="font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:1rem;color:#0D0F0E;">Work Directly With the Founder</h4>
+          <p style="font-size:0.9rem;color:#6b6e6c;line-height:1.75;margin-bottom:0.75rem;">Julian is the founder of Xylora Digital. He works directly with local businesses to improve their websites, online presence, and lead generation systems.</p>
+          <p style="font-size:0.9rem;color:#6b6e6c;line-height:1.75;margin-bottom:0.75rem;">No account managers, no handoffs. When you reach out, you're talking to the person who will actually build your project — from first conversation to final launch.</p>
+          <p style="font-size:0.9rem;color:#6b6e6c;line-height:1.75;">Most agencies pass you around. At Xylora, you get one point of contact who knows your business inside out.</p>
+        </div>
+        <div class="reveal reveal-delay-1" style="background:#f6f7f5; border-radius:20px; padding:2rem;">
+          <h4 style="font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:1rem;color:#0D0F0E;">What happens after you reach out</h4>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.85rem;margin:0;padding:0;">
+            <li style="display:flex;gap:0.7rem;font-size:0.9rem;color:#3a3d3b;line-height:1.6;"><span style="color:#00B37E;font-weight:700;flex-shrink:0;">1.</span>We reply within one business day to set up a quick call.</li>
+            <li style="display:flex;gap:0.7rem;font-size:0.9rem;color:#3a3d3b;line-height:1.6;"><span style="color:#00B37E;font-weight:700;flex-shrink:0;">2.</span>On the call we map where customers are slipping through and what to fix first.</li>
+            <li style="display:flex;gap:0.7rem;font-size:0.9rem;color:#3a3d3b;line-height:1.6;"><span style="color:#00B37E;font-weight:700;flex-shrink:0;">3.</span>If it's a fit, you get a clear fixed-price proposal. If not, the advice is yours to keep.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>

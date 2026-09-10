@@ -412,7 +412,24 @@ nav.dark-hero:not(.scrolled) .nav-hamburger span {
 .form-submit-row {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
   padding-top: 0.5rem;
+}
+
+.form-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.form-error {
+  font-size: 0.875rem;
+  color: #c0392b;
+  line-height: 1.5;
 }
 
 /* ─── DIVIDER ─────────────────────────────── */
@@ -1449,6 +1466,14 @@ footer {
 
 .contact-form-subtitle { font-size: 0.9rem; color: var(--c-ink-40); margin-bottom: 2rem; }
 
+.contact-founder-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 /* ─────────────────────────────────────────────────── */
 /*  AUDIT PAGE                                         */
 /* ─────────────────────────────────────────────────── */
@@ -1944,6 +1969,7 @@ footer {
   .process-steps { grid-template-columns: 1fr 1fr; }
   .process-steps::after { display: none; }
   .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-founder-grid { grid-template-columns: 1fr; }
   .audit-layout { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr; }
   .portfolio-case-grid { grid-template-columns: 1fr; }

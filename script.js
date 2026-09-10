@@ -495,11 +495,47 @@ async function loadNewsletterArchive() {
 }
 
 // ─── FORM SUBMIT ─────────────────────────────────
-function handleFormSubmit(btn) {
-  btn.textContent = '✓ Sent!';
+function submitContactForm(event) {
+  event.preventDefault();
+  const form = event.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const errorEl = form.querySelector('#contactFormError');
+  const originalLabel = btn.textContent;
+
+  errorEl.hidden = true;
   btn.disabled = true;
-  btn.style.background = 'var(--c-accent)';
-  showNotification();
+  btn.textContent = 'Sending…';
+
+  const payload = {
+    name: form.name.value.trim(),
+    email: form.email.value.trim(),
+    phone: form.phone.value.trim(),
+    business: form.business.value.trim(),
+    enquiry: form.enquiry.value,
+    message: form.message.value.trim(),
+    website: form.website.value // honeypot
+  };
+
+  fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+    .then(async (res) => {
+      if (!res.ok) throw new Error((await res.json().catch(() => null))?.error || 'Request failed');
+      btn.textContent = '✓ Sent!';
+      showNotification();
+      form.reset();
+      setTimeout(() => { btn.disabled = false; btn.textContent = originalLabel; }, 3000);
+    })
+    .catch(() => {
+      btn.disabled = false;
+      btn.textContent = originalLabel;
+      errorEl.textContent = 'Something went wrong — please try again, or email us directly at hello@xyloradigital.com.';
+      errorEl.hidden = false;
+    });
+
+  return false;
 }
 
 function showNotification(msg) {
