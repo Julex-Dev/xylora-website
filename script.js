@@ -50,6 +50,18 @@ const ROUTES = {
     title: 'Custom Software & Apps — Portals, Systems & Mobile | Xylora Digital',
     desc: 'We design and build custom software, client portals, internal systems and mobile applications tailored to how your business actually works.'
   },
+  'dental-seo': {
+    path: '/dental-seo',
+    nav: null,
+    title: 'SEO for Dentists in Sydney | Xylora Digital',
+    desc: 'Xylora Digital helps Sydney dental practices improve online visibility, attract relevant local searches and generate more patient enquiries with tailored dental SEO strategies.'
+  },
+  'spa-seo': {
+    path: '/spa-seo',
+    nav: null,
+    title: 'SEO for Spas in Sydney | Xylora Digital',
+    desc: 'Xylora Digital helps Sydney spas strengthen search visibility, attract relevant local customers and generate more booking opportunities with tailored SEO for spas strategies.'
+  },
   'portfolio': {
     path: '/portfolio',
     nav: 'portfolio',
@@ -160,16 +172,51 @@ const SEO_FAQ_SCHEMA = {
   ]
 };
 
+const DENTAL_SEO_FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How do you approach SEO for dentists?", "acceptedAnswer": { "@type": "Answer", "text": "We build each SEO strategy around the practice, its treatments, target patients, service areas, and competitors. We combine local, technical, content, and website optimisation instead of applying the same SEO checklist to every dental practice." } },
+    { "@type": "Question", "name": "Can you improve an existing dental website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You do not necessarily need a completely new website to improve your search presence. Our search engine optimisation for dentist strategies can address existing content, technical issues, website structure, local signals, and other areas that may limit organic visibility." } },
+    { "@type": "Question", "name": "Do you only target general dentist searches?", "acceptedAnswer": { "@type": "Answer", "text": "No. Effective SEO for dentists can cover different treatment categories, patient needs and location-based searches. We research relevant search intent and help structure your website around the services and topics that matter to your particular practice." } },
+    { "@type": "Question", "name": "How do you choose keywords for dental SEO?", "acceptedAnswer": { "@type": "Answer", "text": "We consider treatment types, patient search behaviour, location, competition, and search intent when researching keywords, focusing on terms that have genuine relevance to your services rather than simply targeting high-volume phrases." } },
+    { "@type": "Question", "name": "Can you help a newly established dental practice?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A new practice can establish stronger search foundations from the beginning through structured website content, local optimisation, technical SEO, and relevant keyword targeting." } },
+    { "@type": "Question", "name": "Can SEO for dentists help with AI-powered search?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We incorporate AI Search Optimisation into our wider SEO for dentists' approach, helping organise your practice information so it can be understood more clearly across emerging search experiences." } },
+    { "@type": "Question", "name": "How do you measure the progress of SEO marketing for dentists?", "acceptedAnswer": { "@type": "Answer", "text": "We assess relevant indicators such as organic visibility, website performance, search traffic, and other meaningful SEO signals. The objective is not simply to generate traffic, but to build a stronger online presence aligned with your practice goals." } }
+  ]
+};
+
+const SPA_SEO_FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do you help spas target different customer needs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Customers search for spas based on different motivations, from relaxation and wellness to beauty treatments and special occasions. We can structure content around distinct search intents relevant to your services." } },
+    { "@type": "Question", "name": "How do you improve treatment page visibility?", "acceptedAnswer": { "@type": "Answer", "text": "We assess page structure, search intent, content relevance, internal linking and technical elements surrounding individual treatments to create stronger foundations for organic visibility." } },
+    { "@type": "Question", "name": "Is SEO useful for spas that rely heavily on repeat customers?", "acceptedAnswer": { "@type": "Answer", "text": "SEO complements your existing customer base by helping new people discover your services. It can also support searches for additional treatments when existing customers return online to research their next experience." } },
+    { "@type": "Question", "name": "What role does content play in SEO for spas?", "acceptedAnswer": { "@type": "Answer", "text": "Content helps communicate your treatments, expertise and customer experience to both search engines and visitors. We focus on useful, relevant information rather than creating content simply to increase the number of pages." } },
+    { "@type": "Question", "name": "Can SEO help promote premium spa experiences?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. High-value treatments and packages can receive dedicated optimisation based on their specific audience and search intent." } },
+    { "@type": "Question", "name": "How do you approach competitors in the spa industry?", "acceptedAnswer": { "@type": "Answer", "text": "Rather than copying competitor strategies, we assess their search presence to identify gaps and opportunities." } },
+    { "@type": "Question", "name": "How can you improve my spa's online authority?", "acceptedAnswer": { "@type": "Answer", "text": "Useful service information, strong website structure, and consistent business signals can contribute to a more credible online presence." } }
+  ]
+};
+
+const FAQ_SCHEMA_BY_PAGE = {
+  'service-seo': SEO_FAQ_SCHEMA,
+  'dental-seo': DENTAL_SEO_FAQ_SCHEMA,
+  'spa-seo': SPA_SEO_FAQ_SCHEMA
+};
+
 function setFaqSchema(page) {
   const existing = document.getElementById('faq-schema');
   if (existing) existing.remove();
 
-  if (page !== 'service-seo') return;
+  const schema = FAQ_SCHEMA_BY_PAGE[page];
+  if (!schema) return;
 
   const script = document.createElement('script');
   script.type = 'application/ld+json';
   script.id = 'faq-schema';
-  script.textContent = JSON.stringify(SEO_FAQ_SCHEMA);
+  script.textContent = JSON.stringify(schema);
   document.head.appendChild(script);
 }
 
