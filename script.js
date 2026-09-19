@@ -74,6 +74,12 @@ const ROUTES = {
     title: 'Law Firm SEO Services in Sydney | Xylora Digital',
     desc: 'Xylora Digital provides tailored SEO services for Sydney law firms to improve search visibility, attract relevant visitors and turn more searches into genuine client enquiries.'
   },
+  'digital-marketing-blue-mountains': {
+    path: '/digital-marketing-blue-mountains',
+    nav: null,
+    title: 'Digital Marketing Agency in Blue Mountains | Xylora Digital',
+    desc: 'Xylora Digital helps Blue Mountains businesses grow with SEO, websites, AI, automation and digital marketing built to increase visibility, capture leads and reduce manual admin work.'
+  },
   'portfolio': {
     path: '/portfolio',
     nav: 'portfolio',
@@ -240,12 +246,27 @@ const LAWYER_SEO_FAQ_SCHEMA = {
   ]
 };
 
+const BLUE_MOUNTAINS_FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Can you help if my business receives enquiries outside normal working hours?", "acceptedAnswer": { "@type": "Answer", "text": "AI-powered lead handling can help maintain responsiveness when your team is unavailable. Depending on the setup, automated systems can respond to enquiries, answer routine questions, collect contact details, and identify opportunities that require follow-up." } },
+    { "@type": "Question", "name": "What can automation do for a service-based business?", "acceptedAnswer": { "@type": "Answer", "text": "Automation can simplify recurring activities such as appointment confirmations, customer reminders, follow-up messages, enquiry management, and lead tracking. We assess your existing workflows first, so the recommended automation addresses genuine administrative bottlenecks." } },
+    { "@type": "Question", "name": "Can you create a website specifically around my business goals?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We develop websites around your customers, services, search requirements, and conversion objectives. The build prioritises mobile usability, performance, clear navigation, search readiness, and straightforward pathways that encourage visitors to enquire or book." } },
+    { "@type": "Question", "name": "How is your approach to digital marketing different from a traditional agency package?", "acceptedAnswer": { "@type": "Answer", "text": "Our approach focuses on practical solutions rather than adding services simply because they are included in a package. We consider your specific challenges before recommending marketing, technology, automation, or website improvements." } },
+    { "@type": "Question", "name": "Can you combine Blue Mountains SEO with other digital marketing services?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Combining SEO with website improvements, AI lead capture, automation, and other digital activities can create a more connected customer journey." } },
+    { "@type": "Question", "name": "How long does it take to see results from digital marketing?", "acceptedAnswer": { "@type": "Answer", "text": "The timeframe depends on the services involved, your website's current condition, competition, search demand, and starting visibility. Some improvements can produce immediate practical benefits, while organic search growth generally requires consistent optimisation and time." } },
+    { "@type": "Question", "name": "What should a local business include on its website?", "acceptedAnswer": { "@type": "Answer", "text": "A strong business website should clearly explain its services, location, value proposition, contact options, and reasons customers should choose the business. Depending on the industry, useful additions may include service areas, FAQs, testimonials, booking functionality, and project information." } }
+  ]
+};
+
 const FAQ_SCHEMA_BY_PAGE = {
   'service-seo': SEO_FAQ_SCHEMA,
   'dental-seo': DENTAL_SEO_FAQ_SCHEMA,
   'spa-seo': SPA_SEO_FAQ_SCHEMA,
   'real-estate-seo': REAL_ESTATE_SEO_FAQ_SCHEMA,
-  'lawyer-seo': LAWYER_SEO_FAQ_SCHEMA
+  'lawyer-seo': LAWYER_SEO_FAQ_SCHEMA,
+  'digital-marketing-blue-mountains': BLUE_MOUNTAINS_FAQ_SCHEMA
 };
 
 function setFaqSchema(page) {
