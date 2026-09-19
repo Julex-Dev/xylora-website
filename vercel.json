@@ -30,6 +30,8 @@
     { "source": "/real-estate-seo/", "destination": "/real-estate-seo/index.html" },
     { "source": "/lawyer-seo", "destination": "/lawyer-seo/index.html" },
     { "source": "/lawyer-seo/", "destination": "/lawyer-seo/index.html" },
+    { "source": "/digital-marketing-blue-mountains", "destination": "/digital-marketing-blue-mountains/index.html" },
+    { "source": "/digital-marketing-blue-mountains/", "destination": "/digital-marketing-blue-mountains/index.html" },
     { "source": "/portfolio", "destination": "/portfolio/index.html" },
     { "source": "/portfolio/", "destination": "/portfolio/index.html" },
     { "source": "/portfolio/websites", "destination": "/portfolio/websites/index.html" },
