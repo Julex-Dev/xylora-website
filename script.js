@@ -62,6 +62,18 @@ const ROUTES = {
     title: 'SEO for Spas in Sydney | Xylora Digital',
     desc: 'Xylora Digital helps Sydney spas strengthen search visibility, attract relevant local customers and generate more booking opportunities with tailored SEO for spas strategies.'
   },
+  'real-estate-seo': {
+    path: '/real-estate-seo',
+    nav: null,
+    title: 'SEO for Real Estate in Sydney | Xylora Digital',
+    desc: 'Xylora Digital helps Sydney real estate businesses improve search visibility, attract relevant property searches and generate more qualified enquiries with tailored real estate SEO strategies.'
+  },
+  'lawyer-seo': {
+    path: '/lawyer-seo',
+    nav: null,
+    title: 'Law Firm SEO Services in Sydney | Xylora Digital',
+    desc: 'Xylora Digital provides tailored SEO services for Sydney law firms to improve search visibility, attract relevant visitors and turn more searches into genuine client enquiries.'
+  },
   'portfolio': {
     path: '/portfolio',
     nav: 'portfolio',
@@ -200,10 +212,40 @@ const SPA_SEO_FAQ_SCHEMA = {
   ]
 };
 
+const REAL_ESTATE_SEO_FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do you provide SEO for mortgage brokers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. SEO for mortgage brokers target searches related to home loans, refinancing, borrowing requirements, investment finance, and other lending topics. We develop the strategy around your services, audience and Sydney market." } },
+    { "@type": "Question", "name": "Is SEO useful for smaller real estate agencies?", "acceptedAnswer": { "@type": "Answer", "text": "Smaller agencies can benefit from targeting specific suburbs, services and customer needs instead of competing only for broad, highly competitive property terms." } },
+    { "@type": "Question", "name": "Can you work with an existing real estate website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We optimise an established website without automatically requiring a complete rebuild. Our team assesses the current structure, content, and technical foundations before recommending practical improvements." } },
+    { "@type": "Question", "name": "How can SEO help real estate businesses compete in Sydney?", "acceptedAnswer": { "@type": "Answer", "text": "SEO for real estate can strengthen visibility around relevant suburbs, property services and customer searches. We focus on opportunities that align with your market rather than chasing every broad property keyword." } },
+    { "@type": "Question", "name": "How do you identify SEO opportunities?", "acceptedAnswer": { "@type": "Answer", "text": "We review search behaviour, competitors, website performance, existing content, local visibility, and customer intent to prioritise opportunities that have practical relevance to your business." } },
+    { "@type": "Question", "name": "How does SEO for real estate address changing property markets?", "acceptedAnswer": { "@type": "Answer", "text": "Search behaviour can shift as market conditions, buyer priorities and property demand change. Ongoing optimisation allows your website content and targeting to respond to emerging searches and business opportunities." } },
+    { "@type": "Question", "name": "How do you measure SEO progress?", "acceptedAnswer": { "@type": "Answer", "text": "We assess relevant indicators such as organic visibility, search performance, website engagement, and opportunities generated through targeted optimisation." } }
+  ]
+};
+
+const LAWYER_SEO_FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How long does legal SEO take?", "acceptedAnswer": { "@type": "Answer", "text": "SEO is an ongoing process rather than a one-off project. Some technical or local improvements may produce changes sooner, while competitive legal searches can require sustained work." } },
+    { "@type": "Question", "name": "Can you optimise a law firm's existing website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You do not necessarily need a complete website rebuild to improve search performance. We assess your existing site's technical foundations, content, navigation, mobile usability, conversion paths, and SEO opportunities first." } },
+    { "@type": "Question", "name": "How does SEO help a law firm attract clients in Sydney?", "acceptedAnswer": { "@type": "Answer", "text": "SEO helps your firm appear when prospective clients search for relevant legal services, practice areas, and local providers." } },
+    { "@type": "Question", "name": "How important is Google Business Profile for a Sydney law firm?", "acceptedAnswer": { "@type": "Answer", "text": "A well-maintained Google Business Profile can strengthen your local search presence and help prospective clients find essential information about your practice." } },
+    { "@type": "Question", "name": "How do you measure SEO progress?", "acceptedAnswer": { "@type": "Answer", "text": "We focus on meaningful indicators such as organic visibility, relevant search traffic, website performance and enquiry opportunities." } },
+    { "@type": "Question", "name": "Can you help if my law firm serves multiple Sydney areas?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can assess the locations your firm genuinely serves and develop appropriate local SEO opportunities around them. Our approach focuses on useful, location-relevant content rather than producing repetitive pages simply to target different suburbs." } },
+    { "@type": "Question", "name": "Do you focus on long-term SEO for lawyers in Sydney?", "acceptedAnswer": { "@type": "Answer", "text": "Our approach to SEO for lawyers focuses on building sustainable improvements across your website and online presence. Ongoing optimisation allows the strategy to adapt as your firm's services, competition and search behaviour change." } }
+  ]
+};
+
 const FAQ_SCHEMA_BY_PAGE = {
   'service-seo': SEO_FAQ_SCHEMA,
   'dental-seo': DENTAL_SEO_FAQ_SCHEMA,
-  'spa-seo': SPA_SEO_FAQ_SCHEMA
+  'spa-seo': SPA_SEO_FAQ_SCHEMA,
+  'real-estate-seo': REAL_ESTATE_SEO_FAQ_SCHEMA,
+  'lawyer-seo': LAWYER_SEO_FAQ_SCHEMA
 };
 
 function setFaqSchema(page) {
