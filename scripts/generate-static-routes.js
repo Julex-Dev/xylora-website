@@ -4,20 +4,27 @@
 /*
  * Generates a real static HTML file per route (e.g. about/index.html,
  * services/seo/index.html) with that route's correct <title>, meta
- * description, canonical, and OG tags baked into the raw <head>.
+ * description, canonical, OG tags, and (where applicable) FAQPage
+ * JSON-LD baked into the raw <head>.
  *
  * Why: this is a single-page app served from one static index.html for
  * every URL. A crawler's first-pass fetch of the raw HTML only ever sees
  * the homepage's head tags, since the correct per-route values are only
- * applied client-side (setMeta() in script.js) after the JS runs. Google
- * was collapsing routes into the homepage as duplicate canonicals as a
- * result. The body is copied through unchanged — client-side navigation
- * (script.js's navigate()) still works exactly as before once JS loads.
+ * applied client-side (setMeta()/setFaqSchema() in script.js) after the
+ * JS runs. Google was collapsing routes into the homepage as duplicate
+ * canonicals as a result, and separately reported "No items detected"
+ * for FAQ structured data that only ever existed as a JS-injected
+ * <script> tag, invisible to a raw-HTML fetch. The body is copied
+ * through unchanged — client-side navigation (script.js's navigate())
+ * still works exactly as before once JS loads, and setFaqSchema() stays
+ * in script.js as the mechanism that keeps the live <head> correct when
+ * navigating client-side between pages without a full reload.
  *
- * ROUTES itself is never duplicated here: it's extracted from script.js's
- * own source text (not required as a module, since script.js has
- * top-level window/document references that would throw in Node), so
- * there is exactly one place this data can ever be edited.
+ * Neither ROUTES nor FAQ_SCHEMA_BY_PAGE is duplicated here: both are
+ * extracted from script.js's own source text (not required as a module,
+ * since script.js has top-level window/document references that would
+ * throw in Node), so there is exactly one place this data can ever be
+ * edited.
  */
 
 const fs = require('fs');
@@ -63,11 +70,14 @@ function assertRewritesCoverRoutes(routes, nonHomeKeys) {
   }
 }
 
-function extractRoutes(scriptSource) {
-  const marker = "const ROUTES = {";
-  const markerIndex = scriptSource.indexOf(marker);
+// Finds `marker` in `source`, then returns the source text of the balanced
+// {...} block starting at marker's opening brace (skipping braces inside
+// string literals). Used to pull one const's object-literal text out of
+// script.js without executing the rest of that browser-dependent file.
+function extractBalancedBlock(source, marker) {
+  const markerIndex = source.indexOf(marker);
   if (markerIndex === -1) {
-    throw new Error('generate-static-routes: could not find "const ROUTES = {" in script.js');
+    throw new Error(`generate-static-routes: could not find "${marker}" in script.js`);
   }
 
   const braceStart = markerIndex + marker.length - 1; // index of the opening '{'
@@ -77,9 +87,9 @@ function extractRoutes(scriptSource) {
   let quoteChar = '';
   let end = -1;
 
-  for (let i = braceStart; i < scriptSource.length; i++) {
-    const ch = scriptSource[i];
-    const prev = scriptSource[i - 1];
+  for (let i = braceStart; i < source.length; i++) {
+    const ch = source[i];
+    const prev = source[i - 1];
 
     if (inString) {
       if (ch === quoteChar && prev !== '\\') inString = false;
@@ -103,12 +113,47 @@ function extractRoutes(scriptSource) {
   }
 
   if (end === -1) {
-    throw new Error('generate-static-routes: could not find matching closing brace for ROUTES');
+    throw new Error(`generate-static-routes: could not find matching closing brace for "${marker}"`);
   }
 
-  const literal = scriptSource.slice(braceStart, end + 1);
+  return source.slice(braceStart, end + 1);
+}
+
+function extractRoutes(scriptSource) {
+  const literal = extractBalancedBlock(scriptSource, 'const ROUTES = {');
   // Safe: this is our own authored source, extracted from our own repo file.
   return new Function('return (' + literal + ');')();
+}
+
+/*
+ * FAQ_SCHEMA_BY_PAGE maps route keys to FAQPage JSON-LD, e.g.
+ *   { 'lawyer-seo': LAWYER_SEO_FAQ_SCHEMA, ... }
+ * Its values are bare identifiers, not inline literals, so unlike ROUTES
+ * it can't be eval'd on its own — each identifier is a separate const
+ * declared elsewhere in script.js. We pull the map as text to read its
+ * keys and identifier names, then independently locate and eval each
+ * identifier's own `const NAME = {...}` block. This walks whatever keys
+ * actually exist in the map, so a page added to FAQ_SCHEMA_BY_PAGE later
+ * is picked up with no changes here.
+ */
+function extractFaqSchemaByPage(scriptSource) {
+  const mapLiteral = extractBalancedBlock(scriptSource, 'const FAQ_SCHEMA_BY_PAGE = {');
+  const pairPattern = /'([^']+)'\s*:\s*([A-Za-z_$][A-Za-z0-9_$]*)/g;
+
+  const result = {};
+  let match;
+  while ((match = pairPattern.exec(mapLiteral))) {
+    const [, pageKey, identifier] = match;
+    const identifierLiteral = extractBalancedBlock(scriptSource, `const ${identifier} = {`);
+    result[pageKey] = new Function('return (' + identifierLiteral + ');')();
+  }
+  return result;
+}
+
+// Escape "<" so a JSON string containing "</script" (or "<!--") can't
+// prematurely close the <script> tag it's embedded in.
+function escapeJsonForScriptTag(value) {
+  return JSON.stringify(value).replace(/</g, '\\u003c');
 }
 
 function escapeHtmlText(str) {
@@ -126,7 +171,7 @@ function replaceOrThrow(html, regex, replacement, label) {
   return html.replace(regex, replacement);
 }
 
-function buildRouteHtml(baseHtml, route) {
+function buildRouteHtml(baseHtml, route, faqSchema) {
   const canonicalUrl = SITE_ORIGIN + route.path;
   const title = escapeHtmlText(route.title);
   const titleAttr = escapeAttr(route.title);
@@ -142,12 +187,18 @@ function buildRouteHtml(baseHtml, route) {
   out = replaceOrThrow(out, /(<meta property="og:description" content=")[^"]*(">)/, `$1${descAttr}$2`, 'meta[property=og:description]');
   out = replaceOrThrow(out, /(<meta property="og:url" content=")[^"]*(">)/, `$1${canonicalAttr}$2`, 'meta[property=og:url]');
 
+  if (faqSchema) {
+    const schemaScript = `<script type="application/ld+json" id="faq-schema">${escapeJsonForScriptTag(faqSchema)}</script>\n</head>`;
+    out = replaceOrThrow(out, /<\/head>/, schemaScript, '</head> (FAQ schema injection)');
+  }
+
   return out;
 }
 
 function main() {
   const scriptSource = fs.readFileSync(SCRIPT_JS_PATH, 'utf8');
   const ROUTES = extractRoutes(scriptSource);
+  const faqSchemaByPage = extractFaqSchemaByPage(scriptSource);
   const baseHtml = fs.readFileSync(INDEX_HTML_PATH, 'utf8');
 
   const allKeys = Object.keys(ROUTES);
@@ -169,7 +220,7 @@ function main() {
       throw new Error(`generate-static-routes: route "${key}" is missing path/title/desc`);
     }
 
-    const outHtml = buildRouteHtml(baseHtml, route);
+    const outHtml = buildRouteHtml(baseHtml, route, faqSchemaByPage[key]);
 
     const relDir = route.path.replace(/^\/+/, '');
     const outDir = path.join(ROOT, relDir);
