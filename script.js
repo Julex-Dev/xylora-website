@@ -378,6 +378,46 @@ window.addEventListener('scroll', () => {
   document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
 });
 
+// ─── ANNOUNCEMENT BANNER ─────────────────────────────────
+// Temporary V1 launch banner, live for exactly 2 weeks (4–18 Oct 2026).
+// BANNER_EXPIRY_DATE is the one thing to change to extend/retire it — on or
+// after this date the banner stops rendering with no redeploy required.
+const BANNER_EXPIRY_DATE = new Date(2026, 9, 18); // month is 0-indexed: 9 = October
+const BANNER_DISMISS_KEY = 'xylora_announcement_dismissed_v1';
+
+function syncAnnouncementBannerHeight(banner) {
+  document.documentElement.style.setProperty('--banner-h', banner.offsetHeight + 'px');
+}
+
+function dismissAnnouncementBanner() {
+  const banner = document.getElementById('announcementBanner');
+  if (!banner) return;
+  try { sessionStorage.setItem(BANNER_DISMISS_KEY, '1'); } catch (e) {}
+  document.body.classList.remove('has-announcement');
+  document.documentElement.style.setProperty('--banner-h', '0px');
+  banner.remove();
+}
+
+function initAnnouncementBanner() {
+  const banner = document.getElementById('announcementBanner');
+  if (!banner) return;
+
+  let dismissed = false;
+  try { dismissed = sessionStorage.getItem(BANNER_DISMISS_KEY) === '1'; } catch (e) {}
+
+  if (new Date() >= BANNER_EXPIRY_DATE || dismissed) {
+    banner.remove();
+    return;
+  }
+
+  document.body.classList.add('has-announcement');
+  syncAnnouncementBannerHeight(banner);
+
+  const resync = () => syncAnnouncementBannerHeight(banner);
+  window.addEventListener('resize', resync);
+  window.addEventListener('load', resync);
+}
+
 // ─── SCROLL REVEALS ─────────────────────────────────
 function initReveals() {
   const reveals = document.querySelectorAll('.page.active .reveal');
@@ -656,6 +696,8 @@ function showNotification(msg) {
 
 // ─── INIT ─────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  initAnnouncementBanner();
+
   // GitHub Pages can't rewrite deep paths, so 404.html bounces them here as
   // "/?/services/seo". Put the real path back before we resolve the route.
   if (window.location.search.charAt(1) === '/') {
