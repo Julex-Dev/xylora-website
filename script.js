@@ -17,8 +17,8 @@ const ROUTES = {
   'service-never-miss-a-lead': {
     path: '/services/never-miss-a-lead',
     nav: 'services',
-    title: 'Never Miss a Lead (Coming Soon) — AI Missed Call Recovery | Xylora Digital',
-    desc: 'Coming soon: AI-powered missed call recovery that texts customers back automatically, answers common questions, captures and qualifies leads, and notifies you when action is required.'
+    title: 'Never Miss a Lead | Xylora Digital',
+    desc: 'Reply to enquiries in seconds, 24/7, and follow up until they\'re booked. Never Miss a Lead is Coming Soon from Xylora Digital, starting with trades.'
   },
   'service-seo': {
     path: '/services/seo',
@@ -712,7 +712,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!keyFromPath(window.location.pathname)) {
     history.replaceState({ page: 'home' }, '', '/');
   } else {
-    history.replaceState({ page }, '', ROUTES[page].path);
+    history.replaceState({ page }, '', ROUTES[page].path + window.location.search);
   }
 
   setTimeout(() => {
