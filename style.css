@@ -2681,9 +2681,9 @@ nav.dark-hero:not(.scrolled) .nav-menu a { color: var(--c-ink) !important; }
 .nml-cta-note-dark { color: rgba(255,255,255,0.85); margin: 1rem auto 0; text-align: center; }
 
 @media (max-width: 680px) {
-  .nml-hero { padding-top: 6rem; padding-bottom: 2.5rem; }
+  .nml-hero { padding-top: 4.5rem; padding-bottom: 2.5rem; }
   .nml-hero .svc-breadcrumb { margin-bottom: 0.25rem; }
-  .nml-banner { padding: 0.6rem 0.8rem; font-size: 0.85rem; line-height: 1.4; gap: 0.6rem; margin-bottom: 1rem; }
+  .nml-banner { padding: 0.6rem 0.8rem; font-size: 0.85rem; line-height: 1.4; gap: 0.6rem; margin-bottom: 1.25rem; text-align: left; align-items: flex-start; }
   .nml-cta { align-items: stretch; }
   .nml-cta .btn { width: 100%; }
   .nml-cta-btns { flex-direction: column; align-items: stretch; }
