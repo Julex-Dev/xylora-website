@@ -695,8 +695,37 @@ function showNotification(msg) {
 }
 
 // ─── INIT ─────────────────────────────────
+// ─── NEVER MISS A LEAD: step card ───────────
+// Lights the five steps one after another, holds, resets, repeats. Content is always in the
+// HTML; this only toggles .on. Paused off-screen / tab hidden; skipped for reduced motion.
+function initNmlFlow() {
+  const card = document.getElementById('nmlFlow');
+  if (!card || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const items = Array.from(card.querySelectorAll('li'));
+  let step = 0, timer = null, inView = false;
+  card.classList.add('is-animated');
+  function tick() {
+    if (step < items.length) {
+      items[step++].classList.add('on');
+      timer = setTimeout(tick, step < items.length ? 1400 : 2500);
+    } else {
+      items.forEach(li => li.classList.remove('on'));
+      step = 0;
+      timer = setTimeout(tick, 700);
+    }
+  }
+  function sync() {
+    const shouldRun = inView && !document.hidden;
+    if (shouldRun && timer === null) timer = setTimeout(tick, 300);
+    if (!shouldRun && timer !== null) { clearTimeout(timer); timer = null; }
+  }
+  new IntersectionObserver(es => { inView = es[0].isIntersecting; sync(); }).observe(card);
+  document.addEventListener('visibilitychange', sync);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initAnnouncementBanner();
+  initNmlFlow();
 
   // GitHub Pages can't rewrite deep paths, so 404.html bounces them here as
   // "/?/services/seo". Put the real path back before we resolve the route.

@@ -2688,16 +2688,62 @@ nav.dark-hero:not(.scrolled) .nav-menu a { color: var(--c-ink) !important; }
 }
 .nml-cta { margin-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
 .nml-cta .btn, .cta-band-actions .btn, .nml-hero ~ section .btn-ghost { min-height: 48px; justify-content: center; }
+.nml-cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; width: 100%; }
 .nml-cta-note { font-size: 0.875rem; color: var(--c-ink-40); max-width: 420px; }
 .nml-cta-note-dark { color: rgba(255,255,255,0.85); margin: 1rem auto 0; text-align: center; }
-.nml-steps .process-step-title { font-size: 1.05rem; }
-.nml-steps { row-gap: 1.75rem; margin-top: 0; }
-.nml-steps .process-step { padding: 0 0.75rem; }
 
 @media (max-width: 680px) {
   .nml-hero { padding-top: 6rem; padding-bottom: 2.5rem; }
   .nml-cta { align-items: stretch; }
   .nml-cta .btn { width: 100%; }
+  .nml-cta-btns { flex-direction: column; align-items: stretch; }
   .nml-cta-note { max-width: none; text-align: center; }
-  .nml-steps .process-step { margin-bottom: 1.5rem; }
+  }
+
+/* How an enquiry will be handled: step card (lit state is the default; JS adds .is-animated) */
+.nml-flow {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #faf8f3;
+  border: 1px solid var(--c-ink-10);
+  border-radius: 16px;
+  padding: 0.9rem 1rem 1rem;
+}
+.nml-flow-cap {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--c-ink-60);
+  text-align: center;
+  margin: 0 0 0.75rem;
+}
+.nml-flow-list { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.5rem; }
+.nml-flow-list li {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  background: #ece8df;
+  color: var(--c-ink);
+  font-size: 0.9rem;
+  line-height: 1.3;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+.nml-flow-n {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--c-accent);
+  transition: color 0.4s ease;
+}
+.nml-flow.is-animated .nml-flow-list li { background: #f5f3ee; color: var(--c-ink-40); }
+.nml-flow.is-animated .nml-flow-n { color: rgba(0,179,126,0.4); }
+.nml-flow.is-animated .nml-flow-list li.on { background: #ece8df; color: var(--c-ink); }
+.nml-flow.is-animated .nml-flow-list li.on .nml-flow-n { color: var(--c-accent); }
+
+@media (max-width: 767px) {
+  .nml-flow-list { flex-direction: column; gap: 8px; }
+  .nml-flow-list li { padding: 0.5rem 0.75rem; }
 }
