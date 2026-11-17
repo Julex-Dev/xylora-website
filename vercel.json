@@ -1,6 +1,11 @@
 {
   "outputDirectory": ".",
   "redirects": [
+    { "source": "/portfolio/websites", "destination": "/portfolio", "permanent": true },
+    { "source": "/portfolio/websites/", "destination": "/portfolio", "permanent": true },
+    { "source": "/portfolio/software", "destination": "/portfolio", "permanent": true },
+    { "source": "/portfolio/software/", "destination": "/portfolio", "permanent": true },
+    { "source": "/pages/:path*", "destination": "/", "permanent": false },
     {
       "source": "/site.html",
       "destination": "/",
@@ -39,10 +44,6 @@
     { "source": "/digital-marketing-blue-mountains/", "destination": "/digital-marketing-blue-mountains/index.html" },
     { "source": "/portfolio", "destination": "/portfolio/index.html" },
     { "source": "/portfolio/", "destination": "/portfolio/index.html" },
-    { "source": "/portfolio/websites", "destination": "/portfolio/websites/index.html" },
-    { "source": "/portfolio/websites/", "destination": "/portfolio/websites/index.html" },
-    { "source": "/portfolio/software", "destination": "/portfolio/software/index.html" },
-    { "source": "/portfolio/software/", "destination": "/portfolio/software/index.html" },
     { "source": "/about", "destination": "/about/index.html" },
     { "source": "/about/", "destination": "/about/index.html" },
     { "source": "/contact", "destination": "/contact/index.html" },

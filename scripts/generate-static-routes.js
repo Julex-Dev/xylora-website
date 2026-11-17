@@ -222,7 +222,11 @@ function main() {
       throw new Error(`generate-static-routes: route "${key}" is missing path/title/desc`);
     }
 
-    const outHtml = buildRouteHtml(baseHtml, route, faqSchemaByPage[key]);
+    // Routes with a standalone redesigned page (pages/<key>.html) use that file as
+    // their base instead of the single-page app template.
+    const standalonePath = path.join(ROOT, 'pages', key + '.html');
+    const routeBase = fs.existsSync(standalonePath) ? fs.readFileSync(standalonePath, 'utf8') : baseHtml;
+    const outHtml = buildRouteHtml(routeBase, route, faqSchemaByPage[key]);
 
     const relDir = route.path.replace(/^\/+/, '');
     const outDir = path.join(ROOT, relDir);

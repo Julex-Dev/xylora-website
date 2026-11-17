@@ -84,19 +84,7 @@ const ROUTES = {
     path: '/portfolio',
     nav: 'portfolio',
     title: 'Portfolio — Work That Drives Results | Xylora Digital',
-    desc: 'Client websites and custom software from Xylora Digital — concept redesigns and real systems we build for small businesses.'
-  },
-  'portfolio-websites': {
-    path: '/portfolio/websites',
-    nav: 'portfolio',
-    title: 'Client Websites — Portfolio | Xylora Digital',
-    desc: 'Website redesigns and builds for local businesses — modern, mobile-first, and built to turn visitors into enquiries.'
-  },
-  'portfolio-software': {
-    path: '/portfolio/software',
-    nav: 'portfolio',
-    title: 'Custom Software & Apps — Portfolio | Xylora Digital',
-    desc: 'Custom software and client portals from Xylora Digital, including the multi-service client portal we build and use ourselves.'
+    desc: 'Sample work from Xylora Digital: client websites, a client portal demo and our own projects, all live on the web.'
   },
   'about': {
     path: '/about',
@@ -286,7 +274,10 @@ function setFaqSchema(page) {
 // ─── NAVIGATION ───────────────────────────────
 // `push` is false when we're responding to the browser's own history (back/forward)
 // or restoring the page on first load — otherwise we'd push a duplicate entry.
+// Pages that are standalone documents now (not views inside this app) load with a real page load.
+const STANDALONE_PATHS = { 'portfolio': '/portfolio', 'portfolio-websites': '/portfolio', 'portfolio-software': '/portfolio' };
 function navigate(page, push = true) {
+  if (STANDALONE_PATHS[page]) { window.location.assign(STANDALONE_PATHS[page]); return; }
   const route = ROUTES[page];
   if (!route) return;
 
