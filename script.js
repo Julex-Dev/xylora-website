@@ -269,7 +269,7 @@ function setFaqSchema(page) {
 // or restoring the page on first load — otherwise we'd push a duplicate entry.
 // Pages that are standalone documents now (not views inside this app) load with a real page load.
 const STANDALONE_PATHS = {
-  'contact': '/contact',
+  'contact': '/contact', 'newsletter': '/newsletter', 'newsletter-archive': '/newsletter/archive',
   'services': '/services', 'service-marketing': '/services/marketing', 'service-ai-automation': '/services/ai-automation',
   'service-software-apps': '/services/software-apps', 'service-ai-website-assistant': '/services/ai-website-assistant', 'calculators': '/calculators',
   'service-websites': '/services/marketing#websites', 'service-seo': '/services/marketing#seo',
