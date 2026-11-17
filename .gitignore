@@ -7,6 +7,7 @@ node_modules/
 # on every deploy; never commit these, they'd just go stale in git.
 /services/
 /portfolio/
+/calculators/
 /about/
 /contact/
 /website-review/
