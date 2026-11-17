@@ -109,6 +109,18 @@ const ROUTES = {
     nav: 'newsletter',
     title: 'Archive — The Xylora Digest | Xylora Digital',
     desc: 'Every past issue of The Xylora Digest — Xylora Digital\'s free AI newsletter for Australian business leaders.'
+  },
+  'pricing': {
+    path: '/pricing',
+    nav: 'pricing',
+    title: 'Pricing — Straight Answers on Cost | Xylora Digital',
+    desc: 'Fixed upfront pricing for websites, SEO and AI tools for local businesses, confirmed on a free Discovery Call. Websites from $50 one-off.'
+  },
+  'faq': {
+    path: '/faq',
+    nav: 'faq',
+    title: 'FAQ — Contracts, Ownership, AI and Cost | Xylora Digital',
+    desc: 'Straight answers on who you work with, contracts, owning your website, how much it costs and where Xylora uses AI.'
   }
 };
 
@@ -269,7 +281,7 @@ function setFaqSchema(page) {
 // or restoring the page on first load — otherwise we'd push a duplicate entry.
 // Pages that are standalone documents now (not views inside this app) load with a real page load.
 const STANDALONE_PATHS = {
-  'contact': '/contact', 'newsletter': '/newsletter', 'newsletter-archive': '/newsletter/archive',
+  'contact': '/contact', 'audit': '/website-review', 'pricing': '/pricing', 'faq': '/faq', 'dental-seo': '/dental-seo', 'spa-seo': '/spa-seo', 'real-estate-seo': '/real-estate-seo', 'lawyer-seo': '/lawyer-seo', 'digital-marketing-blue-mountains': '/digital-marketing-blue-mountains', 'newsletter': '/newsletter', 'newsletter-archive': '/newsletter/archive',
   'services': '/services', 'service-marketing': '/services/marketing', 'service-ai-automation': '/services/ai-automation',
   'service-software-apps': '/services/software-apps', 'service-ai-website-assistant': '/services/ai-website-assistant', 'calculators': '/calculators',
   'service-websites': '/services/marketing#websites', 'service-seo': '/services/marketing#seo',
