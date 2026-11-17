@@ -77,6 +77,8 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .btn-g{border:1px solid var(--line);background:rgba(255,255,255,.04)}
 .btn-g:hover{border-color:var(--green);transform:translateY(-2px)}
 .btn-s{padding:9px 18px;font-size:.88rem}
+.btn-enq{white-space:nowrap}.btn-enq.act{border-color:var(--green)}.links .l-enq{display:none}
+@media(max-width:520px){.btn-enq{display:none}.links .l-enq{display:block}}
 .burger{display:none;font-size:1.5rem}
 @media(max-width:860px){.links{display:none}.burger{display:block}.links.open{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:#0d0f0e;padding:20px 24px;border-bottom:1px solid var(--line);gap:18px}}
 
@@ -445,9 +447,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     Xylora Digital
   </a>
   <div class="links" id="links">
-    <a href="/">Home</a><a href="/services">Services</a><a href="/services/ai-website-assistant">AI Assistant</a><a href="/calculators">Calculators</a><a href="/portfolio">Work</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/newsletter">Newsletter</a>
+    <a href="/">Home</a><a href="/services">Services</a><a href="/services/ai-website-assistant">AI Assistant</a><a href="/calculators">Calculators</a><a href="/portfolio">Work</a><a href="/about">About</a><a href="/contact" class="l-enq">Enquire</a><a href="/newsletter">Newsletter</a>
   </div>
   <div style="display:flex;gap:14px;align-items:center">
+    <a class="btn btn-g btn-s btn-enq" href="/contact">Enquire</a>
     <a class="btn btn-p btn-s" href="/book" target="_blank" rel="noopener">Book a Call</a>
     <button class="burger" aria-label="Menu" onclick="document.getElementById('links').classList.toggle('open')">☰</button>
   </div>
