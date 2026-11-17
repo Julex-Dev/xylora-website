@@ -2,6 +2,11 @@
   "outputDirectory": ".",
   "redirects": [
     {
+      "source": "/site.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/book",
       "destination": "https://calendar.app.google/oaUif22okaWAZrWB7",
       "permanent": false

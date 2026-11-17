@@ -32,7 +32,9 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const SCRIPT_JS_PATH = path.join(ROOT, 'script.js');
-const INDEX_HTML_PATH = path.join(ROOT, 'index.html');
+// The homepage (/) is now a standalone index.html; every other route is generated
+// from site.html (the original single-page app, which still holds all other pages).
+const INDEX_HTML_PATH = path.join(ROOT, 'site.html');
 const VERCEL_JSON_PATH = path.join(ROOT, 'vercel.json');
 const SITE_ORIGIN = 'https://xyloradigital.com';
 

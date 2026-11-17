@@ -290,6 +290,9 @@ function navigate(page, push = true) {
   const route = ROUTES[page];
   if (!route) return;
 
+  // The homepage is a standalone page now (index.html), not a view inside this app.
+  if (page === 'home') { window.location.assign('/'); return; }
+
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + page);
   if (target) target.classList.add('active');
