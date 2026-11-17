@@ -11,44 +11,8 @@ const ROUTES = {
   'services': {
     path: '/services',
     nav: 'services',
-    title: 'Services — AI, Websites, SEO & Automation | Xylora Digital',
-    desc: 'From AI-powered lead capture to high-performing websites, SEO, automation and custom software — explore how Xylora Digital helps your business grow.'
-  },
-  'service-never-miss-a-lead': {
-    path: '/services/never-miss-a-lead',
-    nav: 'services',
-    title: 'Never Miss a Lead | Xylora Digital',
-    desc: 'Reply to enquiries in seconds, 24/7, and follow up until they\'re booked. Never Miss a Lead is Coming Soon from Xylora Digital, starting with trades.'
-  },
-  'service-seo': {
-    path: '/services/seo',
-    nav: 'services',
-    title: 'Search Engine Marketing Agency in Sydney | Xylora Digital',
-    desc: 'Looking for a search engine marketing agency in Sydney? Xylora Digital delivers local SEO, technical SEO and Google Business Profile management that build lasting organic visibility.'
-  },
-  'service-websites': {
-    path: '/services/websites',
-    nav: 'services',
-    title: 'Web Design Agency Sydney | Website Design Companies | Xylora',
-    desc: 'Looking for a web design agency in Sydney? Xylora Digital is one of the website design companies in Sydney building fast, modern sites that build trust and turn visitors into enquiries.'
-  },
-  'service-ai-website-assistant': {
-    path: '/services/ai-website-assistant',
-    nav: 'services',
-    title: 'AI Website Assistant — 24/7 Website Chatbot | Xylora Digital',
-    desc: 'A monthly managed AI chatbot for your website that answers questions, qualifies enquiries and captures leads around the clock, then notifies you when it matters.'
-  },
-  'service-automation': {
-    path: '/services/automation',
-    nav: 'services',
-    title: 'AI Agency Sydney | We Automate What Slows You Down',
-    desc: 'We automate what slows you down. From repetitive tasks to smarter workflows, our AI solutions help you save time, work smarter and grow with ease.'
-  },
-  'service-custom-software': {
-    path: '/services/custom-software',
-    nav: 'services',
-    title: 'Custom Software & Apps — Portals, Systems & Mobile | Xylora Digital',
-    desc: 'We design and build custom software, client portals, internal systems and mobile applications tailored to how your business actually works.'
+    title: 'Services — Websites, SEO, AI Assistants & Software | Xylora Digital',
+    desc: 'Websites, SEO, an AI website assistant and custom software for local small businesses. We say plainly where AI does the work and where our team steps in.'
   },
   'dental-seo': {
     path: '/dental-seo',
@@ -91,6 +55,36 @@ const ROUTES = {
     nav: 'about',
     title: 'About — Built for Local Small Businesses | Xylora Digital',
     desc: 'Xylora builds websites, AI tools and automation for local small businesses. AI does much of the work and a real person checks it. Meet the founder, Julian.'
+  },
+  'service-marketing': {
+    path: '/services/marketing',
+    nav: 'services',
+    title: 'Marketing Services — Websites & SEO | Xylora Digital',
+    desc: 'Websites and SEO for local small businesses. A simple, mobile-friendly site and honest, steady SEO, with AI doing part of the work and our team checking it.'
+  },
+  'service-ai-automation': {
+    path: '/services/ai-automation',
+    nav: 'services',
+    title: 'AI & Automation Services | Xylora Digital',
+    desc: 'An AI website assistant, plus Agent-Ready, Never Miss a Lead and Time Back Automation coming soon. We say where AI does the work and where our team steps in.'
+  },
+  'service-software-apps': {
+    path: '/services/software-apps',
+    nav: 'services',
+    title: 'Software & Apps — Mobile, Web and Portals | Xylora Digital',
+    desc: 'Mobile apps, web apps, browser extensions and custom portals for local businesses, built with AI assistance and scoped, checked and supported by our team.'
+  },
+  'service-ai-website-assistant': {
+    path: '/services/ai-website-assistant',
+    nav: 'services',
+    title: 'AI Website Assistant — A Front Desk That Never Sleeps | Xylora Digital',
+    desc: 'An AI chatbot for your website that answers questions, qualifies enquiries and captures leads, and always tells visitors it is an AI. Try the demo and the calculator.'
+  },
+  'calculators': {
+    path: '/calculators',
+    nav: 'services',
+    title: 'Calculators — Missed Enquiries, Website Value, Time Back | Xylora Digital',
+    desc: 'Four quick calculators for missed enquiries, website value, time back and payback. Plain maths using your own figures: illustrative estimates, not promises of results.'
   },
   'contact': {
     path: '/contact',
@@ -249,7 +243,6 @@ const BLUE_MOUNTAINS_FAQ_SCHEMA = {
 };
 
 const FAQ_SCHEMA_BY_PAGE = {
-  'service-seo': SEO_FAQ_SCHEMA,
   'dental-seo': DENTAL_SEO_FAQ_SCHEMA,
   'spa-seo': SPA_SEO_FAQ_SCHEMA,
   'real-estate-seo': REAL_ESTATE_SEO_FAQ_SCHEMA,
@@ -275,7 +268,14 @@ function setFaqSchema(page) {
 // `push` is false when we're responding to the browser's own history (back/forward)
 // or restoring the page on first load — otherwise we'd push a duplicate entry.
 // Pages that are standalone documents now (not views inside this app) load with a real page load.
-const STANDALONE_PATHS = { 'about': '/about', 'portfolio': '/portfolio', 'portfolio-websites': '/portfolio', 'portfolio-software': '/portfolio' };
+const STANDALONE_PATHS = {
+  'services': '/services', 'service-marketing': '/services/marketing', 'service-ai-automation': '/services/ai-automation',
+  'service-software-apps': '/services/software-apps', 'service-ai-website-assistant': '/services/ai-website-assistant', 'calculators': '/calculators',
+  'service-websites': '/services/marketing#websites', 'service-seo': '/services/marketing#seo',
+  'service-never-miss-a-lead': '/services/ai-automation#never-miss-a-lead', 'service-automation': '/services/ai-automation#time-back-automation',
+  'service-custom-software': '/services/software-apps',
+  'about': '/about', 'portfolio': '/portfolio', 'portfolio-websites': '/portfolio', 'portfolio-software': '/portfolio'
+};
 function navigate(page, push = true) {
   if (STANDALONE_PATHS[page]) { window.location.assign(STANDALONE_PATHS[page]); return; }
   const route = ROUTES[page];

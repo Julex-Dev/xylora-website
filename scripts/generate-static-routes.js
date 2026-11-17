@@ -224,7 +224,8 @@ function main() {
 
     // Routes with a standalone redesigned page (pages/<key>.html) use that file as
     // their base instead of the single-page app template.
-    const standalonePath = path.join(ROOT, 'pages', key + '.html');
+    const PAGE_ALIAS = { 'service-marketing': 'services', 'service-ai-automation': 'services', 'service-software-apps': 'services', 'service-ai-website-assistant': 'services', 'calculators': 'services' };
+    const standalonePath = path.join(ROOT, 'pages', (PAGE_ALIAS[key] || key) + '.html');
     const routeBase = fs.existsSync(standalonePath) ? fs.readFileSync(standalonePath, 'utf8') : baseHtml;
     const outHtml = buildRouteHtml(routeBase, route, faqSchemaByPage[key]);
 
