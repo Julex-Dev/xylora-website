@@ -89,8 +89,8 @@ const ROUTES = {
   'about': {
     path: '/about',
     nav: 'about',
-    title: 'About — Founder-Led Digital Growth | Xylora Digital',
-    desc: 'Xylora Digital is founder-led. You work directly with the person building your website, AI and automation — no account managers, no hand-offs.'
+    title: 'About — Built for Local Small Businesses | Xylora Digital',
+    desc: 'Xylora builds websites, AI tools and automation for local small businesses. AI does much of the work and a real person checks it. Meet the founder, Julian.'
   },
   'contact': {
     path: '/contact',
@@ -275,7 +275,7 @@ function setFaqSchema(page) {
 // `push` is false when we're responding to the browser's own history (back/forward)
 // or restoring the page on first load — otherwise we'd push a duplicate entry.
 // Pages that are standalone documents now (not views inside this app) load with a real page load.
-const STANDALONE_PATHS = { 'portfolio': '/portfolio', 'portfolio-websites': '/portfolio', 'portfolio-software': '/portfolio' };
+const STANDALONE_PATHS = { 'about': '/about', 'portfolio': '/portfolio', 'portfolio-websites': '/portfolio', 'portfolio-software': '/portfolio' };
 function navigate(page, push = true) {
   if (STANDALONE_PATHS[page]) { window.location.assign(STANDALONE_PATHS[page]); return; }
   const route = ROUTES[page];
