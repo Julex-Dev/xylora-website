@@ -66,7 +66,7 @@ footer a{margin-right:16px}
 .seg button[aria-selected=true]{background:var(--green);color:#04120c}
 .bubble{border-radius:16px;padding:12px 14px;margin-bottom:10px;max-width:92%;font-size:.97rem}
 .bubble.me{background:rgba(255,255,255,.07);margin-left:auto;border-bottom-right-radius:4px}
-.bubble.ai{background:rgba(0,179,126,.1);border:1px solid rgba(0,179,126,.25);border-bottom-left-radius:4px;min-height:120px}
+.bubble.ai{background:rgba(0,179,126,.1);border:1px solid rgba(0,179,126,.25);border-bottom-left-radius:4px}
 .bubble.ai ol{padding-left:20px;margin:8px 0 0}
 .bubble.ai li{margin-bottom:6px}
 .you{color:var(--amber);font-weight:700}
@@ -79,6 +79,7 @@ footer a{margin-right:16px}
 .miss b{color:var(--amber);font-size:1.05rem;margin-right:8px}
 .miss .why{display:block;margin-top:6px;color:var(--text);font-size:.92rem}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(232,160,32,.55)}50%{box-shadow:0 0 0 8px rgba(232,160,32,0)}}
+.ln{opacity:0;transform:translateY(6px);transition:opacity .45s ease,transform .45s ease}.ln.show{opacity:1;transform:none}
 .caret:after{content:"";display:inline-block;width:7px;height:1em;background:var(--green);margin-left:2px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 .fine{font-size:.8rem;color:var(--mute);margin:8px 2px 0}
@@ -258,17 +259,29 @@ var TXT={
  before:{intro:'Here are some well-reviewed options near Springwood:',items:[['Blue Gum Bin Hire','price guide, online booking',1],['Mountain Skip Co','from $240, book online',1],['Your business','not mentioned',0]],close:'The customer will ring one of those two.'},
  after:{intro:'Here are some well-reviewed options near Springwood:',items:[['Your business','from $190 for a small load, send a photo for a firm price. Book online',2],['Blue Gum Bin Hire','price guide, online booking',1],['Mountain Skip Co','from $240, book online',1]],close:'Want me to send your photo to the first one for a quote?'}
 };
-function paint(m,instant){
- clearTimeout(timer);var d=TXT[m];var parts=[d.intro];
- var html='<span>'+d.intro+'</span><ol>'+d.items.map(function(i){if(i[2]===0)return '<li class="miss"><b>'+i[0]+'</b><span class="tag">NOT MENTIONED</span><span class="why">The assistant never names you, so this customer never hears you exist.</span></li>';return '<li><span class="'+(i[0]==='Your business'?'you':'')+'"><b>'+i[0]+'</b></span>'+(i[2]===0?'<span class="tag no">not mentioned</span>':i[2]===2?'<span class="tag ok">picked</span> <span class="mute">'+i[1]+'</span>':' <span class="mute">'+i[1]+'</span>')+'</li>'}).join('')+'</ol><span class="mute">'+d.close+'</span>';
- if(instant||reduce){bub.innerHTML=html;return}
- var tmp=document.createElement('div');tmp.innerHTML=html;var full=tmp.textContent,n=0;
- bub.innerHTML='<span class="caret"></span>';
- (function step(){n+=3;if(n>=full.length){bub.innerHTML=html;bub.classList.add('fade');return}bub.innerHTML='<span class="caret">'+full.slice(0,n).replace(/</g,'&lt;')+'</span>';timer=setTimeout(step,22)})();
+function htmlFor(m){
+ var d=TXT[m];
+ return '<span class="ln">'+d.intro+'</span><ol>'+d.items.map(function(i){
+  if(i[2]===0)return '<li class="miss ln"><b>'+i[0]+'</b><span class="tag">NOT MENTIONED</span><span class="why">The assistant never names you, so this customer never hears you exist.</span></li>';
+  return '<li class="ln"><span class="'+(i[0]==='Your business'?'you':'')+'"><b>'+i[0]+'</b></span>'+(i[2]===2?' <span class="tag ok">picked</span> <span class="mute">'+i[1]+'</span>':' <span class="mute">'+i[1]+'</span>')+'</li>'}).join('')+'</ol><span class="mute ln" style="display:block">'+d.close+'</span>';
 }
+function reserve(){
+ bub.style.minHeight='0';var h=0;
+ ['before','after'].forEach(function(m){bub.innerHTML=htmlFor(m);bub.querySelectorAll('.ln').forEach(function(x){x.classList.add('show')});h=Math.max(h,bub.offsetHeight)});
+ bub.style.minHeight=h+'px';
+}
+function paint(m,instant){
+ clearTimeout(timer);reserve();bub.innerHTML=htmlFor(m);
+ var ln=[].slice.call(bub.querySelectorAll('.ln'));
+ if(instant||reduce){ln.forEach(function(x){x.classList.add('show')});return}
+ var i=0;(function step(){if(i>=ln.length)return;ln[i++].classList.add('show');timer=setTimeout(step,i===1?450:700)})();
+}
+window.addEventListener('resize',function(){if(started){var cur=mode;clearTimeout(timer);reserve();bub.innerHTML=htmlFor(cur);bub.querySelectorAll('.ln').forEach(function(x){x.classList.add('show')})}});
 function setTab(a,b,m){$('t-before').setAttribute('aria-selected',m==='before');$('t-after').setAttribute('aria-selected',m==='after');mode=m;bub.classList.remove('fade');paint(m)}
 $('t-before').onclick=function(){setTab(0,0,'before')};$('t-after').onclick=function(){setTab(0,0,'after')};
 var started=false;
+reserve();bub.innerHTML=htmlFor('before');
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){clearTimeout(timer);reserve();bub.innerHTML=htmlFor(mode);if(started)bub.querySelectorAll('.ln').forEach(function(x){x.classList.add('show')})});
 if('IntersectionObserver' in window){new IntersectionObserver(function(es,o){if(es[0].isIntersecting&&!started){started=true;paint('before');o.disconnect()}},{threshold:.3}).observe(bub)}else{paint('before',true)}
 /* GEO vs Agent-Ready */
 var VS={
