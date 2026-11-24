@@ -73,6 +73,12 @@ footer a{margin-right:16px}
 .tag{display:inline-block;font-size:.72rem;font-weight:700;border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:middle}
 .tag.ok{background:var(--green);color:#04120c}
 .tag.no{background:rgba(255,255,255,.1);color:var(--mute)}
+.grad.grad-v{display:inline-block;background:linear-gradient(180deg,#00E0A0 0%,#00B37E 50%,#E8A020 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.bubble.ai li.miss{list-style:none;margin:12px 0 4px -20px;padding:12px 14px;border:1px solid var(--amber);background:rgba(232,160,32,.13);border-radius:12px}
+.miss .tag{margin:0 0 0 0;background:var(--amber);color:#1a1000;font-size:.8rem;letter-spacing:.06em;padding:4px 10px;animation:pulse 2s ease-in-out infinite}
+.miss b{color:var(--amber);font-size:1.05rem;margin-right:8px}
+.miss .why{display:block;margin-top:6px;color:var(--text);font-size:.92rem}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(232,160,32,.55)}50%{box-shadow:0 0 0 8px rgba(232,160,32,0)}}
 .caret:after{content:"";display:inline-block;width:7px;height:1em;background:var(--green);margin-left:2px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 .fine{font-size:.8rem;color:var(--mute);margin:8px 2px 0}
@@ -125,7 +131,7 @@ footer a{margin-right:16px}
 <section class="hero"><div class="wrap"><div class="herogrid">
 <div>
 <div class="eyebrow">Agent-Ready, by Xylora Digital</div>
-<h1><span class="grad">Get picked by AI.</span></h1>
+<h1><span class="grad grad-v">Get picked<br>by AI.</span></h1>
 <p class="lead">More people are asking AI assistants like ChatGPT, Gemini and Claude "who's a good plumber near me?". Agent-Ready helps those assistants find you, quote your prices and send people to book.</p>
 <div class="cta-row"><a class="btn" href="https://xylora-ai-check.vercel.app">Run the free AI Check</a><a class="btn ghost" href="/book" target="_blank" rel="noopener">Book a free call</a></div>
 <p class="mute" style="margin-top:12px">See in about a minute whether AI assistants name your business. No card, no catch.</p>
@@ -249,12 +255,12 @@ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es
 /* hero chat */
 var bub=$('aiBubble'),timer=null,mode='before';
 var TXT={
- before:{intro:'Here are some well-reviewed options near Springwood:',items:[['Blue Gum Bin Hire','price guide, online booking',1],['Mountain Skip Co','from $240, book online',1],['Your business','not mentioned',0]],close:'Tip: ask them for a quote.'},
+ before:{intro:'Here are some well-reviewed options near Springwood:',items:[['Blue Gum Bin Hire','price guide, online booking',1],['Mountain Skip Co','from $240, book online',1],['Your business','not mentioned',0]],close:'The customer will ring one of those two.'},
  after:{intro:'Here are some well-reviewed options near Springwood:',items:[['Your business','from $190 for a small load, send a photo for a firm price. Book online',2],['Blue Gum Bin Hire','price guide, online booking',1],['Mountain Skip Co','from $240, book online',1]],close:'Want me to send your photo to the first one for a quote?'}
 };
 function paint(m,instant){
  clearTimeout(timer);var d=TXT[m];var parts=[d.intro];
- var html='<span>'+d.intro+'</span><ol>'+d.items.map(function(i){return '<li><span class="'+(i[0]==='Your business'?'you':'')+'"><b>'+i[0]+'</b></span>'+(i[2]===0?'<span class="tag no">not mentioned</span>':i[2]===2?'<span class="tag ok">picked</span> <span class="mute">'+i[1]+'</span>':' <span class="mute">'+i[1]+'</span>')+'</li>'}).join('')+'</ol><span class="mute">'+d.close+'</span>';
+ var html='<span>'+d.intro+'</span><ol>'+d.items.map(function(i){if(i[2]===0)return '<li class="miss"><b>'+i[0]+'</b><span class="tag">NOT MENTIONED</span><span class="why">The assistant never names you, so this customer never hears you exist.</span></li>';return '<li><span class="'+(i[0]==='Your business'?'you':'')+'"><b>'+i[0]+'</b></span>'+(i[2]===0?'<span class="tag no">not mentioned</span>':i[2]===2?'<span class="tag ok">picked</span> <span class="mute">'+i[1]+'</span>':' <span class="mute">'+i[1]+'</span>')+'</li>'}).join('')+'</ol><span class="mute">'+d.close+'</span>';
  if(instant||reduce){bub.innerHTML=html;return}
  var tmp=document.createElement('div');tmp.innerHTML=html;var full=tmp.textContent,n=0;
  bub.innerHTML='<span class="caret"></span>';
