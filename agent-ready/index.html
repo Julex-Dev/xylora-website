@@ -84,11 +84,32 @@ footer a{margin-right:16px}
 @keyframes blink{50%{opacity:0}}
 .fine{font-size:.8rem;color:var(--mute);margin:8px 2px 0}
 /* stats */
-.stats{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:26px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
-.stat b{display:block;font-family:'Bricolage Grotesque';font-size:3rem;font-weight:800;line-height:1;color:var(--green)}
-.stat b small{font-size:1.4rem;color:var(--mute);font-weight:700}
-.stat span{color:var(--mute);font-size:.95rem}
+.stats{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:26px}
+.stat{position:relative;overflow:hidden;background:linear-gradient(160deg,#1b221f,#141917);border:1px solid var(--line);border-radius:var(--r);padding:24px 22px 22px;display:flex;flex-direction:column;gap:14px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.stat:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--green),var(--amber));opacity:.9}
+.stat:after{content:"";position:absolute;right:-60px;top:-60px;width:180px;height:180px;background:radial-gradient(circle,rgba(0,179,126,.2),transparent 70%);pointer-events:none}
+.stat.s1:after{background:radial-gradient(circle,rgba(232,160,32,.22),transparent 70%)}
+.stat:hover{transform:translateY(-4px);border-color:rgba(0,179,126,.5);box-shadow:0 22px 50px -24px var(--glow)}
+.stat .num{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:clamp(2.8rem,6vw,3.6rem);font-weight:800;line-height:1;background:linear-gradient(180deg,#00E0A0,#00B37E);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .num.warm{background:linear-gradient(180deg,#F5B94A,#E8A020);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .num small{font-size:1.2rem;font-weight:700;color:var(--mute);-webkit-text-fill-color:var(--mute)}
+.stat>span{color:var(--mute);font-size:.95rem;margin-top:auto}
+.dots{display:grid;grid-template-columns:repeat(10,1fr);gap:6px}
+.dots i{aspect-ratio:1;border-radius:50%;background:rgba(0,179,126,.28);transform:scale(.3);opacity:0;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s}
+.dots i.miss{background:var(--amber);box-shadow:0 0 12px rgba(232,160,32,.7)}
+.in .dots i{transform:none;opacity:1}
+.rows{display:grid;gap:7px}
+.arow{display:grid;grid-template-columns:62px repeat(6,1fr);gap:6px;align-items:center}
+.arow em{font-style:normal;font-size:.74rem;font-weight:700;color:var(--mute);letter-spacing:.03em}
+.sq{height:14px;border-radius:5px;background:var(--green);opacity:0;transform:scaleX(.2);transform-origin:left;transition:opacity .4s,transform .4s}
+.in .sq{opacity:.85;transform:none}
+.arow:nth-child(2) .sq{background:#2FD6A0}.arow:nth-child(3) .sq{background:#7BC96F}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:8px 14px;font-weight:700;font-size:.9rem;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
+.chip:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--glow)}
+.chip.c2:before{background:#2FD6A0}.chip.c3:before{background:var(--amber);box-shadow:0 0 10px rgba(232,160,32,.6)}
+.in .chip{opacity:1;transform:none}
+.in .chip.c2{transition-delay:.15s}.in .chip.c3{transition-delay:.3s}
 /* geo vs agent-ready */
 .vs{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;margin-top:22px}
 .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:16px 0 18px}
@@ -152,9 +173,12 @@ footer a{margin-right:16px}
 <div class="rv"><h2>The problem, in plain words</h2>
 <p class="lead">Ask an AI assistant for a tradie in your suburb and it names two or three businesses. If your profiles are patchy, your prices aren't published and there's no easy way to book, it names someone else.</p></div>
 <div class="stats rv">
-<div class="stat"><b><span data-count="7">7</span><small> of 40</small></b><span>local trade businesses weren't named at all in our test</span></div>
-<div class="stat"><b><span data-count="18">18</span></b><span>test answers per business, from 3 AI assistants</span></div>
-<div class="stat"><b><span data-count="3">3</span></b><span>assistants asked: ChatGPT, Gemini and Claude</span></div>
+<div class="stat s1"><div class="num warm"><span data-count="7">7</span><small> of 40</small></div><div class="dots d40" id="d40" aria-hidden="true"></div><span>local trade businesses weren't named at all in our test</span></div>
+<div class="stat s2"><div class="num"><span data-count="18">18</span><small> answers</small></div><div class="rows" aria-hidden="true">
+<div class="arow"><em>ChatGPT</em><i class="sq"></i><i class="sq"></i><i class="sq"></i><i class="sq"></i><i class="sq"></i><i class="sq"></i></div>
+<div class="arow"><em>Gemini</em><i class="sq"></i><i class="sq"></i><i class="sq"></i><i class="sq"></i><i class="sq"></i><i class="sq"></i></div>
+<div class="arow"><em>Claude</em><i class="sq"></i><i class="sq"></i><i class="sq"></i><i class="sq"></i><i class="sq"></i><i class="sq"></i></div></div><span>test answers for each business, 6 from each assistant</span></div>
+<div class="stat s3"><div class="num"><span data-count="3">3</span><small> assistants</small></div><div class="chips"><span class="chip c1">ChatGPT</span><span class="chip c2">Gemini</span><span class="chip c3">Claude</span></div><span>the AI assistants people actually ask, all asked the same questions about every business</span></div>
 </div>
 <p class="mute rv" style="margin-top:16px">Our own check of 40 local trade businesses around the Blue Mountains and Penrith. Many of the rest were named by only one assistant. It's a small local sample, not a study, and AI answers change from day to day.</p>
 </div></section>
@@ -253,6 +277,9 @@ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es
  var to=+el.getAttribute('data-count');if(reduce||!('IntersectionObserver' in window))return;
  el.textContent='0';
  var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){o.disconnect();var t0=performance.now();(function f(t){var k=Math.min(1,(t-t0)/1200);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(t0)}},{threshold:.2});o.observe(el.closest('.stat')||el)});
+/* stat dots */
+(function(){var g=$('d40');if(!g)return;var miss={3:1,9:1,14:1,22:1,27:1,31:1,37:1};var h='';for(var n=0;n<40;n++){h+='<i'+(miss[n]?' class="miss"':'')+' style="transition-delay:'+(reduce?0:n*18)+'ms"></i>'}g.innerHTML=h;
+ [].slice.call(document.querySelectorAll('.arow')).forEach(function(r,ri){[].slice.call(r.querySelectorAll('.sq')).forEach(function(q,qi){q.style.transitionDelay=(reduce?0:(ri*120+qi*70))+'ms'})})})();
 /* hero chat */
 var bub=$('aiBubble'),timer=null,mode='before';
 var TXT={
