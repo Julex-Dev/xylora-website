@@ -12,30 +12,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="/favicon.png">
 <style>
-:root{--green:#00B37E;--green-h:#009068;--amber:#E8A020;--bg:#0D0F0E;--bg2:#131715;--card:#171c19;--line:rgba(255,255,255,.09);--text:#EEF3F0;--mute:#9AA8A1;--r:20px}
+:root{--green:#00B37E;--green-h:#009068;--amber:#E8A020;--bg:#0D0F0E;--bg2:#131715;--card:#171c19;--line:rgba(255,255,255,.09);--text:#EEF3F0;--mute:#9AA8A1;--glow:rgba(0,179,126,.35);--r:20px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{color-scheme:dark;scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.1;letter-spacing:-.02em}
 a{color:inherit}
 .wrap{max-width:980px;margin:0 auto;padding:0 20px}
-header{border-bottom:1px solid var(--line);padding:16px 0}
+header{border-bottom:1px solid var(--line);padding:16px 0;position:sticky;top:0;background:rgba(13,15,14,.88);backdrop-filter:blur(10px);z-index:20}
 header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .logo{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.2rem;text-decoration:none}
-.btn{display:inline-block;background:var(--green);color:#04120c;font-weight:700;padding:14px 22px;border-radius:999px;text-decoration:none;min-height:48px}
-.btn:hover{background:var(--green-h)}
-.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
-section{padding:56px 0}
+.btn{display:inline-block;background:var(--green);color:#04120c;font:inherit;font-weight:700;padding:14px 22px;border-radius:999px;text-decoration:none;min-height:48px;border:0;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s}
+.btn:hover{background:var(--green-h);transform:translateY(-1px);box-shadow:0 8px 28px var(--glow)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--green)}
+:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+section{padding:64px 0;position:relative}
 .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
-h1{font-size:clamp(2.2rem,7vw,3.8rem);font-weight:800;margin-bottom:16px}
-h2{font-size:clamp(1.6rem,4.5vw,2.3rem);font-weight:800;margin-bottom:14px}
+h1{font-size:clamp(2.4rem,7.5vw,4.2rem);font-weight:800;margin-bottom:16px}
+h2{font-size:clamp(1.7rem,4.8vw,2.5rem);font-weight:800;margin-bottom:14px}
 h3{font-size:1.2rem;margin-bottom:8px}
 p{margin-bottom:14px}
 .lead{color:var(--mute);font-size:1.12rem;max-width:640px}
 .grad{background:linear-gradient(100deg,#00E0A0,#00B37E 45%,#E8A020);-webkit-background-clip:text;background-clip:text;color:transparent}
 .cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}
-.card.hl{border-color:var(--green)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;transition:border-color .2s,transform .2s}
+.card.hl{border-color:var(--green);box-shadow:0 0 0 1px var(--green),0 18px 60px -20px var(--glow)}
 .price{font-family:'Bricolage Grotesque';font-size:2rem;font-weight:800}
 .mute{color:var(--mute)}
 ol.steps{list-style:none;counter-reset:s;display:grid;gap:12px}
@@ -49,36 +51,152 @@ details p{margin:10px 0 0;color:var(--mute)}
 footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mute);font-size:.92rem}
 footer a{margin-right:16px}
 .terms h2{font-size:1.2rem;margin:22px 0 6px}
-@media(max-width:560px){section{padding:40px 0}}
+/* hero glow */
+.hero{overflow:hidden}
+.hero:before{content:"";position:absolute;inset:-20% -10% auto auto;width:560px;height:560px;background:radial-gradient(circle,rgba(0,179,126,.28),transparent 65%);pointer-events:none;animation:float 9s ease-in-out infinite}
+.hero:after{content:"";position:absolute;left:-12%;bottom:-30%;width:420px;height:420px;background:radial-gradient(circle,rgba(232,160,32,.16),transparent 65%);pointer-events:none;animation:float 11s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translate(-24px,18px)}}
+.hero .wrap{position:relative;z-index:1}
+.herogrid{display:grid;gap:36px;grid-template-columns:1.05fr .95fr;align-items:center}
+@media(max-width:820px){.herogrid{grid-template-columns:1fr}}
+/* chat demo */
+.chat{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.seg{display:inline-flex;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px;margin-bottom:14px;max-width:100%}
+.seg button{font:inherit;font-weight:700;font-size:.9rem;color:var(--mute);background:transparent;border:0;border-radius:999px;padding:9px 16px;cursor:pointer;min-height:40px;transition:background .2s,color .2s}
+.seg button[aria-selected=true]{background:var(--green);color:#04120c}
+.bubble{border-radius:16px;padding:12px 14px;margin-bottom:10px;max-width:92%;font-size:.97rem}
+.bubble.me{background:rgba(255,255,255,.07);margin-left:auto;border-bottom-right-radius:4px}
+.bubble.ai{background:rgba(0,179,126,.1);border:1px solid rgba(0,179,126,.25);border-bottom-left-radius:4px;min-height:120px}
+.bubble.ai ol{padding-left:20px;margin:8px 0 0}
+.bubble.ai li{margin-bottom:6px}
+.you{color:var(--amber);font-weight:700}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:middle}
+.tag.ok{background:var(--green);color:#04120c}
+.tag.no{background:rgba(255,255,255,.1);color:var(--mute)}
+.grad.grad-v{display:inline-block;background:linear-gradient(180deg,#00E0A0 0%,#00B37E 50%,#E8A020 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.bubble.ai li.miss{list-style:none;margin:12px 0 4px -20px;padding:12px 14px;border:1px solid var(--amber);background:rgba(232,160,32,.13);border-radius:12px}
+.miss .tag{margin:0 0 0 0;background:var(--amber);color:#1a1000;font-size:.8rem;letter-spacing:.06em;padding:4px 10px;animation:pulse 2s ease-in-out infinite}
+.miss b{color:var(--amber);font-size:1.05rem;margin-right:8px}
+.miss .why{display:block;margin-top:6px;color:var(--text);font-size:.92rem}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(232,160,32,.55)}50%{box-shadow:0 0 0 8px rgba(232,160,32,0)}}
+.caret:after{content:"";display:inline-block;width:7px;height:1em;background:var(--green);margin-left:2px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.fine{font-size:.8rem;color:var(--mute);margin:8px 2px 0}
+/* stats */
+.stats{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:26px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.stat b{display:block;font-family:'Bricolage Grotesque';font-size:3rem;font-weight:800;line-height:1;color:var(--green)}
+.stat b small{font-size:1.4rem;color:var(--mute);font-weight:700}
+.stat span{color:var(--mute);font-size:.95rem}
+/* geo vs agent-ready */
+.vs{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;margin-top:22px}
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:16px 0 18px}
+.rung{border-radius:12px;padding:12px 8px;text-align:center;font-weight:700;font-size:.9rem;background:var(--bg);border:1px solid var(--line);color:var(--mute);transition:all .35s}
+.rung.on{background:rgba(0,179,126,.14);border-color:var(--green);color:var(--text);box-shadow:0 0 24px -6px var(--glow)}
+@media(max-width:560px){.ladder{grid-template-columns:repeat(2,1fr)}}
+.vscols{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+@media(max-width:640px){.vscols{grid-template-columns:1fr}}
+.vscols h4{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+.vscols p{margin:0;color:var(--text)}
+.vsbig{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:6px}
+/* journey */
+.journey{display:flex;gap:8px;margin:22px 0 14px;position:relative}
+.journey button{flex:1;font:inherit;background:var(--card);border:1px solid var(--line);color:var(--mute);border-radius:16px;padding:14px 8px;cursor:pointer;min-height:64px;transition:all .25s;text-align:center}
+.journey button b{display:block;font-family:'Bricolage Grotesque';font-size:1.05rem;color:var(--text)}
+.journey button span{font-size:.78rem}
+.journey button[aria-selected=true]{border-color:var(--green);background:rgba(0,179,126,.12);transform:translateY(-3px);box-shadow:0 14px 40px -16px var(--glow)}
+.jbar{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin-bottom:16px}
+.jbar i{display:block;height:100%;width:25%;background:linear-gradient(90deg,var(--green),var(--amber));transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.jpanel{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+@media(max-width:640px){.jpanel{grid-template-columns:1fr}.journey{flex-wrap:wrap}.journey button{flex:1 1 44%}}
+.jbox{border-radius:var(--r);padding:20px;border:1px solid var(--line);background:var(--card)}
+.jbox.bad{border-color:rgba(232,160,32,.5)}
+.jbox.good{border-color:rgba(0,179,126,.55)}
+.jbox h4{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.jbox.bad h4{color:var(--amber)}.jbox.good h4{color:var(--green)}
+.jbox p{margin:0}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.fade{animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media(max-width:560px){section{padding:44px 0}}
 </style>
 </head>
 <body>
 <header><div class="wrap"><a class="logo" href="/">Xylora Digital</a><a class="btn ghost" href="/book" target="_blank" rel="noopener">Book a call</a></div></header>
 <main>
-<section><div class="wrap">
+
+<section class="hero"><div class="wrap"><div class="herogrid">
+<div>
 <div class="eyebrow">Agent-Ready, by Xylora Digital</div>
-<h1><span class="grad">Get picked by AI.</span></h1>
+<h1><span class="grad grad-v">Get picked<br>by AI.</span></h1>
 <p class="lead">More people are asking AI assistants like ChatGPT, Gemini and Claude "who's a good plumber near me?". Agent-Ready helps those assistants find you, quote your prices and send people to book.</p>
 <div class="cta-row"><a class="btn" href="https://xylora-ai-check.vercel.app">Run the free AI Check</a><a class="btn ghost" href="/book" target="_blank" rel="noopener">Book a free call</a></div>
 <p class="mute" style="margin-top:12px">See in about a minute whether AI assistants name your business. No card, no catch.</p>
-</div></section>
+</div>
+<div class="chat" aria-label="Illustration of an AI assistant answering a customer">
+<div class="seg" role="tablist" aria-label="Before or after Agent-Ready">
+<button role="tab" id="t-before" aria-selected="true">Before</button>
+<button role="tab" id="t-after" aria-selected="false">After Agent-Ready</button>
+</div>
+<div class="bubble me">Who's a good rubbish removalist near Springwood? I need a price and a booking this week.</div>
+<div class="bubble ai" id="aiBubble" aria-live="polite"></div>
+<p class="fine">Illustration only. Business names are made up.</p>
+</div>
+</div></div></section>
 
 <section class="band"><div class="wrap">
-<h2>The problem, in plain words</h2>
-<p class="lead">Ask an AI assistant for a tradie in your suburb and it names two or three businesses. If your profiles are patchy, your prices aren't published and there's no easy way to book, it names someone else.</p>
-<p class="mute">In our own check of 40 local trade businesses around the Blue Mountains and Penrith, 7 weren't named at all across 18 test answers, and many of the rest were named by only one assistant. It's a small local sample, not a study, and AI answers change from day to day.</p>
+<div class="rv"><h2>The problem, in plain words</h2>
+<p class="lead">Ask an AI assistant for a tradie in your suburb and it names two or three businesses. If your profiles are patchy, your prices aren't published and there's no easy way to book, it names someone else.</p></div>
+<div class="stats rv">
+<div class="stat"><b><span data-count="7">7</span><small> of 40</small></b><span>local trade businesses weren't named at all in our test</span></div>
+<div class="stat"><b><span data-count="18">18</span></b><span>test answers per business, from 3 AI assistants</span></div>
+<div class="stat"><b><span data-count="3">3</span></b><span>assistants asked: ChatGPT, Gemini and Claude</span></div>
+</div>
+<p class="mute rv" style="margin-top:16px">Our own check of 40 local trade businesses around the Blue Mountains and Penrith. Many of the rest were named by only one assistant. It's a small local sample, not a study, and AI answers change from day to day.</p>
 </div></section>
 
 <section><div class="wrap">
-<h2>What you get</h2>
-<div class="cards">
+<div class="rv"><div class="eyebrow">You may have heard of GEO</div>
+<h2>GEO vs Agent-Ready</h2>
+<p class="lead">GEO ("generative engine optimisation") is the name many marketers use for getting mentioned in AI answers. It matters. But a mention isn't a customer. Tap to see the difference.</p></div>
+<div class="vs rv">
+<div class="seg" role="tablist" aria-label="GEO or Agent-Ready">
+<button role="tab" id="v-geo" aria-selected="true">GEO: Get Named</button>
+<button role="tab" id="v-ar" aria-selected="false">Agent-Ready: Get Picked</button>
+</div>
+<div class="ladder" aria-hidden="true">
+<div class="rung" data-r="0">Named</div><div class="rung" data-r="1">Answered</div><div class="rung" data-r="2">Quotable</div><div class="rung" data-r="3">Bookable</div>
+</div>
+<div id="vsBody"></div>
+</div>
+</div></section>
+
+<section class="band"><div class="wrap">
+<div class="rv"><h2>Four things an AI looks for</h2>
+<p class="lead">Our free check scores you on these four. Tap each one to see what a customer's AI assistant runs into when it's missing, and what it finds once it's sorted.</p></div>
+<div class="journey rv" role="tablist" aria-label="The four steps">
+<button role="tab" aria-selected="true" data-j="0"><b>1. Found</b><span>named in the answer</span></button>
+<button role="tab" aria-selected="false" data-j="1"><b>2. Answered</b><span>phone and hours</span></button>
+<button role="tab" aria-selected="false" data-j="2"><b>3. Quotable</b><span>prices it can share</span></button>
+<button role="tab" aria-selected="false" data-j="3"><b>4. Bookable</b><span>a way to book</span></button>
+</div>
+<div class="jbar"><i id="jbar"></i></div>
+<div class="jpanel" id="jpanel" aria-live="polite"></div>
+</div></section>
+
+<section><div class="wrap">
+<h2 class="rv">What you get</h2>
+<div class="cards rv">
 <div class="card"><h3>Agent-Ready Setup</h3><p class="mute">One-off. We check and fix your business profiles, add the business details AI assistants read to your website, publish a clear prices page, set up a quote-by-photo and booking path, and send you a before-and-after report.</p></div>
 <div class="card"><h3>Agent-Ready Care</h3><p class="mute">Monthly. We re-check what AI assistants say about you, keep your prices and hours current, send you a one-page report and make one improvement.</p></div>
 </div></div></section>
 
 <section class="band"><div class="wrap">
-<h2>Price</h2>
-<div class="cards">
+<h2 class="rv">Price</h2>
+<div class="cards rv">
 <div class="card hl"><div class="eyebrow">Founding offer · first 10 businesses</div><div class="price">$99 setup</div><div class="price">+ $79 a month</div><p class="mute" style="margin-top:10px">Locked in for 12 months. Month to month, cancel any time.</p><p class="mute" style="margin-top:10px"><strong>Launching Monday 7 December.</strong> Want in on the founding spots? Book a free call.</p><div class="cta-row"><a class="btn" href="/book" target="_blank" rel="noopener">Book a free call</a></div></div>
 <div class="card"><div class="eyebrow">Standard price · from 1 February 2027</div><div class="price">$249 setup</div><div class="price">+ $99 a month</div><p class="mute" style="margin-top:10px">Month to month, cancel any time.</p></div>
 </div>
@@ -86,8 +204,8 @@ footer a{margin-right:16px}
 </div></section>
 
 <section><div class="wrap">
-<h2>How it works</h2>
-<ol class="steps">
+<h2 class="rv">How it works</h2>
+<ol class="steps rv">
 <li><strong>Run the free check.</strong> See your score and who the assistants name instead of you.</li>
 <li><strong>Pay.</strong> One payment link. The terms are linked next to the button.</li>
 <li><strong>Tell us the basics.</strong> A short form for your logins, prices and hours.</li>
@@ -96,21 +214,24 @@ footer a{margin-right:16px}
 </div></section>
 
 <section class="band"><div class="wrap">
-<div class="cards">
+<div class="cards rv">
 <div class="card"><h3>Who it's for</h3><p class="mute">Sole traders and small crews in rubbish removal, plumbing, electrical, cleaning, gardening and landscaping who have a website or Facebook page and answer most calls themselves.</p></div>
 <div class="card"><h3>Who it isn't for</h3><p class="mute">Businesses with a call centre, franchises, and anyone who wants a guaranteed ranking. We can't promise that and we won't.</p></div>
 </div>
-<h2 style="margin-top:34px">What we don't promise</h2>
-<p class="lead">We can't promise more jobs or a spot in any AI answer. The assistants decide that, and changes take weeks to show up. What we do promise is that your information is complete, consistent and easy to find, and that every month you'll see for yourself what the assistants say about you.</p>
+<h2 class="rv" style="margin-top:34px">What we don't promise</h2>
+<p class="lead rv">We can't promise more jobs or a spot in any AI answer. The assistants decide that, and changes take weeks to show up. What we do promise is that your information is complete, consistent and easy to find, and that every month you'll see for yourself what the assistants say about you.</p>
 </div></section>
 
 <section><div class="wrap">
-<h2>Questions</h2>
+<h2 class="rv">Questions</h2>
+<div class="rv">
 <details><summary>Is this SEO?</summary><p>No. It's about AI assistants, though much of the same groundwork helps Google too. If you want SEO as well, we offer that separately.</p></details>
+<details><summary>Is Agent-Ready just GEO?</summary><p>GEO is the first step: getting named in AI answers. Agent-Ready includes that and goes on to the three steps after it, so an AI can answer questions about you, quote you and send people to book. Neither can guarantee a spot in any answer.</p></details>
 <details><summary>Do you use AI to do this?</summary><p>Yes. We use AI tools, and we tell you so. A person at Xylora checks everything before it reaches you.</p></details>
 <details><summary>Could I do this myself?</summary><p>Parts of it, yes. Setup is about three hours of careful work most tradies don't have, so we do it for you.</p></details>
 <details><summary>What happens if I cancel?</summary><p>Care stops at the end of the month you've paid for. Everything we set up on your site and profiles stays yours.</p></details>
 <details><summary>What's llms.txt?</summary><p>A small optional file we add during setup because it's cheap. Early evidence says AI tools rarely request it, so we don't count on it.</p></details>
+</div>
 <div class="cta-row"><a class="btn" href="https://xylora-ai-check.vercel.app">Run the free AI Check</a><a class="btn ghost" href="/book" target="_blank" rel="noopener">Book a free call</a></div>
 </div></section>
 </main>
@@ -118,4 +239,58 @@ footer a{margin-right:16px}
 <p><a href="/">Xylora Digital</a><a href="/agent-ready">Agent-Ready</a><a href="/agent-ready/terms">Terms</a><a href="mailto:hello@xyloradigital.com">hello@xyloradigital.com</a><a href="tel:0490393579">0490 393 579</a></p>
 <p>© 2026 Xylora Digital · ABN 42 170 939 238 · Springwood NSW</p>
 </div></footer>
+<script>
+(function(){
+document.documentElement.classList.add('js');
+var $=function(i){return document.getElementById(i)};
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* scroll reveal */
+var rv=[].slice.call(document.querySelectorAll('.rv'));
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});rv.forEach(function(el){io.observe(el)})}else{rv.forEach(function(el){el.classList.add('in')})}
+/* counters */
+[].slice.call(document.querySelectorAll('[data-count]')).forEach(function(el){
+ var to=+el.getAttribute('data-count');if(reduce||!('IntersectionObserver' in window))return;
+ el.textContent='0';
+ var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){o.disconnect();var t0=performance.now();(function f(t){var k=Math.min(1,(t-t0)/1200);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(t0)}},{threshold:.2});o.observe(el.closest('.stat')||el)});
+/* hero chat */
+var bub=$('aiBubble'),timer=null,mode='before';
+var TXT={
+ before:{intro:'Here are some well-reviewed options near Springwood:',items:[['Blue Gum Bin Hire','price guide, online booking',1],['Mountain Skip Co','from $240, book online',1],['Your business','not mentioned',0]],close:'The customer will ring one of those two.'},
+ after:{intro:'Here are some well-reviewed options near Springwood:',items:[['Your business','from $190 for a small load, send a photo for a firm price. Book online',2],['Blue Gum Bin Hire','price guide, online booking',1],['Mountain Skip Co','from $240, book online',1]],close:'Want me to send your photo to the first one for a quote?'}
+};
+function paint(m,instant){
+ clearTimeout(timer);var d=TXT[m];var parts=[d.intro];
+ var html='<span>'+d.intro+'</span><ol>'+d.items.map(function(i){if(i[2]===0)return '<li class="miss"><b>'+i[0]+'</b><span class="tag">NOT MENTIONED</span><span class="why">The assistant never names you, so this customer never hears you exist.</span></li>';return '<li><span class="'+(i[0]==='Your business'?'you':'')+'"><b>'+i[0]+'</b></span>'+(i[2]===0?'<span class="tag no">not mentioned</span>':i[2]===2?'<span class="tag ok">picked</span> <span class="mute">'+i[1]+'</span>':' <span class="mute">'+i[1]+'</span>')+'</li>'}).join('')+'</ol><span class="mute">'+d.close+'</span>';
+ if(instant||reduce){bub.innerHTML=html;return}
+ var tmp=document.createElement('div');tmp.innerHTML=html;var full=tmp.textContent,n=0;
+ bub.innerHTML='<span class="caret"></span>';
+ (function step(){n+=3;if(n>=full.length){bub.innerHTML=html;bub.classList.add('fade');return}bub.innerHTML='<span class="caret">'+full.slice(0,n).replace(/</g,'&lt;')+'</span>';timer=setTimeout(step,22)})();
+}
+function setTab(a,b,m){$('t-before').setAttribute('aria-selected',m==='before');$('t-after').setAttribute('aria-selected',m==='after');mode=m;bub.classList.remove('fade');paint(m)}
+$('t-before').onclick=function(){setTab(0,0,'before')};$('t-after').onclick=function(){setTab(0,0,'after')};
+var started=false;
+if('IntersectionObserver' in window){new IntersectionObserver(function(es,o){if(es[0].isIntersecting&&!started){started=true;paint('before');o.disconnect()}},{threshold:.3}).observe(bub)}else{paint('before',true)}
+/* GEO vs Agent-Ready */
+var VS={
+ geo:{on:[1,0,0,0],big:'Get Named',a:['What it is','Making sure AI assistants know your business exists and mention it when someone asks.'],b:['Typical work','Consistent business profiles, reviews, and details on your website that AI can read.'],c:['Where it stops','Your name appears in the answer. The customer still has to work out your prices and how to book.']},
+ ar:{on:[1,1,1,1],big:'Get Picked',a:['What it is','Everything in GEO, plus making you easy for an AI to recommend, quote and send people to book.'],b:['Typical work','The same groundwork, plus a clear prices page, quote-by-photo, and a booking path that works without a login.'],c:['Where it finishes','The customer has your price, a way to book and a reason to choose you over the other two names.']}
+};
+function vs(k){var d=VS[k];$('v-geo').setAttribute('aria-selected',k==='geo');$('v-ar').setAttribute('aria-selected',k==='ar');
+ [].slice.call(document.querySelectorAll('.rung')).forEach(function(r,i){r.classList.toggle('on',!!d.on[i])});
+ var b=$('vsBody');b.classList.remove('fade');void b.offsetWidth;b.classList.add('fade');
+ b.innerHTML='<div class="vsbig grad">'+d.big+'</div><div class="vscols">'+[d.a,d.b,d.c].map(function(x){return '<div><h4>'+x[0]+'</h4><p>'+x[1]+'</p></div>'}).join('')+'</div>'}
+$('v-geo').onclick=function(){vs('geo')};$('v-ar').onclick=function(){vs('ar')};vs('geo');
+/* journey */
+var J=[
+ {bad:['Missing','Customer asks for the best in your suburb. The assistant names two other businesses. You never come up.'],good:['Sorted','Your profiles and website say the same thing everywhere, so assistants have reason to name you in the shortlist.']},
+ {bad:['Missing','Your number or opening hours differ between sites, or aren\'t listed. An AI caller that reaches voicemail won\'t leave a message, so that customer moves on.'],good:['Sorted','Your number and hours are clear and consistent everywhere an assistant looks. After-hours call answering is a separate service we can talk through on a call.']},
+ {bad:['Missing','No prices anywhere. The assistant has nothing to tell the customer, so it recommends someone who published theirs.'],good:['Sorted','A clear price guide plus "send photos for a firm quote" gives the assistant something real to pass on.']},
+ {bad:['Missing','No booking link. The assistant can only say "call them", and an AI will happily book whoever does have a link.'],good:['Sorted','A booking link that works without a login, so the customer can lock in a time straight from the answer.']}
+];
+function jr(i){[].slice.call(document.querySelectorAll('.journey button')).forEach(function(b,n){b.setAttribute('aria-selected',n===i)});
+ $('jbar').style.width=((i+1)*25)+'%';var p=$('jpanel');p.classList.remove('fade');void p.offsetWidth;p.classList.add('fade');var d=J[i];
+ p.innerHTML='<div class="jbox bad"><h4>'+d.bad[0]+'</h4><p>'+d.bad[1]+'</p></div><div class="jbox good"><h4>'+d.good[0]+'</h4><p>'+d.good[1]+'</p></div>'}
+[].slice.call(document.querySelectorAll('.journey button')).forEach(function(b){b.onclick=function(){jr(+b.getAttribute('data-j'))}});jr(0);
+})();
+</script>
 </body></html>
