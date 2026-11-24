@@ -66,6 +66,10 @@
     { "source": "/newsletter/", "destination": "/newsletter/index.html" },
     { "source": "/newsletter/archive", "destination": "/newsletter/archive/index.html" },
     { "source": "/newsletter/archive/", "destination": "/newsletter/archive/index.html" },
+    { "source": "/agent-ready", "destination": "/agent-ready/index.html" },
+    { "source": "/agent-ready/", "destination": "/agent-ready/index.html" },
+    { "source": "/agent-ready/terms", "destination": "/agent-ready/terms/index.html" },
+    { "source": "/agent-ready/terms/", "destination": "/agent-ready/terms/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
