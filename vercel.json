@@ -70,6 +70,9 @@
     { "source": "/agent-ready/", "destination": "/agent-ready/index.html" },
     { "source": "/agent-ready/terms", "destination": "/agent-ready/terms/index.html" },
     { "source": "/agent-ready/terms/", "destination": "/agent-ready/terms/index.html" },
+    { "source": "/ai-check", "destination": "https://xylora-ai-check.vercel.app/" },
+    { "source": "/ai-check/", "destination": "https://xylora-ai-check.vercel.app/" },
+    { "source": "/api/check", "destination": "https://xylora-ai-check.vercel.app/api/check" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
