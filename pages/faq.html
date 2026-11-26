@@ -493,5 +493,6 @@ $('#faqList').innerHTML=faqs.map(f=>`<div class="q"><button>${f[0]}<span>+</span
 $$('.q button').forEach(b=>b.onclick=()=>{const q=b.parentNode,o=q.classList.contains('open');$$('.q').forEach(x=>x.classList.remove('open'));if(!o)q.classList.add('open')});
 
 </script>
+<script src="https://xylora-agent.julian-20b.workers.dev/widget.js" data-tenant="xylora" async></script>
 </body>
 </html>
