@@ -1,0 +1,28 @@
+/* Xylora AI Website Assistant: dark theme to match the site.
+   The widget (loaded from xylora-agent.julian-20b.workers.dev) has no theme
+   settings, so these rules override its colours only. Layout is untouched. */
+.xw-toggle{background:#00B37E!important;box-shadow:0 10px 36px -6px rgba(0,179,126,.45),0 0 0 1px rgba(255,255,255,.08)!important}
+.xw-toggle:hover,.xw-toggle:focus-visible{background:#00d494!important;outline-color:#00d494!important}
+.xw-panel{background:#131715!important;border:1px solid rgba(255,255,255,.09)!important;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)!important;color:#EEF3F0!important}
+.xw-header{background:#171c19!important;color:#fff!important;border-bottom:1px solid rgba(255,255,255,.09)!important}
+.xw-header-title{color:#fff!important}
+.xw-header-sub{color:#9AA8A1!important}
+.xw-header-dot{background:#00B37E!important;box-shadow:0 0 10px rgba(0,179,126,.8)!important}
+.xw-close{color:#EEF3F0!important}
+.xw-close:hover{background:rgba(255,255,255,.08)!important}
+.xw-messages{background:#0D0F0E!important}
+.xw-msg-bot{background:#171c19!important;color:#EEF3F0!important;border:1px solid rgba(255,255,255,.09)!important}
+.xw-msg-bot a,.xw-msg-system a{color:#00d494!important}
+.xw-msg-user{background:#00B37E!important;color:#04120d!important}
+.xw-msg-system{background:rgba(232,160,32,.12)!important;color:#E8C27A!important;border:1px solid rgba(232,160,32,.3)!important}
+.xw-typing{background:#171c19!important;border:1px solid rgba(255,255,255,.09)!important}
+.xw-typing span{background:#9AA8A1!important}
+.xw-inputrow{background:#131715!important;border-top:1px solid rgba(255,255,255,.09)!important}
+.xw-input{background:#0D0F0E!important;color:#EEF3F0!important;border:1px solid rgba(255,255,255,.14)!important}
+.xw-input::placeholder{color:#6c7a73!important}
+.xw-input:focus{border-color:#00B37E!important;box-shadow:0 0 0 3px rgba(0,179,126,.25)!important}
+.xw-send{background:#00B37E!important}
+.xw-send:hover:not(:disabled){background:#00d494!important}
+.xw-send:disabled{background:#2a302d!important}
+.xw-footer{background:#131715!important;color:#9AA8A1!important;border-top:1px solid rgba(255,255,255,.09)!important}
+.xw-footer a{color:#00d494!important}
